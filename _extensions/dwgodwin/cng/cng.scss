@@ -1,0 +1,142 @@
+/* CNG lightning-talk theme, from
+   https://github.com/cloudnativegeo/lightning-talk-quarto-TEMPLATE (custom.scss).
+   Used by format: cng-revealjs. Layered on ../slides/slides.scss, so this file
+   holds only what differs from the house style: brand fonts, link color, and
+   the classes the CNG template adds. */
+
+/*-- scss:defaults --*/
+$font-family-sans-serif: 'iA Writer Quattro S', sans-serif;
+$font-family-monospace: 'Berkeley Mono', ui-monospace, monospace;
+
+/*-- scss:rules --*/
+
+/* Brand fonts load from the Radiant Earth font CDN, per the CNG brand kit.
+   Berkeley Mono is licensed: reference it by URL, never commit the files. */
+@font-face {
+  font-family: 'iA Writer Quattro S';
+  src: url('https://assets.radiant.earth/fonts/iAWriterQuattroS-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'iA Writer Quattro S';
+  src: url('https://assets.radiant.earth/fonts/iAWriterQuattroS-Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'iA Writer Quattro S';
+  src: url('https://assets.radiant.earth/fonts/iAWriterQuattroS-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'iA Writer Quattro S';
+  src: url('https://assets.radiant.earth/fonts/iAWriterQuattroS-BoldItalic.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Berkeley Mono';
+  src: url('https://assets.radiant.earth/fonts/BerkeleyMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Berkeley Mono';
+  src: url('https://assets.radiant.earth/fonts/BerkeleyMono-Oblique.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Berkeley Mono';
+  src: url('https://assets.radiant.earth/fonts/BerkeleyMono-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Berkeley Mono';
+  src: url('https://assets.radiant.earth/fonts/BerkeleyMono-Bold-Oblique.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  letter-spacing: 0.01em;
+}
+
+.reveal a {
+  text-decoration-color: rgba(33, 38, 247, 0.9);
+}
+
+.reveal .slide-number {
+  color: $ink;
+}
+
+.reveal code,
+.reveal pre {
+  font-family: $font-family-monospace;
+}
+
+/* Slide 1: statements over a photo, with a dark vignette behind the text */
+.reveal .deep-shade {
+  position: absolute;
+  inset: -600px -1200px;
+  background: radial-gradient(ellipse 900px 520px at center, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+  pointer-events: none;
+}
+
+.reveal .deep-copy {
+  gap: 0.2rem;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.9), 0 0 4px rgba(0, 0, 0, 0.9);
+}
+
+.reveal .deep-copy p {
+  margin: 0;
+}
+
+/* howto: sticky-note instructions for template users — delete the ::: {.howto} block when done */
+.reveal .howto {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  max-width: 28%;
+  padding: 0.6em 0.9em;
+  font-size: 0.45em;
+  text-align: left;
+  color: #1D232B;
+  background: #FFD626;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  z-index: 10;
+}
+
+/* ::: {.howto .bottom} — bottom-center instead of top-right */
+.reveal .howto.bottom {
+  top: auto;
+  right: auto;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 50%;
+}
+
+/* The title slide is vertically centered, so a corner box would cover the title; sit below the author instead */
+.reveal .quarto-title-block .howto {
+  position: static;
+  max-width: 40%;
+  margin: 2rem auto 0;
+}
+
+/* Uncomment to hide every instruction box at once: */
+/* .reveal .howto { display: none; } */

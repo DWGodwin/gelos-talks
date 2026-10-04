@@ -1,0 +1,6 @@
+project:
+  output-dir: _site
+  # Decks live at the root; slides/ holds pieces that decks include
+  render:
+    - "*.qmd"
+    - "!slides/"

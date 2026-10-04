@@ -1,0 +1,24 @@
+title: CNG lightning talk
+author: Denys Godwin
+version: 0.2.0
+quarto-required: ">=1.5.0"
+contributes:
+  formats:
+    revealjs:
+      # Settings from github.com/cloudnativegeo/lightning-talk-quarto-TEMPLATE:
+      # 20 slides × 15 s = 5 minutes, auto-advancing.
+      # Layered on the house style in ../slides, which must be installed
+      # alongside (quarto add installs both); cng.scss holds only the differences.
+      theme: [default, ../slides/slides.scss, cng.scss]
+      logo: cng-logo.svg
+      width: 1600
+      height: 900
+      auto-slide: 15000
+      auto-slide-stoppable: false
+      slide-number: false
+      progress: true
+      navigation-mode: linear
+      controls: false
+      hash: true
+      chalkboard: false
+      include-after-body: ../slides/countdown.html

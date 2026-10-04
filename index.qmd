@@ -1,0 +1,11 @@
+---
+title: "GELOS talks"
+format: html
+---
+
+Slides about [GELOS](https://github.com/ClarkCGA/gelos), the Geospatial Exploration of Latent Observation Space benchmark.
+
+| Deck | Event |
+|---|---|
+| [Full deck](full.html) | Master deck with every slide |
+| [CNG lightning talk](cng-lightning.html) | Cloud Native Geospatial lightning talk (5 min, auto-advancing) |

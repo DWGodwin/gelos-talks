@@ -1,0 +1,9 @@
+---
+title: "GELOS"
+subtitle: "Geospatial Exploration of Latent Observation Space"
+author: "Denys Godwin"
+format: slides-revealjs
+---
+
+<!-- Master deck: include every slide file in slides/, in order (see README).
+     Smaller decks include a subset. -->

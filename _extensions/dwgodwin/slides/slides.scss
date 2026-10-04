@@ -1,0 +1,252 @@
+/*-- scss:defaults --*/
+
+// Palette: change these to restyle every deck that uses the template.
+// !default lets a theme layered on top (e.g. ../cng) override them.
+$ink: #F2F4F6 !default;
+$paper: #1D232B !default;
+$accent: #FFD626 !default;
+$accent-2: #418BD9 !default;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+$font-family-sans-serif: 'Inter', system-ui, sans-serif !default;
+$font-family-monospace: 'JetBrains Mono', ui-monospace, monospace !default;
+$body-bg: $paper !default;
+$body-color: $ink !default;
+$link-color: $ink !default;
+$presentation-heading-color: $ink !default;
+$presentation-heading-font: $font-family-sans-serif !default;
+$presentation-heading-font-weight: 700 !default;
+$presentation-heading-text-transform: none !default;
+$presentation-slide-text-align: left !default;
+$presentation-h1-font-size: 2.5em !default;
+$presentation-h2-font-size: 1.8em !default;
+
+/*-- scss:rules --*/
+
+.reveal a {
+  text-decoration: underline;
+  text-decoration-color: $accent-2;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.reveal a:hover {
+  text-decoration-color: $accent;
+}
+
+.reveal .progress {
+  height: 4px;
+  color: $accent-2;
+  background-color: rgba($accent-2, 0.25);
+}
+
+.reveal .slide-number {
+  color: rgba($ink, 0.6);
+  background-color: transparent;
+  font-family: $font-family-monospace;
+}
+
+.reveal .footer {
+  color: rgba($ink, 0.4);
+  font-size: 0.5em;
+}
+
+.slide-logo {
+  max-height: 40px !important;
+  opacity: 0.8;
+}
+
+/* Hide the empty h2 that Quarto generates for title-less slides */
+.reveal .slides section > h2:empty {
+  display: none;
+}
+
+.reveal :not(pre) > code {
+  background: rgba($ink, 0.1);
+  color: inherit;
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+}
+
+/* ---- Layout helpers ---------------------------------------------------- */
+
+/* Center everything on the slide, vertically and horizontally */
+.center-v {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.icon-row {
+  display: flex;
+  gap: 4rem;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 2rem;
+}
+
+.reveal .slide-top {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+/* ---- Text helpers ------------------------------------------------------ */
+
+.reveal .muted {
+  color: rgba($ink, 0.5) !important;
+  font-size: 0.85em;
+}
+
+.reveal .hl,
+.yellow {
+  color: $accent;
+}
+
+.reveal .mono {
+  font-family: $font-family-monospace;
+}
+
+/* Small uppercase mono label above a heading */
+.reveal .eyebrow {
+  font-family: $font-family-monospace;
+  font-size: 0.62em;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $accent;
+}
+
+.reveal .headline {
+  display: block;
+  margin: 0;
+  font-size: 1.15em;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+/* Large statement text; add .hl for the accent color */
+.reveal .statement {
+  display: block;
+  margin: 0;
+  font-size: 1.9em;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.reveal .statement.hl {
+  color: $accent;
+}
+
+.reveal .statement-sub {
+  display: block;
+  margin: 0;
+  font-size: 1.1em;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.big-number {
+  font-size: 7rem;
+  color: $accent;
+  font-weight: 700;
+  line-height: 1;
+  display: block;
+  text-align: center;
+}
+
+.formula {
+  font-size: 3.5rem;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.formula .highlight {
+  color: $accent;
+  font-weight: 700;
+}
+
+/* ---- Timed reveals ----------------------------------------------------- */
+/* Set the delay per element with style="--d:1s". Scoped to section.present
+   so they replay on every visit. Useful when auto-slide makes fragments
+   impractical. */
+
+.reveal .slides section :is(.a-fade, .a-rise) {
+  opacity: 0;
+}
+
+.reveal .slides section.present .a-fade {
+  animation: fade-in 0.8s ease-out var(--d, 0s) both;
+}
+
+.reveal .slides section.present .a-rise {
+  animation: rise-in 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) var(--d, 0s) both;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ---- Auto-slide countdown bar (see countdown.html) --------------------- */
+
+.reveal aside.controls,
+.reveal .auto-slide-control {
+  display: none !important;
+}
+
+#slide-countdown {
+  position: fixed;
+  bottom: 7px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  z-index: 40;
+  background-color: rgba($accent-2, 0.25);
+  pointer-events: none;
+}
+
+#slide-countdown-fill {
+  position: absolute;
+  inset: 0;
+  background-color: $accent-2;
+  transform-origin: right;
+  animation: countdown-rtl var(--countdown, 15s) linear forwards;
+}
+
+@keyframes countdown-rtl {
+  from { transform: scaleX(1); }
+  to   { transform: scaleX(0); }
+}
+
+/* Slides with data-state="no-bars" (e.g. title, applause) hide both bars */
+.reveal-viewport.no-bars .reveal .progress,
+.reveal-viewport.no-bars #slide-countdown {
+  display: none !important;
+}
+
+.reveal-viewport .reveal .slide-logo,
+.reveal-viewport .reveal .slide-menu-button {
+  bottom: 16px;
+}

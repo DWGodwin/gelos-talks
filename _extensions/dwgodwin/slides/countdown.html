@@ -1,0 +1,30 @@
+<script>
+// Countdown bar that runs right-to-left over each slide. Only shown when the
+// deck sets auto-slide (and not with ?autoSlide=0), so it never counts down to
+// a slide change that won't happen. Respects per-slide data-autoslide values.
+document.addEventListener('DOMContentLoaded', function () {
+  function resetCountdown() {
+    var fill = document.getElementById('slide-countdown-fill');
+    var slide = Reveal.getCurrentSlide();
+    var ms = parseInt(slide && slide.getAttribute('data-autoslide'), 10);
+    if (isNaN(ms)) ms = Reveal.getConfig().autoSlide;
+    fill.style.setProperty('--countdown', ms / 1000 + 's');
+    fill.style.animation = 'none';
+    fill.offsetHeight; // force reflow so the animation restarts
+    fill.style.animation = '';
+  }
+
+  function startCountdown() {
+    if (!Reveal.getConfig().autoSlide) return;
+    var bar = document.createElement('div');
+    bar.id = 'slide-countdown';
+    bar.innerHTML = '<div id="slide-countdown-fill"></div>';
+    document.querySelector('.reveal').appendChild(bar);
+    resetCountdown();
+    Reveal.on('slidechanged', resetCountdown);
+  }
+
+  if (Reveal.isReady()) startCountdown();
+  else Reveal.on('ready', startCountdown);
+});
+</script>
