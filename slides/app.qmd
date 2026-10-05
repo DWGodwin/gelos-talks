@@ -1,0 +1,99 @@
+<!-- gelos-app: the pipeline that feeds the dashboard, then one slide per
+     feature with a screen recording. Record to videos/raw/<name>.mov, run
+     `pixi run clips`, and the clip replaces its placeholder (see README). -->
+
+## From t-SNE to the dashboard {#app-pipeline}
+
+{{< pipeline exp001_prithvi300.cls_token:tsne_scatter_2d image=images/app/dashboard.png >}}
+
+## {#app-zoom-to-samples}
+
+::: {.feature}
+::: {.feature-text}
+[gelos-app]{.eyebrow}
+
+[Zoom to samples]{.feature-title}
+
+One or two sentences on what this feature shows and why it matters.
+:::
+
+{{< clip videos/00_zoom-to-samples.mp4 >}}
+:::
+
+## {#app-select-input-visualization}
+
+::: {.feature}
+::: {.feature-text}
+[gelos-app]{.eyebrow}
+
+[Select input visualization]{.feature-title}
+
+One or two sentences on what this feature shows and why it matters.
+:::
+
+{{< clip videos/01_select-input-visualization.mp4 >}}
+:::
+
+## {#app-box-select-change-model}
+
+::: {.feature}
+::: {.feature-text}
+[gelos-app]{.eyebrow}
+
+[Box select, change model]{.feature-title}
+
+One or two sentences on what this feature shows and why it matters.
+:::
+
+{{< clip videos/02_box-select-change-model.mp4 >}}
+:::
+
+## {#app-box-select-change-dino}
+
+::: {.feature}
+::: {.feature-text}
+[gelos-app]{.eyebrow}
+
+[Box select, change to DINO]{.feature-title}
+
+One or two sentences on what this feature shows and why it matters.
+:::
+
+{{< clip videos/03_box-select-change-dino.mp4 >}}
+:::
+
+## {#app-box-select-built-area}
+
+::: {.feature}
+::: {.feature-text}
+[gelos-app]{.eyebrow}
+
+[Box select built area]{.feature-title}
+
+One or two sentences on what this feature shows and why it matters.
+:::
+
+{{< clip videos/04_box-select-built-area.mp4 >}}
+:::
+
+## {#app-visualize-neighbors-cross-model}
+
+::: {.feature}
+::: {.feature-text}
+[gelos-app]{.eyebrow}
+
+[Visualize neighbors across models]{.feature-title}
+
+One or two sentences on what this feature shows and why it matters.
+:::
+
+{{< clip videos/05_visualize-neighbors-cross-model.mp4 >}}
+:::
+
+## {#app-link}
+
+::: {.center-v}
+[Try it]{.eyebrow}
+
+[clarkcga.github.io/gelos-app](https://clarkcga.github.io/gelos-app/){.statement}
+:::

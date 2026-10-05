@@ -4,3 +4,10 @@ project:
   render:
     - "*.qmd"
     - "!slides/"
+
+  # Screen recordings used by {{< clip ... >}}
+  resources:
+    - "videos/*.mp4"
+
+shortcodes:
+  - _pipeline/pipeline.lua

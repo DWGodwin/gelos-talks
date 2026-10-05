@@ -1,0 +1,6 @@
+# Playback speed baked into each clip by `pixi run clips`. Editing this file
+# re-encodes every clip on the next run.
+default: 2
+# Per-clip overrides, keyed by recording name (without extension):
+speeds:
+  # 04_box-select-built-area: 3

@@ -1,0 +1,126 @@
+# Display names for the pipeline diagram ({{< pipeline ... >}} shortcode).
+# `pixi run sync` combines this file with the configs in ../gelos-lc.
+#
+# Within a stage, the order of `options` is the display priority: a slide shows
+# every option its plots use, then fills up to `max_options` from the top
+# of the list, and summarises the rest as "+ N more". Options found in gelos-lc
+# but not listed here go to the end of the list under their config titles.
+
+max_options: 5
+
+stages:
+  source:
+    name: Source Data
+    # Keys come from data.init_args.bands: s2_<band count>[+s1][+dem]
+    options:
+      s2_12: "S2 (12-band)"
+      s2_6: "S2 (6-band)"
+      s2_12+s1: "S2+S1"
+      s2_12+s1+dem: "S2+S1+DEM"
+      s2_3: "S2 (RGB)"
+      multi_sensor_annual: "Multi-sensor,\nannual"
+  generate:
+    name: Generate
+    # Keys come from model.init_args.model (sensor suffixes such as _s1s2
+    # dropped); spectral-band baselines are `spectral_bands`
+    options:
+      prithvi_eo_v2_300: "Prithvi 300M"
+      prithvi_eo_v2_600: "Prithvi 600M"
+      terramind_v1_large: "Terramind v1 large"
+      terramind_v1_base: "Terramind v1 base"
+      spectral_bands: "Raw Pixel Values"
+      olmoearth_v1_base: "OlmoEarth v1 base"
+      olmoearth_v1_large: "OlmoEarth v1 large"
+      olmoearth_v1_2_base: "OlmoEarth v1.2 base"
+      alphaearth: "AlphaEarth"
+      dinov3_vitb16_pretrained: "DINOv3 ViT-B (web)"
+      dinov3_vitl16_sat_pretrained: "DINOv3 ViT-L (sat)"
+      prithvi_eo_v2_300_tl_coords: "Prithvi 300M TL"
+      prithvi_eo_v2_600_tl_coords: "Prithvi 600M TL"
+  extract:
+    name: Extract
+    # Keys are the embedding_extraction_strategies names
+    options:
+      all_steps_of_middle_patch: "Center Patch,\n4 Time Steps"
+      four_patches_from_april_to_june: "4 Central Patches,\nApril–June"
+      cls_token: "CLS Token"
+      all_steps_of_cls_token: "CLS Token,\n4 Time Steps"
+      middle_patch: "Center Patch,\nannual"
+  transform:
+    name: Transform
+    options:
+      none: "No Transform"
+      tsne: "t-SNE"
+      umap: "UMAP"
+      pca: "PCA"
+  model:
+    name: Model
+    options:
+      knn_purity: "kNN Purity"
+      random_forest: "Random Forest"
+      linear_probe: "Linear Probe"
+      mlp: "MLP / Decoders"
+      spatial_knn: "Spatial kNN"
+      cosine_similarity: "Cosine Similarity\nto Control"
+      cosine_distance: "Cosine Distance"
+      pca_ablation: "PCA Ablation"
+      trajectory: "Trajectory Analysis"
+
+# Which Transform and Model option each comparison plot type lights up.
+# `k` names the per-experiment metric whose k_values are shown under the label.
+# `caption` is a one-line explanation of the metric, shown under the plot.
+plots:
+  knn_purity_plot:
+    transform: none
+    model: knn_purity
+    k: knn_purity
+    caption: "Share of each chip's k nearest neighbors in embedding space that have its land cover class, averaged over all chips"
+  knn_purity_violin_distribution_plot:
+    transform: none
+    model: knn_purity
+    k: knn_purity
+    caption: "Per chip, the share of its k nearest neighbors in embedding space that have its land cover class"
+  knn_gsd_plot:
+    transform: none
+    model: spatial_knn
+    k: knn_geo_distance
+    caption: "Distance on the ground from each chip to its k nearest neighbors in embedding space, averaged over all chips"
+  knn_lat_diff_plot:
+    transform: none
+    model: spatial_knn
+    k: knn_geo_distance
+    caption: "Difference in latitude between each chip and its k nearest neighbors in embedding space, averaged over all chips"
+  per_class_similarity_distribution_plot:
+    transform: none
+    model: cosine_similarity
+    caption: "Cosine similarity between each chip's embedding and the same chip's embedding in the control run"
+  per_class_ecdf_plot:
+    transform: none
+    model: cosine_similarity
+    caption: "Cosine similarity between each chip's embedding and the same chip's embedding in the control run"
+  distance_matrix: { transform: none, model: cosine_distance }
+  pca_ablation_table: { transform: pca, model: pca_ablation }
+
+# Single-experiment plots, keyed by the figure file suffix in
+# gelos-lc/reports/figures/<data version>/<experiment>/<strategy>_<layer>_<key>.png.
+# A plot without `model` ends the path at the Transform stage.
+experiment_plots:
+  tsne_scatter_2d:
+    transform: tsne
+    caption: "Each point is one chip's embedding, projected to 2D with t-SNE and colored by land cover class"
+  umap_scatter_2d:
+    transform: umap
+    caption: "Each point is one chip's embedding, projected to 2D with UMAP and colored by land cover class"
+  raw_temporal_cosine_similarity:
+    transform: none
+    model: trajectory
+    caption: "Cosine similarity between a chip's embedding at each time step and at the step before it, per land cover class"
+  random_forest_confusion_matrix:
+    transform: none
+    model: random_forest
+    caption: "Held-out predictions of a random forest trained on the embeddings, with 5-fold cross-validation"
+
+# Per-experiment overrides, for configs whose stage can't be read off the YAML.
+experiments:
+  # AlphaEarth lists S2 RGB bands only as a reference grid for the chips
+  exp023_alphaearth_middle_patch: { source: multi_sensor_annual }

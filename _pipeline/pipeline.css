@@ -1,0 +1,345 @@
+/* Pipeline diagram ({{< pipeline ... >}}); built by pipeline.js */
+
+.pl {
+  /* Palette from _extensions/dwgodwin/slides/slides.scss */
+  --pl-ink: #F2F4F6;
+  --pl-accent: #FFD626;
+  --pl-accent-2: #418BD9;
+  /* How far a stacked option slides when it is swapped in or out */
+  --pl-slide: 90px;
+  position: relative;
+  width: 1500px;
+  height: 680px;
+  margin: 20px auto 0;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.pl-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.pl-head,
+.pl-opt,
+.pl-more {
+  position: absolute;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.pl-head {
+  font-weight: 700;
+  color: var(--pl-ink);
+  border: 2px solid var(--pl-accent-2);
+  background: rgba(65, 139, 217, 0.18);
+}
+
+.pl-opt {
+  color: var(--pl-ink);
+  border: 2px solid rgba(242, 244, 246, 0.35);
+  background: rgba(242, 244, 246, 0.05);
+  transform-origin: 0 0;
+  transition-property: opacity, border-color, color, background-color, transform;
+  transition-duration: 0.5s, 0.4s, 0.4s, 0.4s, 0.9s;
+  transition-timing-function: ease, ease, ease, ease, cubic-bezier(0.6, 0, 0.2, 1);
+}
+
+.pl-opt small,
+.pl-more,
+.pl-stack-label {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+.pl-opt small {
+  margin-top: 4px;
+  font-size: 14px;
+  opacity: 0.75;
+}
+
+/* Legend key: a Generate option's line colors in the plot, one segment per
+   experiment through it; outlined, since some colors are near the paper's */
+.pl-key {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  bottom: 8px;
+  width: 10px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1.5px rgba(242, 244, 246, 0.6);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.pl-opt.keyed {
+  padding-left: 18px;
+}
+
+.pl-key:empty {
+  display: none;
+}
+
+.pl-key span {
+  flex: 1;
+}
+
+.pl.path .pl-opt.chosen .pl-key {
+  opacity: 1;
+  transition-delay: calc(var(--col) * 0.35s);
+}
+
+.pl.stacked .pl-opt.stackable .pl-key {
+  opacity: 1;
+  transition-delay: 0s;
+}
+
+/* "+ N more": options that exist but aren't drawn */
+.pl-more {
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  color: rgba(242, 244, 246, 0.55);
+  border: 2px dashed rgba(242, 244, 246, 0.2);
+}
+
+.pl-head-arrow {
+  stroke: rgba(242, 244, 246, 0.5);
+  fill: rgba(242, 244, 246, 0.5);
+  stroke-width: 2;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+/* Stages appear */
+.pl .shown {
+  opacity: 1;
+}
+
+/* Path: chosen options light up stage by stage, the rest fade */
+.pl.path .pl-opt.chosen {
+  --d: calc(var(--col) * 0.35s);
+  color: var(--pl-accent);
+  border-color: var(--pl-accent);
+  background: rgba(255, 214, 38, 0.1);
+  transition-delay: 0s, var(--d), var(--d), var(--d), 0s;
+}
+
+.pl.path .pl-opt:not(.chosen),
+.pl.path .pl-more {
+  opacity: 0.18;
+}
+
+.pl-link {
+  fill: none;
+  stroke: var(--pl-accent);
+  stroke-width: 2.5;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  opacity: 0;
+  transition: opacity 0.2s, stroke-dashoffset 0s 0.2s;
+}
+
+.pl-tip {
+  fill: var(--pl-accent);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.pl.path .pl-link {
+  --d: calc(var(--g) * 0.35s + 0.15s);
+  stroke-dashoffset: 0;
+  opacity: 1;
+  transition: stroke-dashoffset 0.35s ease-in-out var(--d), opacity 0s var(--d);
+}
+
+.pl.path .pl-tip {
+  opacity: 1;
+  transition: opacity 0.15s calc(var(--g) * 0.35s + 0.45s);
+}
+
+/* Stack: every option used by one of the slide's plots flies left; only the
+   current plot's options are visible, so later plots swap in place */
+.pl.stacked .pl-opt.stackable {
+  color: var(--pl-accent);
+  border-color: var(--pl-accent);
+  background: rgba(255, 214, 38, 0.1);
+  transform: translate(calc(var(--dx) + var(--side, 0) * var(--pl-slide)), var(--dy)) scale(var(--s));
+  transition-delay: 0s, 0s, 0s, 0s, calc(var(--k) * 0.06s);
+}
+
+.pl.stacked .pl-opt:not(.chosen) {
+  opacity: 0;
+  transition-duration: 0.3s, 0.4s, 0.4s, 0.4s, 0.9s;
+}
+
+/* Swap: between plots, an option the next plot adds slots in from the right
+   while the one it replaces slots out to the left */
+.pl.stacked.swap .pl-opt.stackable {
+  transition-duration: 0.45s, 0.4s, 0.4s, 0.4s, 0.5s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+}
+
+.pl.stacked .pl-more,
+.pl.stacked .pl-head,
+.pl.stacked .pl-head-arrow,
+.pl.stacked .pl-link,
+.pl.stacked .pl-tip {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.pl-stack-label {
+  position: absolute;
+  left: 2px;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(242, 244, 246, 0.55);
+  opacity: 0;
+  transition: opacity 0.3s, top 0.9s cubic-bezier(0.6, 0, 0.2, 1);
+}
+
+.pl-plot {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 290px;
+  right: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+/* One image per plot, stacked; the current one is .on */
+.reveal .pl-plot img {
+  position: absolute;
+  inset: 0;
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  background: #fff;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.reveal .pl-plot img.on {
+  opacity: 1;
+}
+
+/* --above and --below (set by pipeline.js) are the free space around the
+   diagram once the slide title is hidden */
+.pl.stacked .pl-plot {
+  top: calc(-1 * var(--above, 0px));
+  bottom: calc(-1 * var(--below, 0px));
+  opacity: 1;
+  transition: opacity 0.6s 0.7s;
+}
+
+/* Caption: one muted line under the plot, which gives up a strip for it */
+.pl-caption {
+  position: absolute;
+  left: 290px;
+  right: 0;
+  bottom: calc(-1 * var(--below, 0px));
+  height: 30px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: 18px;
+  white-space: nowrap;
+  color: rgba(242, 244, 246, 0.6);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.pl.stacked.captioned .pl-plot {
+  bottom: calc(36px - var(--below, 0px));
+}
+
+.pl.stacked .pl-caption {
+  opacity: 1;
+  transition: opacity 0.6s 0.7s;
+}
+
+.reveal .slides section > h2 {
+  transition: opacity 0.4s;
+}
+
+.reveal .slides section.pl-notitle > h2 {
+  opacity: 0;
+}
+
+.pl.stacked .pl-stack-label:not(.off) {
+  opacity: 1;
+  transition: opacity 0.6s 0.7s, top 0.9s cubic-bezier(0.6, 0, 0.2, 1);
+}
+
+.pl.stacked.swap .pl-stack-label {
+  transition: opacity 0.45s, top 0.5s;
+}
+
+/* ---- Feature slides: text on the left, a screen recording on the right ----
+   ::: {.feature} holds a ::: {.feature-text} block and a {{< clip ... >}} */
+
+.reveal .feature {
+  position: absolute;
+  inset: 0 50px;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.reveal .feature-text p {
+  margin: 0 0 0.7em;
+  font-size: 22px;
+  line-height: 1.4;
+}
+
+.reveal .feature-title {
+  display: block;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.reveal .clip {
+  display: block;
+  width: 100%;
+  max-height: 800px;
+  margin: 0;
+  border-radius: 10px;
+}
+
+.reveal .clip-missing {
+  aspect-ratio: 16 / 9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 2px dashed rgba(242, 244, 246, 0.3);
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.reveal .clip-missing span {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(242, 244, 246, 0.5);
+}

@@ -7,3 +7,21 @@ format: slides-revealjs
 
 <!-- Master deck: include every slide file in slides/, in order (see README).
      Smaller decks include a subset. -->
+
+{{< include slides/intro.qmd >}}
+
+{{< include slides/lc-dataset.qmd >}}
+
+{{< include slides/pipeline_tsne.qmd >}}
+
+{{< include slides/app.qmd >}}
+
+{{< include slides/pipeline_knn.qmd >}}
+
+{{< include slides/pipeline_ablation.qmd >}}
+
+{{< include slides/pipeline_rf.qmd >}}
+
+{{< include slides/crop.qmd >}}
+
+{{< include slides/fire.qmd >}}

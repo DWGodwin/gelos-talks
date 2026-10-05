@@ -1,0 +1,99 @@
+<!-- GELOS Fire: the wildfire dataset, then what embeddings do when a fire
+     happens. Two slides describe the data (what a sample is, where and when
+     the events are), then three results slides compare event-year embeddings
+     with control-year embeddings: change-vector magnitude for the middle
+     patch, the same for the CLS token, and a model-level Wasserstein
+     distance. Transcribed from pp. 29-33 of the earlier GELOS talk; figures
+     are the originals, in images/fire/. The results slides are title plus
+     figure, as in the source; suggested takeaways are left in comments. -->
+
+## {#fire-section}
+
+::: {.center-v}
+[GELOS]{.statement}
+[Fire]{.statement .hl}
+:::
+
+## GELOS Fire {#fire-dataset}
+
+::: {.two-col}
+- [3,949]{.hl} events vs [10,345]{.hl} control (as long as S2 is available), totaling [171,528]{.hl} samples
+- Four time points per year (one per quarter)
+- Sentinel-1 RTC, Sentinel-2 Level 2A, Landsat (8 & 9), I/O Landcover, fire mask (MTBS and S2 WCD)
+- GSD 960 m × 960 m
+  - 96 × 96 pixels for S1/S2
+  - 32 × 32 for Landsat
+
+![](images/fire/example-chips.png){fig-alt="Example sample: burned-area mask, annual landcover, four quarterly images for the 2023 event year, and four quarterly images for each control year from 2022 back to 2018."}
+:::
+
+<!-- Suggestion: the figure has no caption in the source. Something like
+     "One event: fire mask, annual landcover, and quarterly images for the
+     event year (top row) and each control year" would explain it. -->
+
+## Where the events are {#fire-map}
+
+![](images/fire/event-locations-map.png){fig-alt="World map of fire event locations: most are in the United States, with a few in Spain, Portugal, Italy, Greece, the Canary Islands and south-western Australia."}
+
+<!-- The source slide (p. 30) is titled only "GELOS Fire" and shows the map
+     and the two charts on the next slide together; the titles on these two
+     slides are added. -->
+
+## Events and controls by year {#fire-distribution}
+
+::: {layout-ncol=2 layout-valign="center"}
+![](images/fire/chips-per-year.png){fig-alt="Bar chart of the number of control and event chips per year, 2016 to 2024. Control chips: 133, 1342, 1726, 2075, 2515, 1535, 933 from 2016 to 2022. Event chips: 1016 in 2021, 1918 in 2022, 1195 in 2023."}
+
+![](images/fire/landcover-distribution.png){fig-alt="Stacked bar chart of yearly landcover distribution, 2017 to 2023, as percent of pixels: mostly rangeland, then trees and crops."}
+:::
+
+[Chips per year by type (left); yearly landcover distribution, percent of pixels (right)]{.muted}
+
+## Magnitude of change vector {#fire-change-patch}
+
+[All steps of the middle patch]{.eyebrow}
+
+::: {layout="[[-22,28,28,-22],[-22,28,28,-22]]"}
+![](images/fire/change-magnitude-patch-prithvi-300m.png){fig-alt="Box plots of change-vector magnitude for control and event samples, prithvi_eo_v2_300m_s2."}
+
+![](images/fire/change-magnitude-patch-prithvi-600m.png){fig-alt="Box plots of change-vector magnitude for control and event samples, prithvi_eo_v2_600m_s2."}
+
+![](images/fire/change-magnitude-patch-terramind-base.png){fig-alt="Box plots of change-vector magnitude for control and event samples, terramind_v1_base_s2."}
+
+![](images/fire/change-magnitude-patch-terramind-large.png){fig-alt="Box plots of change-vector magnitude for control and event samples, terramind_v1_large_s2."}
+:::
+
+<!-- Suggestion (definition): the y axis is ‖Embedding − μ_control‖, the
+     distance of each embedding from the mean of the control embeddings.
+     Check the exact definition (per site? per model?) before putting it on
+     the slide.
+     Suggestion (takeaway): the source slide draws no conclusion. If you
+     want one, the plots show event samples sitting further from the
+     control mean than control samples do, for all four models. -->
+
+## Magnitude of change vector {#fire-change-cls}
+
+[CLS token vector]{.eyebrow}
+
+::: {layout-ncol=2}
+![](images/fire/change-magnitude-cls-prithvi-300m.png){fig-alt="Box plots of change-vector magnitude for control and event samples, CLS token, prithvi_eo_v2_300m_s2."}
+
+![](images/fire/change-magnitude-cls-prithvi-600m.png){fig-alt="Box plots of change-vector magnitude for control and event samples, CLS token, prithvi_eo_v2_600m_s2."}
+:::
+
+<!-- Only the two Prithvi models appear here in the source. Note the y-axis
+     scale differs from the middle-patch plots (about 0.25-2.5 here, 5-45
+     there). -->
+
+## Wasserstein distance {#fire-wasserstein}
+
+[Between control years and the event year sample]{.muted}
+
+![](images/fire/wasserstein-distance.png){fig-alt="Bar chart of model-level Wasserstein distance with cosine ground cost, by model, coloured by sensor modality. In descending order: TerraMind Large S2, TerraMind Base S2, TerraMind Large S1, Prithvi 300M S2, TerraMind Large S1 + S2, TerraMind Base S1, TerraMind Base S1 + S2, Prithvi 600M S2."}
+
+<!-- Suggestion (definition): Wasserstein distance is the cost of moving one
+     distribution of embeddings onto another; here the cost between two
+     embeddings is their cosine distance.
+     Suggestion (takeaway): the source slide states none. The chart orders
+     the models from TerraMind Large S2 (about 0.25) down to Prithvi 600M S2
+     (about 0.13). -->

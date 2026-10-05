@@ -1,0 +1,338 @@
+{
+ "name": "01c_olmoearth_family",
+ "title": "KNN Purity — 1c: OlmoEarth v1.2 Base Family (S2 vs S2+S1) vs Spectral Bands",
+ "max_options": 5,
+ "plots": {
+  "knn_purity_plot": {
+   "image": "images/comparisons/01c_olmoearth_family/knn_purity_plot.png",
+   "chosen": [
+    [
+     "source:s2_12",
+     "source:s2_12+s1"
+    ],
+    [
+     "generate:olmoearth_v1_2_base",
+     "generate:spectral_bands"
+    ],
+    [
+     "extract:all_steps_of_middle_patch"
+    ],
+    [
+     "transform:none"
+    ],
+    [
+     "model:knn_purity"
+    ]
+   ],
+   "links": [
+    [
+     [
+      "source:s2_12",
+      "generate:olmoearth_v1_2_base"
+     ],
+     [
+      "source:s2_12",
+      "generate:spectral_bands"
+     ],
+     [
+      "source:s2_12+s1",
+      "generate:olmoearth_v1_2_base"
+     ],
+     [
+      "source:s2_12+s1",
+      "generate:spectral_bands"
+     ]
+    ],
+    [
+     [
+      "generate:olmoearth_v1_2_base",
+      "extract:all_steps_of_middle_patch"
+     ],
+     [
+      "generate:spectral_bands",
+      "extract:all_steps_of_middle_patch"
+     ]
+    ],
+    [
+     [
+      "extract:all_steps_of_middle_patch",
+      "transform:none"
+     ]
+    ],
+    [
+     [
+      "transform:none",
+      "model:knn_purity"
+     ]
+    ]
+   ],
+   "subs": {
+    "model:knn_purity": "k = 1, 2, 5, 10, 20, 50"
+   },
+   "colors": {
+    "generate:olmoearth_v1_2_base": [
+     "#7cb342",
+     "#1565c0"
+    ],
+    "generate:spectral_bands": [
+     "#cccccc",
+     "#333333"
+    ]
+   },
+   "caption": "Share of each chip's k nearest neighbors in embedding space that have its land cover class, averaged over all chips"
+  },
+  "knn_purity_violin_distribution_plot": {
+   "image": "images/comparisons/01c_olmoearth_family/knn_purity_violin_distribution_plot.png",
+   "chosen": [
+    [
+     "source:s2_12",
+     "source:s2_12+s1"
+    ],
+    [
+     "generate:olmoearth_v1_2_base",
+     "generate:spectral_bands"
+    ],
+    [
+     "extract:all_steps_of_middle_patch"
+    ],
+    [
+     "transform:none"
+    ],
+    [
+     "model:knn_purity"
+    ]
+   ],
+   "links": [
+    [
+     [
+      "source:s2_12",
+      "generate:olmoearth_v1_2_base"
+     ],
+     [
+      "source:s2_12",
+      "generate:spectral_bands"
+     ],
+     [
+      "source:s2_12+s1",
+      "generate:olmoearth_v1_2_base"
+     ],
+     [
+      "source:s2_12+s1",
+      "generate:spectral_bands"
+     ]
+    ],
+    [
+     [
+      "generate:olmoearth_v1_2_base",
+      "extract:all_steps_of_middle_patch"
+     ],
+     [
+      "generate:spectral_bands",
+      "extract:all_steps_of_middle_patch"
+     ]
+    ],
+    [
+     [
+      "extract:all_steps_of_middle_patch",
+      "transform:none"
+     ]
+    ],
+    [
+     [
+      "transform:none",
+      "model:knn_purity"
+     ]
+    ]
+   ],
+   "subs": {
+    "model:knn_purity": "k = 1, 2, 5, 10, 20, 50"
+   },
+   "colors": {
+    "generate:olmoearth_v1_2_base": [
+     "#7cb342",
+     "#1565c0"
+    ],
+    "generate:spectral_bands": [
+     "#cccccc",
+     "#333333"
+    ]
+   },
+   "caption": "Per chip, the share of its k nearest neighbors in embedding space that have its land cover class"
+  }
+ },
+ "stages": [
+  {
+   "name": "Source Data",
+   "options": [
+    {
+     "id": "source:s2_12",
+     "label": "S2 (12-band)"
+    },
+    {
+     "id": "source:s2_6",
+     "label": "S2 (6-band)"
+    },
+    {
+     "id": "source:s2_12+s1",
+     "label": "S2+S1"
+    },
+    {
+     "id": "source:s2_12+s1+dem",
+     "label": "S2+S1+DEM"
+    },
+    {
+     "id": "source:s2_3",
+     "label": "S2 (RGB)"
+    },
+    {
+     "id": "source:multi_sensor_annual",
+     "label": "Multi-sensor,\nannual"
+    }
+   ]
+  },
+  {
+   "name": "Generate",
+   "options": [
+    {
+     "id": "generate:prithvi_eo_v2_300",
+     "label": "Prithvi 300M"
+    },
+    {
+     "id": "generate:prithvi_eo_v2_600",
+     "label": "Prithvi 600M"
+    },
+    {
+     "id": "generate:terramind_v1_large",
+     "label": "Terramind v1 large"
+    },
+    {
+     "id": "generate:terramind_v1_base",
+     "label": "Terramind v1 base"
+    },
+    {
+     "id": "generate:spectral_bands",
+     "label": "Raw Pixel Values"
+    },
+    {
+     "id": "generate:olmoearth_v1_base",
+     "label": "OlmoEarth v1 base"
+    },
+    {
+     "id": "generate:olmoearth_v1_large",
+     "label": "OlmoEarth v1 large"
+    },
+    {
+     "id": "generate:olmoearth_v1_2_base",
+     "label": "OlmoEarth v1.2 base"
+    },
+    {
+     "id": "generate:alphaearth",
+     "label": "AlphaEarth"
+    },
+    {
+     "id": "generate:dinov3_vitb16_pretrained",
+     "label": "DINOv3 ViT-B (web)"
+    },
+    {
+     "id": "generate:dinov3_vitl16_sat_pretrained",
+     "label": "DINOv3 ViT-L (sat)"
+    },
+    {
+     "id": "generate:prithvi_eo_v2_300_tl_coords",
+     "label": "Prithvi 300M TL"
+    },
+    {
+     "id": "generate:prithvi_eo_v2_600_tl_coords",
+     "label": "Prithvi 600M TL"
+    }
+   ]
+  },
+  {
+   "name": "Extract",
+   "options": [
+    {
+     "id": "extract:all_steps_of_middle_patch",
+     "label": "Center Patch,\n4 Time Steps"
+    },
+    {
+     "id": "extract:four_patches_from_april_to_june",
+     "label": "4 Central Patches,\nApril–June"
+    },
+    {
+     "id": "extract:cls_token",
+     "label": "CLS Token"
+    },
+    {
+     "id": "extract:all_steps_of_cls_token",
+     "label": "CLS Token,\n4 Time Steps"
+    },
+    {
+     "id": "extract:middle_patch",
+     "label": "Center Patch,\nannual"
+    }
+   ]
+  },
+  {
+   "name": "Transform",
+   "options": [
+    {
+     "id": "transform:none",
+     "label": "No Transform"
+    },
+    {
+     "id": "transform:tsne",
+     "label": "t-SNE"
+    },
+    {
+     "id": "transform:umap",
+     "label": "UMAP"
+    },
+    {
+     "id": "transform:pca",
+     "label": "PCA"
+    }
+   ]
+  },
+  {
+   "name": "Model",
+   "options": [
+    {
+     "id": "model:knn_purity",
+     "label": "kNN Purity"
+    },
+    {
+     "id": "model:random_forest",
+     "label": "Random Forest"
+    },
+    {
+     "id": "model:linear_probe",
+     "label": "Linear Probe"
+    },
+    {
+     "id": "model:mlp",
+     "label": "MLP / Decoders"
+    },
+    {
+     "id": "model:spatial_knn",
+     "label": "Spatial kNN"
+    },
+    {
+     "id": "model:cosine_similarity",
+     "label": "Cosine Similarity\nto Control"
+    },
+    {
+     "id": "model:cosine_distance",
+     "label": "Cosine Distance"
+    },
+    {
+     "id": "model:pca_ablation",
+     "label": "PCA Ablation"
+    },
+    {
+     "id": "model:trajectory",
+     "label": "Trajectory Analysis"
+    }
+   ]
+  }
+ ]
+}

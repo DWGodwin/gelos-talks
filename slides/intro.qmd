@@ -1,0 +1,54 @@
+<!-- Intro / background: who built GELOS, why it exists (nobody knows the
+     state of the art in GFMs, and benchmarks only look after fine-tuning),
+     what GELOS is, and its three datasets. Ends on the three datasets, which
+     the following sections cover one by one. Drafted from pages 1-3 and 25 of
+     the ESA-NASA workshop talk (May 2026). -->
+
+## Team {#intro-team}
+
+::: {.two-col}
+::: {}
+| Denys Godwin
+| Rufai Balogun
+| Eli Simonson
+| Yao-Ting Yao
+:::
+
+::: {}
+| Sam Khallaghi
+| Sujit Roy
+| Rahul Ramachandran
+| Hamed Alemohammad
+:::
+::: 
+
+::: {style="display: flex; align-items: center; justify-content: center; gap: 3em; margin-top: 0.5em;"}
+![](images/intro/clark-seal.svg){height=200 fig-alt="Clark University seal"}
+![](images/intro/nasa-logo.svg){height=200 fig-alt="NASA logo"}
+:::
+
+## {#intro-sota}
+
+::: {.center-v}
+![](images/intro/no-one-knows-sota-paper.png){width=1150 fig-alt="Title and author block of the paper 'No One Knows the State of the Art in Geospatial Foundation Models' by Corley et al."}
+
+[[arxiv.org/abs/2605.12678](https://arxiv.org/abs/2605.12678)]{.muted}
+:::
+
+## Why look at embeddings? {#intro-gap}
+
+- Evaluation benchmarks focus on model performance [after fine-tuning]{.hl}.
+- There is limited understanding of the benefits and limitations of different [pre-training strategies]{.hl}.
+- Exploring the [embedding space]{.hl} can complement benchmarking on downstream tasks.
+- Interactive exploration, visualization, and granular analysis helps us address [why]{.hl} models differ in performance
+
+## {#intro-gelos}
+
+::: {.center-v}
+[GELOS]{.eyebrow}
+
+[Geospatial Exploration of]{.statement}
+[Latent Observation Space]{.statement .hl}
+
+[An embedding-centric benchmark for geospatial foundation models]{.muted}
+:::

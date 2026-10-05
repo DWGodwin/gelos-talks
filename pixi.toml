@@ -1,0 +1,15 @@
+[workspace]
+name = "gelos-talks"
+channels = ["conda-forge"]
+platforms = ["osx-arm64", "linux-64"]
+
+[dependencies]
+python = ">=3.12"
+pyyaml = "*"
+ffmpeg = "*"
+
+[tasks]
+# Regenerate _pipeline/data/ and images/comparisons/ from ../gelos-lc
+sync = "python _pipeline/sync.py"
+# Convert screen recordings in videos/raw/ to web-ready videos/<name>.mp4
+clips = "python _pipeline/clips.py"

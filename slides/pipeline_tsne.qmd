@@ -1,0 +1,26 @@
+<!-- How GELOS works. After the question slide, the pipeline is drawn once, for Prithvi 600M's t-SNE;
+     each click then swaps in the t-SNE of another model. Prithvi uses the CLS
+     token, AlphaEarth its annual center patch, the others the center patch at
+     4 time steps. app.qmd follows, then the comparisons (pipeline_knn.qmd),
+     then random forests and trajectories (pipeline_rf.qmd).
+     Run `pixi run sync` after changing a shortcode (see README). -->
+
+## {#q-tsne}
+
+::: {.center-v}
+[t-SNE]{.eyebrow}
+
+[What does each model's]{.statement}
+[latent space look like?]{.statement .hl}
+:::
+
+## How GELOS works {#pipeline-models}
+
+{{< pipeline
+  exp004_prithvi600.cls_token:tsne_scatter_2d
+  exp014_terramind_v1_large_s2_s1.all_steps_of_middle_patch:tsne_scatter_2d
+  exp037_olmoearth_v1_2_base_s2_s1_timestamps.all_steps_of_middle_patch:tsne_scatter_2d
+  exp023_alphaearth_middle_patch.middle_patch:tsne_scatter_2d
+  exp019_spectral_bands_s2_s1_middle_patch.all_steps_of_middle_patch:tsne_scatter_2d
+>}}
+

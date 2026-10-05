@@ -1,0 +1,42 @@
+<!-- GELOS Land Cover: the dataset and the setup, before any results. What the
+     chips are, how embeddings are pulled out of each model, and the two
+     questions asked of them. Hands off to pipeline_tsne.qmd, which draws the
+     pipeline and shows the plots that answer those questions.
+     Drafted from pages 4-6 and 14 of the ESA-NASA workshop talk (May 2026);
+     figures are low-resolution copies from that PDF. -->
+
+## {#lc-section}
+
+::: {.center-v}
+[GELOS]{.statement}
+[Land Cover]{.statement .hl}
+:::
+
+## GELOS Land Cover {#lc-dataset}
+
+::: {.two-col}
+::: {}
+[Class separation for global categorical land cover]{.muted}
+
+- [78,535]{.hl} pure land cover chips
+- GSD 960 m × 960 m
+- Sentinel-1 RTC: 4 scenes / year
+- Sentinel-2 L2A: 4 scenes / year\*
+- Landsat Collection 2: 4 scenes / year\*
+- DEM: 1 annual scene
+
+[\* Cloud-free]{.muted}
+:::
+
+::: {}
+![](images/lc-dataset/chip-locations-map.png){width=520 fig-alt="World map with red dots marking the locations of GELOS Land Cover chips on every inhabited continent."}
+
+![](images/lc-dataset/class-distribution.png){width=520 fig-alt="Bar chart of chip counts per land cover class, in descending order: Rangeland, Crops, Trees, Bare ground, Water, Built area."}
+:::
+:::
+
+## Embedding extraction configurations {#lc-extraction}
+
+![](images/lc-dataset/embedding-extraction-strategies.png){width=1250 fig-alt="Multimodal inputs (Sentinel-2 L2A, Sentinel-1 RTC and Landsat at four seasons, plus DEM) pass through a pretrained encoder. From the output embeddings at four time steps, three extraction strategies are highlighted: the CLS token, all steps of the middle patch, and all patches from April to June."}
+
+[+ baseline comparison to [raw pixels]{.hl}]{.muted}

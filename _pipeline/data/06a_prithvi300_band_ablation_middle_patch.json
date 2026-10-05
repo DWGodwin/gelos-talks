@@ -1,0 +1,278 @@
+{
+ "name": "06a_prithvi300_band_ablation_middle_patch",
+ "title": "Prithvi EO V2 300M Input Band Ablation @ Temporal (4 steps)",
+ "max_options": 5,
+ "plots": {
+  "per_class_similarity_distribution_plot": {
+   "image": "images/comparisons/06a_prithvi300_band_ablation_middle_patch/per_class_similarity_distribution_plot.png",
+   "chosen": [
+    [
+     "source:s2_6"
+    ],
+    [
+     "generate:prithvi_eo_v2_300"
+    ],
+    [
+     "extract:all_steps_of_middle_patch"
+    ],
+    [
+     "transform:none"
+    ],
+    [
+     "model:cosine_similarity"
+    ]
+   ],
+   "links": [
+    [
+     [
+      "source:s2_6",
+      "generate:prithvi_eo_v2_300"
+     ]
+    ],
+    [
+     [
+      "generate:prithvi_eo_v2_300",
+      "extract:all_steps_of_middle_patch"
+     ]
+    ],
+    [
+     [
+      "extract:all_steps_of_middle_patch",
+      "transform:none"
+     ]
+    ],
+    [
+     [
+      "transform:none",
+      "model:cosine_similarity"
+     ]
+    ]
+   ],
+   "colors": {},
+   "caption": "Cosine similarity between each chip's embedding and the same chip's embedding in the control run"
+  },
+  "per_class_ecdf_plot": {
+   "image": "images/comparisons/06a_prithvi300_band_ablation_middle_patch/per_class_ecdf_plot.png",
+   "chosen": [
+    [
+     "source:s2_6"
+    ],
+    [
+     "generate:prithvi_eo_v2_300"
+    ],
+    [
+     "extract:all_steps_of_middle_patch"
+    ],
+    [
+     "transform:none"
+    ],
+    [
+     "model:cosine_similarity"
+    ]
+   ],
+   "links": [
+    [
+     [
+      "source:s2_6",
+      "generate:prithvi_eo_v2_300"
+     ]
+    ],
+    [
+     [
+      "generate:prithvi_eo_v2_300",
+      "extract:all_steps_of_middle_patch"
+     ]
+    ],
+    [
+     [
+      "extract:all_steps_of_middle_patch",
+      "transform:none"
+     ]
+    ],
+    [
+     [
+      "transform:none",
+      "model:cosine_similarity"
+     ]
+    ]
+   ],
+   "colors": {},
+   "caption": "Cosine similarity between each chip's embedding and the same chip's embedding in the control run"
+  }
+ },
+ "stages": [
+  {
+   "name": "Source Data",
+   "options": [
+    {
+     "id": "source:s2_12",
+     "label": "S2 (12-band)"
+    },
+    {
+     "id": "source:s2_6",
+     "label": "S2 (6-band)"
+    },
+    {
+     "id": "source:s2_12+s1",
+     "label": "S2+S1"
+    },
+    {
+     "id": "source:s2_12+s1+dem",
+     "label": "S2+S1+DEM"
+    },
+    {
+     "id": "source:s2_3",
+     "label": "S2 (RGB)"
+    },
+    {
+     "id": "source:multi_sensor_annual",
+     "label": "Multi-sensor,\nannual"
+    }
+   ]
+  },
+  {
+   "name": "Generate",
+   "options": [
+    {
+     "id": "generate:prithvi_eo_v2_300",
+     "label": "Prithvi 300M"
+    },
+    {
+     "id": "generate:prithvi_eo_v2_600",
+     "label": "Prithvi 600M"
+    },
+    {
+     "id": "generate:terramind_v1_large",
+     "label": "Terramind v1 large"
+    },
+    {
+     "id": "generate:terramind_v1_base",
+     "label": "Terramind v1 base"
+    },
+    {
+     "id": "generate:spectral_bands",
+     "label": "Raw Pixel Values"
+    },
+    {
+     "id": "generate:olmoearth_v1_base",
+     "label": "OlmoEarth v1 base"
+    },
+    {
+     "id": "generate:olmoearth_v1_large",
+     "label": "OlmoEarth v1 large"
+    },
+    {
+     "id": "generate:olmoearth_v1_2_base",
+     "label": "OlmoEarth v1.2 base"
+    },
+    {
+     "id": "generate:alphaearth",
+     "label": "AlphaEarth"
+    },
+    {
+     "id": "generate:dinov3_vitb16_pretrained",
+     "label": "DINOv3 ViT-B (web)"
+    },
+    {
+     "id": "generate:dinov3_vitl16_sat_pretrained",
+     "label": "DINOv3 ViT-L (sat)"
+    },
+    {
+     "id": "generate:prithvi_eo_v2_300_tl_coords",
+     "label": "Prithvi 300M TL"
+    },
+    {
+     "id": "generate:prithvi_eo_v2_600_tl_coords",
+     "label": "Prithvi 600M TL"
+    }
+   ]
+  },
+  {
+   "name": "Extract",
+   "options": [
+    {
+     "id": "extract:all_steps_of_middle_patch",
+     "label": "Center Patch,\n4 Time Steps"
+    },
+    {
+     "id": "extract:four_patches_from_april_to_june",
+     "label": "4 Central Patches,\nApril–June"
+    },
+    {
+     "id": "extract:cls_token",
+     "label": "CLS Token"
+    },
+    {
+     "id": "extract:all_steps_of_cls_token",
+     "label": "CLS Token,\n4 Time Steps"
+    },
+    {
+     "id": "extract:middle_patch",
+     "label": "Center Patch,\nannual"
+    }
+   ]
+  },
+  {
+   "name": "Transform",
+   "options": [
+    {
+     "id": "transform:none",
+     "label": "No Transform"
+    },
+    {
+     "id": "transform:tsne",
+     "label": "t-SNE"
+    },
+    {
+     "id": "transform:umap",
+     "label": "UMAP"
+    },
+    {
+     "id": "transform:pca",
+     "label": "PCA"
+    }
+   ]
+  },
+  {
+   "name": "Model",
+   "options": [
+    {
+     "id": "model:knn_purity",
+     "label": "kNN Purity"
+    },
+    {
+     "id": "model:random_forest",
+     "label": "Random Forest"
+    },
+    {
+     "id": "model:linear_probe",
+     "label": "Linear Probe"
+    },
+    {
+     "id": "model:mlp",
+     "label": "MLP / Decoders"
+    },
+    {
+     "id": "model:spatial_knn",
+     "label": "Spatial kNN"
+    },
+    {
+     "id": "model:cosine_similarity",
+     "label": "Cosine Similarity\nto Control"
+    },
+    {
+     "id": "model:cosine_distance",
+     "label": "Cosine Distance"
+    },
+    {
+     "id": "model:pca_ablation",
+     "label": "PCA Ablation"
+    },
+    {
+     "id": "model:trajectory",
+     "label": "Trajectory Analysis"
+    }
+   ]
+  }
+ ]
+}

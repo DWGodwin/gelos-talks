@@ -1,0 +1,356 @@
+{
+ "name": "exp010_terramind_v1_large.all_steps_of_middle_patch",
+ "title": "Terramind V1 Large",
+ "max_options": 5,
+ "plots": {
+  "tsne_scatter_2d": {
+   "image": "images/experiments/exp010_terramind_v1_large/all_steps_of_middle_patch_tsne_scatter_2d.png",
+   "chosen": [
+    [
+     "source:s2_12+s1+dem"
+    ],
+    [
+     "generate:terramind_v1_large"
+    ],
+    [
+     "extract:all_steps_of_middle_patch"
+    ],
+    [
+     "transform:tsne"
+    ],
+    []
+   ],
+   "links": [
+    [
+     [
+      "source:s2_12+s1+dem",
+      "generate:terramind_v1_large"
+     ]
+    ],
+    [
+     [
+      "generate:terramind_v1_large",
+      "extract:all_steps_of_middle_patch"
+     ]
+    ],
+    [
+     [
+      "extract:all_steps_of_middle_patch",
+      "transform:tsne"
+     ]
+    ],
+    []
+   ],
+   "caption": "Each point is one chip's embedding, projected to 2D with t-SNE and colored by land cover class"
+  },
+  "umap_scatter_2d": {
+   "image": "images/experiments/exp010_terramind_v1_large/all_steps_of_middle_patch_umap_scatter_2d.png",
+   "chosen": [
+    [
+     "source:s2_12+s1+dem"
+    ],
+    [
+     "generate:terramind_v1_large"
+    ],
+    [
+     "extract:all_steps_of_middle_patch"
+    ],
+    [
+     "transform:umap"
+    ],
+    []
+   ],
+   "links": [
+    [
+     [
+      "source:s2_12+s1+dem",
+      "generate:terramind_v1_large"
+     ]
+    ],
+    [
+     [
+      "generate:terramind_v1_large",
+      "extract:all_steps_of_middle_patch"
+     ]
+    ],
+    [
+     [
+      "extract:all_steps_of_middle_patch",
+      "transform:umap"
+     ]
+    ],
+    []
+   ],
+   "caption": "Each point is one chip's embedding, projected to 2D with UMAP and colored by land cover class"
+  },
+  "raw_temporal_cosine_similarity": {
+   "image": "images/experiments/exp010_terramind_v1_large/all_steps_of_middle_patch_raw_temporal_cosine_similarity.png",
+   "chosen": [
+    [
+     "source:s2_12+s1+dem"
+    ],
+    [
+     "generate:terramind_v1_large"
+    ],
+    [
+     "extract:all_steps_of_middle_patch"
+    ],
+    [
+     "transform:none"
+    ],
+    [
+     "model:trajectory"
+    ]
+   ],
+   "links": [
+    [
+     [
+      "source:s2_12+s1+dem",
+      "generate:terramind_v1_large"
+     ]
+    ],
+    [
+     [
+      "generate:terramind_v1_large",
+      "extract:all_steps_of_middle_patch"
+     ]
+    ],
+    [
+     [
+      "extract:all_steps_of_middle_patch",
+      "transform:none"
+     ]
+    ],
+    [
+     [
+      "transform:none",
+      "model:trajectory"
+     ]
+    ]
+   ],
+   "caption": "Cosine similarity between a chip's embedding at each time step and at the step before it, per land cover class"
+  },
+  "random_forest_confusion_matrix": {
+   "image": "images/experiments/exp010_terramind_v1_large/all_steps_of_middle_patch_random_forest_confusion_matrix.png",
+   "chosen": [
+    [
+     "source:s2_12+s1+dem"
+    ],
+    [
+     "generate:terramind_v1_large"
+    ],
+    [
+     "extract:all_steps_of_middle_patch"
+    ],
+    [
+     "transform:none"
+    ],
+    [
+     "model:random_forest"
+    ]
+   ],
+   "links": [
+    [
+     [
+      "source:s2_12+s1+dem",
+      "generate:terramind_v1_large"
+     ]
+    ],
+    [
+     [
+      "generate:terramind_v1_large",
+      "extract:all_steps_of_middle_patch"
+     ]
+    ],
+    [
+     [
+      "extract:all_steps_of_middle_patch",
+      "transform:none"
+     ]
+    ],
+    [
+     [
+      "transform:none",
+      "model:random_forest"
+     ]
+    ]
+   ],
+   "caption": "Held-out predictions of a random forest trained on the embeddings, with 5-fold cross-validation"
+  }
+ },
+ "stages": [
+  {
+   "name": "Source Data",
+   "options": [
+    {
+     "id": "source:s2_12",
+     "label": "S2 (12-band)"
+    },
+    {
+     "id": "source:s2_6",
+     "label": "S2 (6-band)"
+    },
+    {
+     "id": "source:s2_12+s1",
+     "label": "S2+S1"
+    },
+    {
+     "id": "source:s2_12+s1+dem",
+     "label": "S2+S1+DEM"
+    },
+    {
+     "id": "source:s2_3",
+     "label": "S2 (RGB)"
+    },
+    {
+     "id": "source:multi_sensor_annual",
+     "label": "Multi-sensor,\nannual"
+    }
+   ]
+  },
+  {
+   "name": "Generate",
+   "options": [
+    {
+     "id": "generate:prithvi_eo_v2_300",
+     "label": "Prithvi 300M"
+    },
+    {
+     "id": "generate:prithvi_eo_v2_600",
+     "label": "Prithvi 600M"
+    },
+    {
+     "id": "generate:terramind_v1_large",
+     "label": "Terramind v1 large"
+    },
+    {
+     "id": "generate:terramind_v1_base",
+     "label": "Terramind v1 base"
+    },
+    {
+     "id": "generate:spectral_bands",
+     "label": "Raw Pixel Values"
+    },
+    {
+     "id": "generate:olmoearth_v1_base",
+     "label": "OlmoEarth v1 base"
+    },
+    {
+     "id": "generate:olmoearth_v1_large",
+     "label": "OlmoEarth v1 large"
+    },
+    {
+     "id": "generate:olmoearth_v1_2_base",
+     "label": "OlmoEarth v1.2 base"
+    },
+    {
+     "id": "generate:alphaearth",
+     "label": "AlphaEarth"
+    },
+    {
+     "id": "generate:dinov3_vitb16_pretrained",
+     "label": "DINOv3 ViT-B (web)"
+    },
+    {
+     "id": "generate:dinov3_vitl16_sat_pretrained",
+     "label": "DINOv3 ViT-L (sat)"
+    },
+    {
+     "id": "generate:prithvi_eo_v2_300_tl_coords",
+     "label": "Prithvi 300M TL"
+    },
+    {
+     "id": "generate:prithvi_eo_v2_600_tl_coords",
+     "label": "Prithvi 600M TL"
+    }
+   ]
+  },
+  {
+   "name": "Extract",
+   "options": [
+    {
+     "id": "extract:all_steps_of_middle_patch",
+     "label": "Center Patch,\n4 Time Steps"
+    },
+    {
+     "id": "extract:four_patches_from_april_to_june",
+     "label": "4 Central Patches,\nApril–June"
+    },
+    {
+     "id": "extract:cls_token",
+     "label": "CLS Token"
+    },
+    {
+     "id": "extract:all_steps_of_cls_token",
+     "label": "CLS Token,\n4 Time Steps"
+    },
+    {
+     "id": "extract:middle_patch",
+     "label": "Center Patch,\nannual"
+    }
+   ]
+  },
+  {
+   "name": "Transform",
+   "options": [
+    {
+     "id": "transform:none",
+     "label": "No Transform"
+    },
+    {
+     "id": "transform:tsne",
+     "label": "t-SNE"
+    },
+    {
+     "id": "transform:umap",
+     "label": "UMAP"
+    },
+    {
+     "id": "transform:pca",
+     "label": "PCA"
+    }
+   ]
+  },
+  {
+   "name": "Model",
+   "options": [
+    {
+     "id": "model:knn_purity",
+     "label": "kNN Purity"
+    },
+    {
+     "id": "model:random_forest",
+     "label": "Random Forest"
+    },
+    {
+     "id": "model:linear_probe",
+     "label": "Linear Probe"
+    },
+    {
+     "id": "model:mlp",
+     "label": "MLP / Decoders"
+    },
+    {
+     "id": "model:spatial_knn",
+     "label": "Spatial kNN"
+    },
+    {
+     "id": "model:cosine_similarity",
+     "label": "Cosine Similarity\nto Control"
+    },
+    {
+     "id": "model:cosine_distance",
+     "label": "Cosine Distance"
+    },
+    {
+     "id": "model:pca_ablation",
+     "label": "PCA Ablation"
+    },
+    {
+     "id": "model:trajectory",
+     "label": "Trajectory Analysis"
+    }
+   ]
+  }
+ ]
+}
