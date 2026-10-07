@@ -1,0 +1,57 @@
+# Config excerpts for {{< config <name> ... >}} panels. `pixi run sync` cuts
+# these lines out of the real files and writes _pipeline/data/excerpts/.
+#
+# `file` is <repo>/<path>, for a repo checked out next to this one. A region is
+# a named set of keys: dotted paths, where a number is a list index, and a key
+# brings everything under it. Regions are what a slide steps through and ties
+# its text to; the keys above a region are shown, muted, for context.
+# `comments: true` keeps the comments at the ends of the lines shown, and
+# `flow: true` writes block lists of scalars on one line (`key: [a, b, c]`).
+
+datagen:
+  file: gelos-lc-datagen/config.yml
+  comments: true
+  regions:
+    version: [dataset.version]
+    s2l2a: [s2l2a.collection, s2l2a.time_ranges, s2l2a.cloud_cover]
+    s1rtc: [s1rtc.collection, s1rtc.delta_days]
+    lc2l2: [lc2l2.collection, lc2l2.delta_days, lc2l2.platforms, lc2l2.cloud_cover]
+    dem: [dem.collection]
+    lulc: [lulc.collection]
+    chips: [chips.sample_size, chips.chip_size]
+
+# The three kinds of config, and the version that ties them together
+# (slides/lc-configs.qmd)
+thread-datagen:
+  file: gelos-lc-datagen/config.yml
+  regions:
+    version: [dataset.version]
+
+thread-experiment:
+  file: gelos-lc/configs/exp004_prithvi600.yaml
+  regions:
+    version: [data_version]
+    model: [model.init_args.model]
+
+thread-comparison:
+  file: gelos-lc/configs/comparisons/02_across_families.yaml
+  regions:
+    version: [experiments.0.data_version]
+    experiment: [experiments.0.config, experiments.0.strategy]
+    plot: [comp_plots.0.type]
+
+# What a new experiment has to say (slides/lc-configs.qmd)
+add-model:
+  file: gelos-lc/configs/exp004_prithvi600.yaml
+  flow: true
+  regions:
+    data: [data_version, data.init_args.bands]
+    model: [model.init_args.model]
+    extract:
+      - embedding_extraction_strategies.cls_token.title
+      - embedding_extraction_strategies.cls_token.slice_args
+    analysis:
+      - embedding_extraction_strategies.cls_token.metrics.1
+      - embedding_extraction_strategies.cls_token.plots.0.type
+      - embedding_extraction_strategies.cls_token.plots.0.transform
+      - embedding_extraction_strategies.cls_token.models.0

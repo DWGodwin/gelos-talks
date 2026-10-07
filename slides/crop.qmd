@@ -11,7 +11,7 @@
 
 ::: {.center-v}
 [GELOS]{.statement}
-[Crop Embeddings]{.statement .hl}
+[Crop Embeddings]{.flow style="display: block; font-size: 4em; line-height: 1; background-image: url(images/backgrounds/clark-cga-background.webp)"}
 :::
 
 ## GELOS Crop {#crop-dataset}
@@ -34,10 +34,6 @@
 
 [Parcels per crop class in the S2-Agri subset used.]{.muted}
 
-## Embedding extraction strategies {#crop-extraction}
-
-![](images/crop/embedding-extraction.png)
-
 ## t-SNE of parcel embeddings by month {#crop-tsne}
 
 ::: {.r-stack}
@@ -53,50 +49,3 @@
 :::
 
 [OlmoEarth v1.2 Base (S2), layer 0. Click through March, June, August, October, then all time steps.]{.muted}
-
-## Single-time RF classification (all embeddings) {#crop-single-time-rf}
-
-![](images/crop/single-time-rf-raw.png)
-
-[Balanced accuracy (left) and macro F1 (right) by month, raw embeddings.]{.muted}
-
-<!-- Suggested takeaway (not in the PDF, check before using): every model
-     peaks in June and is lowest in October. -->
-
-## Sequential delta confusion matrices: TerraMind {#crop-delta-terramind}
-
-![](images/crop/delta-confusion-terramind.png)
-
-[Change in the confusion matrix as each time step is added. Top: TerraMind Large. Bottom: TerraMind.]{.muted}
-
-<!-- Suggested takeaway (not in the PDF, check before using): most of the
-     change comes from adding June to March; later steps change little. -->
-
-## Sequential delta confusion matrices: Prithvi {#crop-delta-prithvi}
-
-![](images/crop/delta-confusion-prithvi.png)
-
-[Change in the confusion matrix as each time step is added. Top: Prithvi 600M. Bottom: Prithvi 300M.]{.muted}
-
-## Embedding compressibility {#crop-compressibility .smaller}
-
-PCA stats at [95%]{.hl} variance explained
-
-| Model               | Extraction     | PCA components | % of PCA components to embedding dimensions |
-|:--------------------|:---------------|:--------------:|:-------------------------------------------:|
-| Prithvi EO 2.0 300M | All Embeddings | 303            | 1.74%                                       |
-| Prithvi EO 2.0 600M | All Embeddings | 244            | 0.52%                                       |
-| TerraMind Base      | All Embeddings | 129            | 1.05%                                       |
-| TerraMind Large     | All Embeddings | 128            | 0.78%                                       |
-| Prithvi EO 2.0 300M | June           | 208            | 5.08%                                       |
-| Prithvi EO 2.0 600M | June           | 179            | 1.55%                                       |
-| TerraMind Base      | June           | 77             | 2.51%                                       |
-| TerraMind Large     | June           | 79             | 1.93%                                       |
-
-[All models only have Sentinel-2 L2A as input.]{.muted}
-
-## Single-time RF classification (all embeddings, PCA) {#crop-backup-single-time-rf-pca}
-
-![](images/crop/single-time-rf-pca.png)
-
-[Backup: balanced accuracy (left) and macro F1 (right) by month, PCA-transformed embeddings.]{.muted}

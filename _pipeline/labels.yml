@@ -5,6 +5,10 @@
 # every option its plots use, then fills up to `max_options` from the top
 # of the list, and summarises the rest as "+ N more". Options found in gelos-lc
 # but not listed here go to the end of the list under their config titles.
+#
+# Each stage can list the `tools` it is built on, as keys into the `tools`
+# catalog at the bottom; their logos are drawn in a row under the stage. The
+# `tools=` kwarg of the shortcode draws a row of catalog tools under the plot.
 
 max_options: 5
 
@@ -12,6 +16,7 @@ stages:
   source:
     name: Source Data
     # Keys come from data.init_args.bands: s2_<band count>[+s1][+dem]
+    tools: [stac, xarray, dask]
     options:
       s2_12: "S2 (12-band)"
       s2_6: "S2 (6-band)"
@@ -23,6 +28,7 @@ stages:
     name: Generate
     # Keys come from model.init_args.model (sensor suffixes such as _s1s2
     # dropped); spectral-band baselines are `spectral_bands`
+    tools: [zarr, source_coop]
     options:
       prithvi_eo_v2_300: "Prithvi 300M"
       prithvi_eo_v2_600: "Prithvi 600M"
@@ -124,3 +130,32 @@ experiment_plots:
 experiments:
   # AlphaEarth lists S2 RGB bands only as a reference grid for the chips
   exp023_alphaearth_middle_patch: { source: multi_sensor_annual }
+
+# Tools the pipeline is built on, referenced by key from a stage's `tools` list
+# or the shortcode's `tools=` kwarg. Each has a `name` (the alt text and, by
+# default, the small caption under its logo) and a `logo` in images/tools/
+# (see images/tools/SOURCES.md), or `logo: null` to draw the name as a text
+# badge instead. Optional: `pill: true` puts a light background behind a logo
+# whose marks are dark; `caption` replaces the name under the logo; `option`
+# ties the tool to one pipeline option (an option id such as
+# `generate:alphaearth`), so the logo lights up when the path reaches that
+# option and hangs under it once the options stack.
+tools:
+  stac: { name: STAC, logo: images/tools/stac.png }
+  xarray: { name: xarray, logo: images/tools/xarray.svg }
+  dask: { name: Dask, logo: images/tools/dask.svg }
+  # AlphaEarth embeddings aren't generated here: they are streamed from a
+  # cloud Zarr v3 store on Source Cooperative, so both are tied to that option
+  zarr:
+    name: Zarr
+    logo: images/tools/zarr.svg
+    caption: "cloud Zarr"
+    option: generate:alphaearth
+  source_coop:
+    name: Source Cooperative
+    logo: images/tools/source-coop.svg
+    caption: "source.coop"
+    option: generate:alphaearth
+  # After the pipeline: what the app's tiles are built with (tools= kwarg)
+  pmtiles: { name: PMTiles, logo: images/tools/pmtiles.svg }
+  s3: { name: Amazon S3, logo: images/tools/s3.svg }

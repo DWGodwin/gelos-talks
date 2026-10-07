@@ -8,6 +8,13 @@ project:
   # Screen recordings used by {{< clip ... >}}
   resources:
     - "videos/*.mp4"
+    # Used in inline style="background-image: url(...)", which Quarto doesn't scan
+    - "images/backgrounds/*"
+    # Chips in the inline SVG of {{< extraction >}}, which Quarto doesn't scan either
+    - "images/lc-dataset/chips/*"
 
 shortcodes:
   - _pipeline/pipeline.lua
+  - _grid/grid-alignment.lua
+  - _extraction/extraction.lua
+  - _lc-figures/lc-figures.lua

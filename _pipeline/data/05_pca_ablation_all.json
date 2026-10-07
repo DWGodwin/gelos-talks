@@ -251,7 +251,949 @@
      ]
     ]
    ],
-   "colors": {}
+   "lines": {
+    "source:s2_6": "bands: S2L2A",
+    "generate:prithvi_eo_v2_300": "model: prithvi_eo_v2_300",
+    "extract:cls_token": "cls_token",
+    "extract:all_steps_of_middle_patch": "all_steps_of_middle_patch",
+    "extract:four_patches_from_april_to_june": "four_patches_from_april_to_june",
+    "generate:prithvi_eo_v2_600": "model: prithvi_eo_v2_600",
+    "source:s2_12+s1+dem": "bands: S2L2A, S1RTC, DEM",
+    "generate:terramind_v1_base": "model: terramind_v1_base",
+    "generate:terramind_v1_large": "model: terramind_v1_large",
+    "source:s2_12": "bands: S2L2A",
+    "source:s2_12+s1": "bands: S2L2A, S1RTC",
+    "generate:spectral_bands": "SpectralBandsEmbeddingTask",
+    "generate:alphaearth": "backend: alphaearth",
+    "extract:middle_patch": "middle_patch",
+    "source:s2_3": "bands: S2L2A",
+    "generate:dinov3_vitb16_pretrained": "dinov3_vitb16_pretrained",
+    "extract:all_steps_of_cls_token": "all_steps_of_cls_token",
+    "generate:dinov3_vitl16_sat_pretrained": "dinov3_vitl16_sat_pretrained",
+    "generate:prithvi_eo_v2_300_tl_coords": "prithvi_eo_v2_300_tl_coords",
+    "generate:prithvi_eo_v2_600_tl_coords": "prithvi_eo_v2_600_tl_coords"
+   },
+   "colors": {},
+   "config": {
+    "file": "gelos-lc/configs/comparisons/05_pca_ablation_all.yaml",
+    "rows": [
+     {
+      "t": "experiments:"
+     },
+     {
+      "t": "  - config: \"exp001_prithvi300\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300"
+      ]
+     },
+     {
+      "t": "    strategy: \"cls_token\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300"
+      ]
+     },
+     {
+      "t": "    label: \"Prithvi 300M | S2 (6-band) | CLS Token\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300"
+      ]
+     },
+     {
+      "t": "  - config: \"exp001_prithvi300\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300"
+      ]
+     },
+     {
+      "t": "    label: \"Prithvi 300M | S2 (6-band) | Temporal (4 steps)\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300"
+      ]
+     },
+     {
+      "t": "  - config: \"exp001_prithvi300\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300"
+      ]
+     },
+     {
+      "t": "    strategy: \"four_patches_from_april_to_june\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300"
+      ]
+     },
+     {
+      "t": "    label: \"Prithvi 300M | S2 (6-band) | Spatial (1 step)\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp004_prithvi600\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "t": "    strategy: \"cls_token\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "t": "    label: \"Prithvi 600M | S2 (6-band) | CLS Token\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "t": "  - config: \"exp004_prithvi600\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "t": "    label: \"Prithvi 600M | S2 (6-band) | Temporal (4 steps)\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "t": "  - config: \"exp004_prithvi600\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "t": "    strategy: \"four_patches_from_april_to_june\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "t": "    label: \"Prithvi 600M | S2 (6-band) | Spatial (1 step)\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp007_terramind_v1_base\"",
+      "ids": [
+       "generate:terramind_v1_base"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:terramind_v1_base"
+      ]
+     },
+     {
+      "t": "    label: \"TM Base | S2+S1+DEM | Temporal (4 steps)\"",
+      "ids": [
+       "generate:terramind_v1_base"
+      ]
+     },
+     {
+      "t": "  - config: \"exp007_terramind_v1_base\"",
+      "ids": [
+       "generate:terramind_v1_base"
+      ]
+     },
+     {
+      "t": "    strategy: \"four_patches_from_april_to_june\"",
+      "ids": [
+       "generate:terramind_v1_base"
+      ]
+     },
+     {
+      "t": "    label: \"TM Base | S2+S1+DEM | Spatial (1 step)\"",
+      "ids": [
+       "generate:terramind_v1_base"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp010_terramind_v1_large\"",
+      "ids": [
+       "generate:terramind_v1_large"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:terramind_v1_large"
+      ]
+     },
+     {
+      "t": "    label: \"TM Large | S2+S1+DEM | Temporal (4 steps)\"",
+      "ids": [
+       "generate:terramind_v1_large"
+      ]
+     },
+     {
+      "t": "  - config: \"exp010_terramind_v1_large\"",
+      "ids": [
+       "generate:terramind_v1_large"
+      ]
+     },
+     {
+      "t": "    strategy: \"four_patches_from_april_to_june\"",
+      "ids": [
+       "generate:terramind_v1_large"
+      ]
+     },
+     {
+      "t": "    label: \"TM Large | S2+S1+DEM | Spatial (1 step)\"",
+      "ids": [
+       "generate:terramind_v1_large"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp011_terramind_v1_base_s2_only\"",
+      "ids": [
+       "generate:terramind_v1_base"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:terramind_v1_base"
+      ]
+     },
+     {
+      "t": "    label: \"TM Base | S2 (11-band) | Temporal (4 steps)\"",
+      "ids": [
+       "generate:terramind_v1_base"
+      ]
+     },
+     {
+      "t": "  - config: \"exp011_terramind_v1_base_s2_only\"",
+      "ids": [
+       "generate:terramind_v1_base"
+      ]
+     },
+     {
+      "t": "    strategy: \"four_patches_from_april_to_june\"",
+      "ids": [
+       "generate:terramind_v1_base"
+      ]
+     },
+     {
+      "t": "    label: \"TM Base | S2 (11-band) | Spatial (1 step)\"",
+      "ids": [
+       "generate:terramind_v1_base"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp012_terramind_v1_large_s2_only\"",
+      "ids": [
+       "generate:terramind_v1_large"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:terramind_v1_large"
+      ]
+     },
+     {
+      "t": "    label: \"TM Large | S2 (11-band) | Temporal (4 steps)\"",
+      "ids": [
+       "generate:terramind_v1_large"
+      ]
+     },
+     {
+      "t": "  - config: \"exp012_terramind_v1_large_s2_only\"",
+      "ids": [
+       "generate:terramind_v1_large"
+      ]
+     },
+     {
+      "t": "    strategy: \"four_patches_from_april_to_june\"",
+      "ids": [
+       "generate:terramind_v1_large"
+      ]
+     },
+     {
+      "t": "    label: \"TM Large | S2 (11-band) | Spatial (1 step)\"",
+      "ids": [
+       "generate:terramind_v1_large"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp013_terramind_v1_base_s2_s1\"",
+      "ids": [
+       "generate:terramind_v1_base"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:terramind_v1_base"
+      ]
+     },
+     {
+      "t": "    label: \"TM Base | S2+S1 | Temporal (4 steps)\"",
+      "ids": [
+       "generate:terramind_v1_base"
+      ]
+     },
+     {
+      "t": "  - config: \"exp013_terramind_v1_base_s2_s1\"",
+      "ids": [
+       "generate:terramind_v1_base"
+      ]
+     },
+     {
+      "t": "    strategy: \"four_patches_from_april_to_june\"",
+      "ids": [
+       "generate:terramind_v1_base"
+      ]
+     },
+     {
+      "t": "    label: \"TM Base | S2+S1 | Spatial (1 step)\"",
+      "ids": [
+       "generate:terramind_v1_base"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp014_terramind_v1_large_s2_s1\"",
+      "ids": [
+       "generate:terramind_v1_large"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:terramind_v1_large"
+      ]
+     },
+     {
+      "t": "    label: \"TM Large | S2+S1 | Temporal (4 steps)\"",
+      "ids": [
+       "generate:terramind_v1_large"
+      ]
+     },
+     {
+      "t": "  - config: \"exp014_terramind_v1_large_s2_s1\"",
+      "ids": [
+       "generate:terramind_v1_large"
+      ]
+     },
+     {
+      "t": "    strategy: \"four_patches_from_april_to_june\"",
+      "ids": [
+       "generate:terramind_v1_large"
+      ]
+     },
+     {
+      "t": "    label: \"TM Large | S2+S1 | Spatial (1 step)\"",
+      "ids": [
+       "generate:terramind_v1_large"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp015_spectral_bands_s2_prithvi_bands_middle_patch\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    label: \"Spectral Bands | S2 (6-band) | Temporal (4 steps)\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "  - config: \"exp016_spectral_bands_s2_prithvi_bands_four_patches\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    strategy: \"four_patches_from_april_to_june\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    label: \"Spectral Bands | S2 (6-band) | Spatial (1 step)\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "  - config: \"exp017_spectral_bands_s2_full_middle_patch\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    label: \"Spectral Bands | S2 (12-band) | Temporal (4 steps)\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "  - config: \"exp018_spectral_bands_s2_full_four_patches\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    strategy: \"four_patches_from_april_to_june\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    label: \"Spectral Bands | S2 (12-band) | Spatial (1 step)\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "  - config: \"exp019_spectral_bands_s2_s1_middle_patch\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    label: \"Spectral Bands | S2+S1 | Temporal (4 steps)\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "  - config: \"exp020_spectral_bands_s2_s1_four_patches\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    strategy: \"four_patches_from_april_to_june\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    label: \"Spectral Bands | S2+S1 | Spatial (1 step)\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "  - config: \"exp021_spectral_bands_s2_s1_dem_middle_patch\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    label: \"Spectral Bands | S2+S1+DEM | Temporal (4 steps)\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "  - config: \"exp022_spectral_bands_s2_s1_dem_four_patches\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    strategy: \"four_patches_from_april_to_june\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    label: \"Spectral Bands | S2+S1+DEM | Spatial (1 step)\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp023_alphaearth_middle_patch\"",
+      "ids": [
+       "generate:alphaearth"
+      ]
+     },
+     {
+      "t": "    strategy: \"middle_patch\"",
+      "ids": [
+       "generate:alphaearth"
+      ]
+     },
+     {
+      "t": "    label: \"AlphaEarth | Annual (Center Patch)\"",
+      "ids": [
+       "generate:alphaearth"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp032_prithvi300_dataset_stats\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300"
+      ]
+     },
+     {
+      "t": "    strategy: \"cls_token\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300"
+      ]
+     },
+     {
+      "t": "    label: \"Prithvi 300M (dataset stats) | S2 (6-band) | CLS Token\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300"
+      ]
+     },
+     {
+      "t": "  - config: \"exp032_prithvi300_dataset_stats\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300"
+      ]
+     },
+     {
+      "t": "    label: \"Prithvi 300M (dataset stats) | S2 (6-band) | Temporal (4 steps)\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300"
+      ]
+     },
+     {
+      "t": "  - config: \"exp032_prithvi300_dataset_stats\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300"
+      ]
+     },
+     {
+      "t": "    strategy: \"four_patches_from_april_to_june\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300"
+      ]
+     },
+     {
+      "t": "    label: \"Prithvi 300M (dataset stats) | S2 (6-band) | Spatial (1 step)\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp033_prithvi600_dataset_stats\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "t": "    strategy: \"cls_token\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "t": "    label: \"Prithvi 600M (dataset stats) | S2 (6-band) | CLS Token\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "t": "  - config: \"exp033_prithvi600_dataset_stats\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "t": "    label: \"Prithvi 600M (dataset stats) | S2 (6-band) | Temporal (4 steps)\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "t": "  - config: \"exp033_prithvi600_dataset_stats\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "t": "    strategy: \"four_patches_from_april_to_june\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "t": "    label: \"Prithvi 600M (dataset stats) | S2 (6-band) | Spatial (1 step)\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp034_dinov3_rgb_middle_patch\"",
+      "ids": [
+       "generate:dinov3_vitb16_pretrained"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_cls_token\"",
+      "ids": [
+       "generate:dinov3_vitb16_pretrained"
+      ]
+     },
+     {
+      "t": "    label: \"DINOv3 ViT-B/16 web (RGB) | CLS Token (4 steps)\"",
+      "ids": [
+       "generate:dinov3_vitb16_pretrained"
+      ]
+     },
+     {
+      "t": "  - config: \"exp034_dinov3_rgb_middle_patch\"",
+      "ids": [
+       "generate:dinov3_vitb16_pretrained"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:dinov3_vitb16_pretrained"
+      ]
+     },
+     {
+      "t": "    label: \"DINOv3 ViT-B/16 web (RGB) | Temporal (4 steps)\"",
+      "ids": [
+       "generate:dinov3_vitb16_pretrained"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp035_dinov3_sat_rgb_middle_patch\"",
+      "ids": [
+       "generate:dinov3_vitl16_sat_pretrained"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_cls_token\"",
+      "ids": [
+       "generate:dinov3_vitl16_sat_pretrained"
+      ]
+     },
+     {
+      "t": "    label: \"DINOv3 ViT-L/16 SAT-493M (RGB) | CLS Token (4 steps)\"",
+      "ids": [
+       "generate:dinov3_vitl16_sat_pretrained"
+      ]
+     },
+     {
+      "t": "  - config: \"exp035_dinov3_sat_rgb_middle_patch\"",
+      "ids": [
+       "generate:dinov3_vitl16_sat_pretrained"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:dinov3_vitl16_sat_pretrained"
+      ]
+     },
+     {
+      "t": "    label: \"DINOv3 ViT-L/16 SAT-493M (RGB) | Temporal (4 steps)\"",
+      "ids": [
+       "generate:dinov3_vitl16_sat_pretrained"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp036_olmoearth_v1_2_base_s2_timestamps\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "    label: \"OlmoEarth v1.2 Base | S2 | Temporal (4 steps)\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "  - config: \"exp036_olmoearth_v1_2_base_s2_timestamps\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "    strategy: \"four_patches_from_april_to_june\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "    label: \"OlmoEarth v1.2 Base | S2 | Spatial (1 step)\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "  - config: \"exp037_olmoearth_v1_2_base_s2_s1_timestamps\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "    label: \"OlmoEarth v1.2 Base | S2+S1 | Temporal (4 steps)\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "  - config: \"exp037_olmoearth_v1_2_base_s2_s1_timestamps\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "    strategy: \"four_patches_from_april_to_june\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "    label: \"OlmoEarth v1.2 Base | S2+S1 | Spatial (1 step)\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp038_prithvi300_tl\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300_tl_coords"
+      ]
+     },
+     {
+      "t": "    strategy: \"cls_token\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300_tl_coords"
+      ]
+     },
+     {
+      "t": "    label: \"Prithvi 300M TL | S2 (6-band) | Time + location | CLS Token\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300_tl_coords"
+      ]
+     },
+     {
+      "t": "  - config: \"exp038_prithvi300_tl\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300_tl_coords"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300_tl_coords"
+      ]
+     },
+     {
+      "t": "    label: \"Prithvi 300M TL | S2 (6-band) | Time + location | Temporal (4 steps)\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300_tl_coords"
+      ]
+     },
+     {
+      "t": "  - config: \"exp038_prithvi300_tl\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300_tl_coords"
+      ]
+     },
+     {
+      "t": "    strategy: \"four_patches_from_april_to_june\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300_tl_coords"
+      ]
+     },
+     {
+      "t": "    label: \"Prithvi 300M TL | S2 (6-band) | Time + location | Spatial (1 step)\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300_tl_coords"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp039_prithvi600_tl\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600_tl_coords"
+      ]
+     },
+     {
+      "t": "    strategy: \"cls_token\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600_tl_coords"
+      ]
+     },
+     {
+      "t": "    label: \"Prithvi 600M TL | S2 (6-band) | Time + location | CLS Token\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600_tl_coords"
+      ]
+     },
+     {
+      "t": "  - config: \"exp039_prithvi600_tl\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600_tl_coords"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600_tl_coords"
+      ]
+     },
+     {
+      "t": "    label: \"Prithvi 600M TL | S2 (6-band) | Time + location | Temporal (4 steps)\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600_tl_coords"
+      ]
+     },
+     {
+      "t": "  - config: \"exp039_prithvi600_tl\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600_tl_coords"
+      ]
+     },
+     {
+      "t": "    strategy: \"four_patches_from_april_to_june\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600_tl_coords"
+      ]
+     },
+     {
+      "t": "    label: \"Prithvi 600M TL | S2 (6-band) | Time + location | Spatial (1 step)\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600_tl_coords"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "comp_plots:"
+     },
+     {
+      "t": "  - type: pca_ablation_table",
+      "ids": [
+       "model:pca_ablation"
+      ]
+     },
+     {
+      "t": "    metric: pca_ablation_comparison",
+      "ids": [
+       "model:pca_ablation"
+      ]
+     }
+    ]
+   }
   }
  },
  "stages": [
@@ -281,6 +1223,20 @@
     {
      "id": "source:multi_sensor_annual",
      "label": "Multi-sensor,\nannual"
+    }
+   ],
+   "tools": [
+    {
+     "name": "STAC",
+     "logo": "images/tools/stac.png"
+    },
+    {
+     "name": "xarray",
+     "logo": "images/tools/xarray.svg"
+    },
+    {
+     "name": "Dask",
+     "logo": "images/tools/dask.svg"
     }
    ]
   },
@@ -338,6 +1294,20 @@
     {
      "id": "generate:prithvi_eo_v2_600_tl_coords",
      "label": "Prithvi 600M TL"
+    }
+   ],
+   "tools": [
+    {
+     "name": "Zarr",
+     "logo": "images/tools/zarr.svg",
+     "caption": "cloud Zarr",
+     "option": "generate:alphaearth"
+    },
+    {
+     "name": "Source Cooperative",
+     "logo": "images/tools/source-coop.svg",
+     "caption": "source.coop",
+     "option": "generate:alphaearth"
     }
    ]
   },

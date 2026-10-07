@@ -48,8 +48,93 @@
      ]
     ]
    ],
+   "lines": {
+    "source:s2_12": "bands: S2L2A",
+    "generate:olmoearth_v1_2_base": "model: olmoearth_v1_2_base",
+    "extract:all_steps_of_middle_patch": "all_steps_of_middle_patch"
+   },
    "colors": {},
-   "caption": "Cosine similarity between each chip's embedding and the same chip's embedding in the control run"
+   "caption": "Cosine similarity between each chip's embedding and the same chip's embedding in the control run",
+   "config": {
+    "file": "gelos-lc/configs/comparisons/06d_olmoearth_band_ablation_middle_patch.yaml",
+    "rows": [
+     {
+      "t": "experiments:"
+     },
+     {
+      "t": "  - config: \"exp036_olmoearth_v1_2_base_s2_timestamps\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "    label: \"Control\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "  - config: \"exp040_olmoearth_v1_2_base_s2_timestamps_blue_perturb\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "    label: \"S2L2A Blue +10% noise\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "  - config: \"exp041_olmoearth_v1_2_base_s2_timestamps_nir_perturb\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "    label: \"S2L2A NIR Narrow +10% noise\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "comp_plots:"
+     },
+     {
+      "t": "  - type: per_class_similarity_distribution_plot",
+      "ids": [
+       "model:cosine_similarity"
+      ]
+     },
+     {
+      "t": "    metric: per_chip_similarity_to_control",
+      "ids": [
+       "model:cosine_similarity"
+      ]
+     }
+    ]
+   }
   },
   "per_class_ecdf_plot": {
    "image": "images/comparisons/06d_olmoearth_band_ablation_middle_patch/per_class_ecdf_plot.png",
@@ -96,9 +181,146 @@
      ]
     ]
    ],
+   "lines": {
+    "source:s2_12": "bands: S2L2A",
+    "generate:olmoearth_v1_2_base": "model: olmoearth_v1_2_base",
+    "extract:all_steps_of_middle_patch": "all_steps_of_middle_patch"
+   },
    "colors": {},
-   "caption": "Cosine similarity between each chip's embedding and the same chip's embedding in the control run"
+   "caption": "Cosine similarity between each chip's embedding and the same chip's embedding in the control run",
+   "config": {
+    "file": "gelos-lc/configs/comparisons/06d_olmoearth_band_ablation_middle_patch.yaml",
+    "rows": [
+     {
+      "t": "experiments:"
+     },
+     {
+      "t": "  - config: \"exp036_olmoearth_v1_2_base_s2_timestamps\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "    label: \"Control\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "  - config: \"exp040_olmoearth_v1_2_base_s2_timestamps_blue_perturb\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "    label: \"S2L2A Blue +10% noise\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "  - config: \"exp041_olmoearth_v1_2_base_s2_timestamps_nir_perturb\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "    label: \"S2L2A NIR Narrow +10% noise\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "comp_plots:"
+     },
+     {
+      "t": "  - type: per_class_ecdf_plot",
+      "ids": [
+       "model:cosine_similarity"
+      ]
+     },
+     {
+      "t": "    metric: per_chip_similarity_to_control",
+      "ids": [
+       "model:cosine_similarity"
+      ]
+     }
+    ]
+   }
   }
+ },
+ "diff": {
+  "rows": [
+   {
+    "head": "exp036_olmoearth_v1_2_base_s2_timestamps.yaml",
+    "label": "Control"
+   },
+   {
+    "head": "exp040_olmoearth_v1_2_base_s2_timestamps_blue_perturb.yaml",
+    "label": "S2L2A Blue +10% noise"
+   },
+   {
+    "t": "data:"
+   },
+   {
+    "t": "  init_args:"
+   },
+   {
+    "t": "    perturb_bands:",
+    "sign": "+"
+   },
+   {
+    "t": "      S2L2A:",
+    "sign": "+"
+   },
+   {
+    "t": "        BLUE: 0.1",
+    "sign": "+"
+   },
+   {
+    "head": "exp041_olmoearth_v1_2_base_s2_timestamps_nir_perturb.yaml",
+    "label": "S2L2A NIR Narrow +10% noise"
+   },
+   {
+    "t": "data:"
+   },
+   {
+    "t": "  init_args:"
+   },
+   {
+    "t": "    perturb_bands:",
+    "sign": "+"
+   },
+   {
+    "t": "      S2L2A:",
+    "sign": "+"
+   },
+   {
+    "t": "        NIR_NARROW: 0.1",
+    "sign": "+"
+   }
+  ]
  },
  "stages": [
   {
@@ -127,6 +349,20 @@
     {
      "id": "source:multi_sensor_annual",
      "label": "Multi-sensor,\nannual"
+    }
+   ],
+   "tools": [
+    {
+     "name": "STAC",
+     "logo": "images/tools/stac.png"
+    },
+    {
+     "name": "xarray",
+     "logo": "images/tools/xarray.svg"
+    },
+    {
+     "name": "Dask",
+     "logo": "images/tools/dask.svg"
     }
    ]
   },
@@ -184,6 +420,20 @@
     {
      "id": "generate:prithvi_eo_v2_600_tl_coords",
      "label": "Prithvi 600M TL"
+    }
+   ],
+   "tools": [
+    {
+     "name": "Zarr",
+     "logo": "images/tools/zarr.svg",
+     "caption": "cloud Zarr",
+     "option": "generate:alphaearth"
+    },
+    {
+     "name": "Source Cooperative",
+     "logo": "images/tools/source-coop.svg",
+     "caption": "source.coop",
+     "option": "generate:alphaearth"
     }
    ]
   },

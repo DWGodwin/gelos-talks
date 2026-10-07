@@ -1,0 +1,40 @@
+<!-- Closes GELOS Land Cover: everything shown so far comes out of three kinds
+     of config. First the three side by side, with the dataset version that
+     runs through them (one click per config); then what a new experiment's
+     config has to say, as the way to add a model (one click per step). The
+     panels are cut from the real files: see _pipeline/excerpts.yml and
+     "Config panels" in the README. -->
+
+## How I learned to stop worrying and love config.yml {#lc-configs}
+
+::: {.cfg-chain}
+::: {}
+[gelos-lc-datagen]{.eyebrow}
+
+ A config for the [dataset]{.hl}
+
+{{< config thread-datagen version size=17 >}}
+
+[`python main.py`]{.muted}
+:::
+
+::: {}
+[gelos-lc]{.eyebrow}
+
+One config per [experiment]{.hl}
+
+{{< config thread-experiment version+model size=17 >}}
+
+[`python -m gelos.generation`<br>`python -m gelos.analysis`]{.muted}
+:::
+
+::: {}
+[gelos-lc]{.eyebrow}
+
+One config per [comparison]{.hl}
+
+{{< config thread-comparison version+experiment size=17 >}}
+
+[`python -m gelos.comparison`]{.muted}
+:::
+:::

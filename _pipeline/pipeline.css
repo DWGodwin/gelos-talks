@@ -3,7 +3,7 @@
 .pl {
   /* Palette from _extensions/dwgodwin/slides/slides.scss */
   --pl-ink: #F2F4F6;
-  --pl-accent: #FFD626;
+  --pl-accent: #2DD4BF;
   --pl-accent-2: #418BD9;
   /* How far a stacked option slides when it is swapped in or out */
   --pl-slide: 90px;
@@ -49,10 +49,11 @@
   color: var(--pl-ink);
   border: 2px solid rgba(242, 244, 246, 0.35);
   background: rgba(242, 244, 246, 0.05);
+  height: var(--h);
   transform-origin: 0 0;
-  transition-property: opacity, border-color, color, background-color, transform;
-  transition-duration: 0.5s, 0.4s, 0.4s, 0.4s, 0.9s;
-  transition-timing-function: ease, ease, ease, ease, cubic-bezier(0.6, 0, 0.2, 1);
+  transition-property: opacity, border-color, color, background-color, transform, height;
+  transition-duration: 0.5s, 0.4s, 0.4s, 0.4s, 0.9s, 0.9s;
+  transition-timing-function: ease, ease, ease, ease, cubic-bezier(0.6, 0, 0.2, 1), cubic-bezier(0.6, 0, 0.2, 1);
 }
 
 .pl-opt small,
@@ -65,6 +66,39 @@
   margin-top: 4px;
   font-size: 14px;
   opacity: 0.75;
+}
+
+/* Config line: the line of the experiment's config that selects the option.
+   It opens under the label when the path reaches the option, and stays in the
+   stack unless the stack is too full for it (.pl.compact; see pipeline.js) */
+.pl-opt small.pl-cfg {
+  max-height: 0;
+  margin-top: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0;
+  transition: max-height 0.4s, margin-top 0.4s, opacity 0.4s;
+}
+
+.pl.path .pl-opt.chosen small.pl-cfg,
+.pl.stacked .pl-opt.stackable small.pl-cfg {
+  max-height: 20px;
+  margin-top: 4px;
+  opacity: 0.75;
+}
+
+.pl.path .pl-opt.chosen small.pl-cfg {
+  transition-delay: calc(var(--col) * 0.35s);
+}
+
+.pl.stacked .pl-opt.stackable small.pl-cfg {
+  transition-delay: 0s;
+}
+
+.pl.stacked.compact .pl-opt.stackable small.pl-cfg {
+  max-height: 0;
+  margin-top: 0;
+  opacity: 0;
 }
 
 /* Legend key: a Generate option's line colors in the plot, one segment per
@@ -122,6 +156,171 @@
   transition: opacity 0.5s;
 }
 
+/* Tool logos: a row per stage under its options (positioned by pipeline.js;
+   TOOLS_H there is this row's height), and a row under the plot for the
+   shortcode's tools= kwarg. Each tool is a logo, or a text badge when it has
+   none, over its name in a small caption. */
+.pl-tools,
+.pl-app-tools {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 14px;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+/* A tool: its logo (LOGO_H tall, pill included; pipeline.lua writes the same
+   height on the img) over one line of caption */
+.pl-tool {
+  --logo-h: 40px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  transition: opacity 0.4s;
+}
+
+/* Specific enough to beat the theme's .reveal section img rules */
+.reveal .pl .pl-tool img {
+  display: block;
+  box-sizing: border-box;
+  height: var(--logo-h);
+  width: auto;
+  max-width: 130px;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  object-fit: contain;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  box-shadow: none;
+}
+
+/* A light pill behind a logo whose marks are dark */
+.reveal .pl .pl-tool.pill img {
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.pl-badge {
+  display: inline-block;
+  box-sizing: border-box;
+  height: var(--logo-h);
+  padding: 0 12px;
+  border: 1.5px solid rgba(242, 244, 246, 0.4);
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 15px;
+  line-height: calc(var(--logo-h) - 3px);
+  color: var(--pl-ink);
+}
+
+.pl-tool small {
+  font-size: 12px;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-align: center;
+  color: rgba(242, 244, 246, 0.55);
+}
+
+/* A tool tied to an option (labels.yml `option`) lights up, and the rest of
+   its row dims, while the path runs through that option */
+.pl.path .pl-tool.lit img,
+.pl.path .pl-tool.lit .pl-badge {
+  box-shadow: 0 0 0 2px var(--pl-accent);
+}
+
+.pl.path .pl-tool.lit small {
+  color: var(--pl-accent);
+}
+
+.pl.path .pl-tools.has-lit .pl-tool:not(.lit) {
+  opacity: 0.4;
+}
+
+/* Stacked, the rows fade with the diagram; the tools tied to an option hang
+   in a row under it instead (.pl-opt-tools, copies made by pipeline.js), in
+   the room the stack keeps for them (TOOL_TAG_H) */
+.pl.stacked .pl-tools {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.pl-opt-tools {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 8px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 14px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.pl-tool.pl-opt-tool {
+  --logo-h: 28px;
+  gap: 3px;
+}
+
+/* Not the option's own mono config-line styling (.pl-opt small) */
+.pl-opt .pl-opt-tool small {
+  margin: 0;
+  font-family: inherit;
+  font-size: 12px;
+  opacity: 1;
+}
+
+.pl.stacked .pl-opt.stackable.chosen .pl-opt-tools {
+  opacity: 1;
+  transition: opacity 0.6s 0.7s;
+}
+
+.pl.stacked.swap .pl-opt.stackable.chosen .pl-opt-tools {
+  transition: opacity 0.45s 0.2s;
+}
+
+/* Row under the plot (tools=): the plot gives up a strip for it, above the
+   caption's if there is one */
+.pl-app-tools {
+  left: 290px;
+  right: 0;
+  bottom: calc(-1 * var(--below, 0px));
+  height: 64px;
+  gap: 36px;
+  align-items: flex-end;
+}
+
+.pl-app-tools .pl-tool small {
+  font-size: 14px;
+}
+
+.pl.stacked .pl-app-tools {
+  opacity: 1;
+  transition: opacity 0.6s 0.7s;
+}
+
+.pl.stacked[data-tooled] .pl-plot {
+  bottom: calc(68px - var(--below, 0px));
+}
+
+.pl.stacked[data-tooled] .pl-caption {
+  bottom: calc(68px - var(--below, 0px));
+}
+
+.pl.stacked[data-tooled].captioned .pl-plot {
+  bottom: calc(104px - var(--below, 0px));
+}
+
+.pl.stacked.config .pl-app-tools {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
 /* Stages appear */
 .pl .shown {
   opacity: 1;
@@ -175,19 +374,20 @@
   color: var(--pl-accent);
   border-color: var(--pl-accent);
   background: rgba(255, 214, 38, 0.1);
+  height: var(--hs);
   transform: translate(calc(var(--dx) + var(--side, 0) * var(--pl-slide)), var(--dy)) scale(var(--s));
-  transition-delay: 0s, 0s, 0s, 0s, calc(var(--k) * 0.06s);
+  transition-delay: 0s, 0s, 0s, 0s, calc(var(--k) * 0.06s), calc(var(--k) * 0.06s);
 }
 
 .pl.stacked .pl-opt:not(.chosen) {
   opacity: 0;
-  transition-duration: 0.3s, 0.4s, 0.4s, 0.4s, 0.9s;
+  transition-duration: 0.3s, 0.4s, 0.4s, 0.4s, 0.9s, 0.9s;
 }
 
 /* Swap: between plots, an option the next plot adds slots in from the right
    while the one it replaces slots out to the left */
 .pl.stacked.swap .pl-opt.stackable {
-  transition-duration: 0.45s, 0.4s, 0.4s, 0.4s, 0.5s;
+  transition-duration: 0.45s, 0.4s, 0.4s, 0.4s, 0.5s, 0.5s;
   transition-timing-function: ease;
   transition-delay: 0s;
 }
@@ -275,6 +475,74 @@
   transition: opacity 0.6s 0.7s;
 }
 
+/* Config view (config=yaml): the config's lines in the plot's place, for one
+   click between the options stacking and the first plot. pipeline.js sets the
+   panel's position, width and font size; the metrics in em mirror its
+   constants, which it needs to draw the links without measuring. */
+.pl-config {
+  --cfg-ink: var(--pl-ink);
+  --cfg-accent: var(--pl-accent);
+  --cfg-accent-2: var(--pl-accent-2);
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.pl-config .cfg-panel {
+  padding: 0.9em 1.2em;
+  line-height: 1.45em;
+}
+
+.pl-config .cfg-row {
+  height: 1.45em;
+}
+
+.pl-config .cfg-file {
+  box-sizing: border-box;
+  height: 2.75em; /* 2.2em of the panel's font */
+  margin: 0;
+  padding: 0;
+}
+
+.pl.config .pl-config {
+  opacity: 1;
+  transition: opacity 0.6s 0.7s;
+}
+
+.pl.stacked.config .pl-plot,
+.pl.stacked.config .pl-caption {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.pl-cfg-links path {
+  fill: none;
+  stroke: var(--pl-accent);
+  stroke-width: 2;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  opacity: 0;
+  transition: opacity 0.2s, stroke-dashoffset 0s 0.2s;
+}
+
+.pl-cfg-links circle {
+  fill: var(--pl-accent);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.pl.config .pl-cfg-links path {
+  stroke-dashoffset: 0;
+  opacity: 0.8;
+  transition: stroke-dashoffset 0.5s ease-in-out 1.2s, opacity 0s 1.2s;
+}
+
+.pl.config .pl-cfg-links circle {
+  opacity: 1;
+  transition: opacity 0.2s 1.6s;
+}
+
 .reveal .slides section > h2 {
   transition: opacity 0.4s;
 }
@@ -292,15 +560,199 @@
   transition: opacity 0.45s, top 0.5s;
 }
 
-/* ---- Feature slides: a screen recording filling the slide ----
-   ::: {.feature} holds a {{< clip ... >}} */
+/* ---- Config panels ({{< config ... >}}): YAML cut from a real config ----
+   Built by pipeline.js. A row is muted context unless it is .tagged, i.e.
+   part of a region; .on lights a region up. */
+
+.reveal .cfg {
+  --cfg-ink: #F2F4F6;
+  --cfg-accent: #2DD4BF;
+  --cfg-accent-2: #418BD9;
+  font-size: 19px;
+}
+
+.cfg-panel {
+  box-sizing: border-box;
+  padding: 0.9em 1.2em 1em;
+  border: 2px solid rgba(242, 244, 246, 0.15);
+  border-radius: 10px;
+  background: rgba(242, 244, 246, 0.04);
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  line-height: 1.45;
+  text-align: left;
+  white-space: pre;
+  color: var(--cfg-ink);
+}
+
+.cfg-file {
+  display: block;
+  margin-bottom: 0.7em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid rgba(242, 244, 246, 0.15);
+  font-size: 0.8em;
+  letter-spacing: 0.06em;
+  color: rgba(242, 244, 246, 0.55);
+}
+
+.cfg-row {
+  margin-left: -0.6em;
+  padding-left: 0.6em;
+  border-left: 3px solid transparent;
+  opacity: 0.45;
+  transition: opacity 0.4s, border-color 0.4s, background-color 0.4s;
+}
+
+.cfg-row.tagged {
+  opacity: 1;
+}
+
+.cfg-v {
+  color: color-mix(in srgb, var(--cfg-accent-2) 65%, var(--cfg-ink));
+  transition: color 0.4s;
+}
+
+.cfg-c {
+  color: rgba(242, 244, 246, 0.45);
+}
+
+.cfg-swatch {
+  display: inline-block;
+  width: 0.75em;
+  height: 0.75em;
+  margin-left: 0.6em;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1.5px rgba(242, 244, 246, 0.6);
+}
+
+/* A diff: one head row per file, then its lines that differ from the first
+   file's, - for the line there and + for the line here */
+.cfg-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 2em;
+  box-sizing: border-box;
+  height: 2.6em;
+  padding-top: 0.75em;
+  line-height: 1.85em;
+  border-bottom: 1px solid rgba(242, 244, 246, 0.15);
+}
+
+.cfg-head-label {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: rgba(242, 244, 246, 0.6);
+}
+
+.cfg-row.add,
+.cfg-row.del {
+  opacity: 1;
+}
+
+.cfg-row.add,
+.cfg-row.add .cfg-v {
+  color: #5BD68B;
+}
+
+.cfg-row.add {
+  background: rgba(91, 214, 139, 0.1);
+}
+
+.cfg-row.del,
+.cfg-row.del .cfg-v {
+  color: #FF6B5E;
+}
+
+.cfg-row.del {
+  background: rgba(255, 107, 94, 0.08);
+}
+
+/* Lines of the file left out */
+.cfg-gap {
+  height: 0.55em;
+}
+
+.cfg.stepping .cfg-row.tagged:not(.on) {
+  opacity: 0.45;
+}
+
+.cfg-row.on {
+  border-left-color: var(--cfg-accent);
+  background: rgba(255, 214, 38, 0.08);
+}
+
+.cfg-row.on .cfg-v {
+  color: var(--cfg-accent);
+}
+
+/* Slide text tied to a region with cfg="<region>" */
+.reveal .cfg-tied {
+  transition: opacity 0.4s;
+}
+
+.reveal .cfg-tied.cfg-off {
+  opacity: 0.35;
+}
+
+/* Text beside a config panel: ::: {.two-col .cfg-cols}. The panel takes the
+   width of its longest line and the text, a little smaller, the rest. */
+.reveal .two-col.cfg-cols {
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  font-size: 0.85em;
+}
+
+/* Config panels side by side, with an arrow from each to the next:
+   ::: {.cfg-chain} holding one div per panel */
+.reveal .cfg-chain {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 3.5rem;
+  align-items: start;
+  margin-top: 3rem;
+  font-size: 0.7em;
+}
+
+.reveal .cfg-chain > div {
+  position: relative;
+}
+
+.reveal .cfg-chain > div + div::before {
+  content: '→';
+  position: absolute;
+  left: -2.6rem;
+  top: 3.2em;
+  font-size: 1.6em;
+  color: rgba(242, 244, 246, 0.5);
+}
+
+.reveal .cfg-chain p {
+  margin: 0.5em 0;
+}
+
+/* ---- Feature slides: the app's link above a screen recording ----
+   ::: {.feature} holds a ::: {.feature-head} block and a {{< clip ... >}};
+   the clip takes whatever height the link leaves, centered */
 
 .reveal .feature {
   position: absolute;
   inset: 0 0 20px;
   display: grid;
-  grid-template: minmax(0, 1fr) / minmax(0, 1fr);
-  place-items: center;
+  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  align-items: center;
+  row-gap: 24px;
+}
+
+.reveal .feature-head {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 26px;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.reveal .feature-head p {
+  margin: 0;
 }
 
 .reveal .clip {

@@ -69,6 +69,12 @@
    "subs": {
     "model:spatial_knn": "k = 1, 2, 5, 10, 20, 50"
    },
+   "lines": {
+    "source:s2_12": "bands: S2L2A",
+    "extract:all_steps_of_middle_patch": "all_steps_of_middle_patch",
+    "source:s2_12+s1": "bands: S2L2A, S1RTC",
+    "generate:spectral_bands": "SpectralBandsEmbeddingTask"
+   },
    "colors": {
     "generate:olmoearth_v1_2_base": [
      "#7cb342",
@@ -79,7 +85,132 @@
      "#333333"
     ]
    },
-   "caption": "Distance on the ground from each chip to its k nearest neighbors in embedding space, averaged over all chips"
+   "caption": "Distance on the ground from each chip to its k nearest neighbors in embedding space, averaged over all chips",
+   "config": {
+    "file": "gelos-lc/configs/comparisons/01c_olmoearth_family_spatial_knn.yaml",
+    "rows": [
+     {
+      "t": "experiments:"
+     },
+     {
+      "t": "  - config: \"exp036_olmoearth_v1_2_base_s2_timestamps\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "    label: \"OlmoEarth v1.2 Base | S2 (12-band) | Temporal (4 steps)\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "    color: \"#7cb342\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "  - config: \"exp037_olmoearth_v1_2_base_s2_s1_timestamps\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "    label: \"OlmoEarth v1.2 Base | S2+S1 | Temporal (4 steps)\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "    color: \"#1565c0\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp017_spectral_bands_s2_full_middle_patch\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    label: \"Spectral Bands | S2 (12-band) | Temporal (4 steps)\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    color: \"#cccccc\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "  - config: \"exp019_spectral_bands_s2_s1_middle_patch\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    label: \"Spectral Bands | S2+S1 | Temporal (4 steps)\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    color: \"#333333\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "comp_plots:"
+     },
+     {
+      "t": "  - type: knn_gsd_plot",
+      "ids": [
+       "model:spatial_knn"
+      ]
+     },
+     {
+      "t": "    metric: knn_geo_distance_comparison",
+      "ids": [
+       "model:spatial_knn"
+      ]
+     }
+    ]
+   }
   },
   "knn_lat_diff_plot": {
    "image": "images/comparisons/01c_olmoearth_family_spatial_knn/knn_lat_diff_plot.png",
@@ -147,6 +278,12 @@
    "subs": {
     "model:spatial_knn": "k = 1, 2, 5, 10, 20, 50"
    },
+   "lines": {
+    "source:s2_12": "bands: S2L2A",
+    "extract:all_steps_of_middle_patch": "all_steps_of_middle_patch",
+    "source:s2_12+s1": "bands: S2L2A, S1RTC",
+    "generate:spectral_bands": "SpectralBandsEmbeddingTask"
+   },
    "colors": {
     "generate:olmoearth_v1_2_base": [
      "#7cb342",
@@ -157,7 +294,132 @@
      "#333333"
     ]
    },
-   "caption": "Difference in latitude between each chip and its k nearest neighbors in embedding space, averaged over all chips"
+   "caption": "Difference in latitude between each chip and its k nearest neighbors in embedding space, averaged over all chips",
+   "config": {
+    "file": "gelos-lc/configs/comparisons/01c_olmoearth_family_spatial_knn.yaml",
+    "rows": [
+     {
+      "t": "experiments:"
+     },
+     {
+      "t": "  - config: \"exp036_olmoearth_v1_2_base_s2_timestamps\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "    label: \"OlmoEarth v1.2 Base | S2 (12-band) | Temporal (4 steps)\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "    color: \"#7cb342\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "  - config: \"exp037_olmoearth_v1_2_base_s2_s1_timestamps\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "    label: \"OlmoEarth v1.2 Base | S2+S1 | Temporal (4 steps)\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "t": "    color: \"#1565c0\"",
+      "ids": [
+       "generate:olmoearth_v1_2_base"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp017_spectral_bands_s2_full_middle_patch\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    label: \"Spectral Bands | S2 (12-band) | Temporal (4 steps)\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    color: \"#cccccc\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "  - config: \"exp019_spectral_bands_s2_s1_middle_patch\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    label: \"Spectral Bands | S2+S1 | Temporal (4 steps)\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    color: \"#333333\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "comp_plots:"
+     },
+     {
+      "t": "  - type: knn_lat_diff_plot",
+      "ids": [
+       "model:spatial_knn"
+      ]
+     },
+     {
+      "t": "    metric: knn_geo_distance_comparison",
+      "ids": [
+       "model:spatial_knn"
+      ]
+     }
+    ]
+   }
   }
  },
  "stages": [
@@ -187,6 +449,20 @@
     {
      "id": "source:multi_sensor_annual",
      "label": "Multi-sensor,\nannual"
+    }
+   ],
+   "tools": [
+    {
+     "name": "STAC",
+     "logo": "images/tools/stac.png"
+    },
+    {
+     "name": "xarray",
+     "logo": "images/tools/xarray.svg"
+    },
+    {
+     "name": "Dask",
+     "logo": "images/tools/dask.svg"
     }
    ]
   },
@@ -244,6 +520,20 @@
     {
      "id": "generate:prithvi_eo_v2_600_tl_coords",
      "label": "Prithvi 600M TL"
+    }
+   ],
+   "tools": [
+    {
+     "name": "Zarr",
+     "logo": "images/tools/zarr.svg",
+     "caption": "cloud Zarr",
+     "option": "generate:alphaearth"
+    },
+    {
+     "name": "Source Cooperative",
+     "logo": "images/tools/source-coop.svg",
+     "caption": "source.coop",
+     "option": "generate:alphaearth"
     }
    ]
   },

@@ -57,6 +57,12 @@
      ]
     ]
    ],
+   "lines": {
+    "source:s2_6": "bands: S2L2A",
+    "generate:prithvi_eo_v2_600": "model: prithvi_eo_v2_600",
+    "extract:all_steps_of_middle_patch": "all_steps_of_middle_patch",
+    "generate:prithvi_eo_v2_600_tl_coords": "prithvi_eo_v2_600_tl_coords"
+   },
    "colors": {
     "generate:prithvi_eo_v2_600": [
      "#80cbc4"
@@ -65,7 +71,84 @@
      "#00838f"
     ]
    },
-   "caption": "Cosine similarity between each chip's embedding and the same chip's embedding in the control run"
+   "caption": "Cosine similarity between each chip's embedding and the same chip's embedding in the control run",
+   "config": {
+    "file": "gelos-lc/configs/comparisons/03b_prithvi600_tl_embeddings.yaml",
+    "rows": [
+     {
+      "t": "experiments:"
+     },
+     {
+      "t": "  - config: \"exp004_prithvi600\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "t": "    label: \"Control\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "t": "    color: \"#80cbc4\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp039_prithvi600_tl\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600_tl_coords"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600_tl_coords"
+      ]
+     },
+     {
+      "t": "    label: \"Time + location\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600_tl_coords"
+      ]
+     },
+     {
+      "t": "    color: \"#00838f\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600_tl_coords"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "comp_plots:"
+     },
+     {
+      "t": "  - type: per_class_similarity_distribution_plot",
+      "ids": [
+       "model:cosine_similarity"
+      ]
+     },
+     {
+      "t": "    metric: per_chip_similarity_to_control",
+      "ids": [
+       "model:cosine_similarity"
+      ]
+     }
+    ]
+   }
   },
   "per_class_ecdf_plot": {
    "image": "images/comparisons/03b_prithvi600_tl_embeddings/per_class_ecdf_plot.png",
@@ -121,6 +204,12 @@
      ]
     ]
    ],
+   "lines": {
+    "source:s2_6": "bands: S2L2A",
+    "generate:prithvi_eo_v2_600": "model: prithvi_eo_v2_600",
+    "extract:all_steps_of_middle_patch": "all_steps_of_middle_patch",
+    "generate:prithvi_eo_v2_600_tl_coords": "prithvi_eo_v2_600_tl_coords"
+   },
    "colors": {
     "generate:prithvi_eo_v2_600": [
      "#80cbc4"
@@ -129,7 +218,84 @@
      "#00838f"
     ]
    },
-   "caption": "Cosine similarity between each chip's embedding and the same chip's embedding in the control run"
+   "caption": "Cosine similarity between each chip's embedding and the same chip's embedding in the control run",
+   "config": {
+    "file": "gelos-lc/configs/comparisons/03b_prithvi600_tl_embeddings.yaml",
+    "rows": [
+     {
+      "t": "experiments:"
+     },
+     {
+      "t": "  - config: \"exp004_prithvi600\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "t": "    label: \"Control\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "t": "    color: \"#80cbc4\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp039_prithvi600_tl\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600_tl_coords"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600_tl_coords"
+      ]
+     },
+     {
+      "t": "    label: \"Time + location\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600_tl_coords"
+      ]
+     },
+     {
+      "t": "    color: \"#00838f\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600_tl_coords"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "comp_plots:"
+     },
+     {
+      "t": "  - type: per_class_ecdf_plot",
+      "ids": [
+       "model:cosine_similarity"
+      ]
+     },
+     {
+      "t": "    metric: per_chip_similarity_to_control",
+      "ids": [
+       "model:cosine_similarity"
+      ]
+     }
+    ]
+   }
   },
   "distance_matrix": {
    "image": "images/comparisons/03b_prithvi600_tl_embeddings/distance_matrix.png",
@@ -185,6 +351,12 @@
      ]
     ]
    ],
+   "lines": {
+    "source:s2_6": "bands: S2L2A",
+    "generate:prithvi_eo_v2_600": "model: prithvi_eo_v2_600",
+    "extract:all_steps_of_middle_patch": "all_steps_of_middle_patch",
+    "generate:prithvi_eo_v2_600_tl_coords": "prithvi_eo_v2_600_tl_coords"
+   },
    "colors": {
     "generate:prithvi_eo_v2_600": [
      "#80cbc4"
@@ -192,8 +364,134 @@
     "generate:prithvi_eo_v2_600_tl_coords": [
      "#00838f"
     ]
+   },
+   "config": {
+    "file": "gelos-lc/configs/comparisons/03b_prithvi600_tl_embeddings.yaml",
+    "rows": [
+     {
+      "t": "experiments:"
+     },
+     {
+      "t": "  - config: \"exp004_prithvi600\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "t": "    label: \"Control\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "t": "    color: \"#80cbc4\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp039_prithvi600_tl\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600_tl_coords"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600_tl_coords"
+      ]
+     },
+     {
+      "t": "    label: \"Time + location\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600_tl_coords"
+      ]
+     },
+     {
+      "t": "    color: \"#00838f\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600_tl_coords"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "comp_plots:"
+     },
+     {
+      "t": "  - type: distance_matrix",
+      "ids": [
+       "model:cosine_distance"
+      ]
+     },
+     {
+      "t": "    metric: cosine_distance",
+      "ids": [
+       "model:cosine_distance"
+      ]
+     }
+    ]
    }
   }
+ },
+ "diff": {
+  "rows": [
+   {
+    "head": "exp004_prithvi600.yaml",
+    "label": "Control",
+    "color": "#80cbc4"
+   },
+   {
+    "head": "exp039_prithvi600_tl.yaml",
+    "label": "Time + location",
+    "color": "#00838f"
+   },
+   {
+    "t": "data:"
+   },
+   {
+    "t": "  init_args:"
+   },
+   {
+    "t": "    dataset_class: src.gelosdataset_lc.GELOSLCDataSet",
+    "sign": "-"
+   },
+   {
+    "t": "    dataset_class: src.gelosdataset_lc.GELOSLCTimeLocationDataSet",
+    "sign": "+"
+   },
+   {
+    "t": "model:"
+   },
+   {
+    "t": "  init_args:"
+   },
+   {
+    "t": "    model: prithvi_eo_v2_600",
+    "sign": "-"
+   },
+   {
+    "t": "    model: prithvi_eo_v2_600_tl_coords",
+    "sign": "+"
+   },
+   {
+    "t": "    model_args:"
+   },
+   {
+    "t": "      num_frames: 4",
+    "sign": "+"
+   }
+  ]
  },
  "stages": [
   {
@@ -222,6 +520,20 @@
     {
      "id": "source:multi_sensor_annual",
      "label": "Multi-sensor,\nannual"
+    }
+   ],
+   "tools": [
+    {
+     "name": "STAC",
+     "logo": "images/tools/stac.png"
+    },
+    {
+     "name": "xarray",
+     "logo": "images/tools/xarray.svg"
+    },
+    {
+     "name": "Dask",
+     "logo": "images/tools/dask.svg"
     }
    ]
   },
@@ -279,6 +591,20 @@
     {
      "id": "generate:prithvi_eo_v2_600_tl_coords",
      "label": "Prithvi 600M TL"
+    }
+   ],
+   "tools": [
+    {
+     "name": "Zarr",
+     "logo": "images/tools/zarr.svg",
+     "caption": "cloud Zarr",
+     "option": "generate:alphaearth"
+    },
+    {
+     "name": "Source Cooperative",
+     "logo": "images/tools/source-coop.svg",
+     "caption": "source.coop",
+     "option": "generate:alphaearth"
     }
    ]
   },

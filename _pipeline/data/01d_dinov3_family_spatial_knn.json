@@ -60,6 +60,12 @@
    "subs": {
     "model:spatial_knn": "k = 1, 2, 5, 10, 20, 50"
    },
+   "lines": {
+    "source:s2_3": "bands: S2L2A",
+    "generate:dinov3_vitb16_pretrained": "dinov3_vitb16_pretrained",
+    "extract:all_steps_of_middle_patch": "all_steps_of_middle_patch",
+    "generate:dinov3_vitl16_sat_pretrained": "dinov3_vitl16_sat_pretrained"
+   },
    "colors": {
     "generate:dinov3_vitb16_pretrained": [
      "#5c6bc0"
@@ -68,7 +74,84 @@
      "#8d6e63"
     ]
    },
-   "caption": "Distance on the ground from each chip to its k nearest neighbors in embedding space, averaged over all chips"
+   "caption": "Distance on the ground from each chip to its k nearest neighbors in embedding space, averaged over all chips",
+   "config": {
+    "file": "gelos-lc/configs/comparisons/01d_dinov3_family_spatial_knn.yaml",
+    "rows": [
+     {
+      "t": "experiments:"
+     },
+     {
+      "t": "  - config: \"exp034_dinov3_rgb_middle_patch\"",
+      "ids": [
+       "generate:dinov3_vitb16_pretrained"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:dinov3_vitb16_pretrained"
+      ]
+     },
+     {
+      "t": "    label: \"DINOv3 ViT-B/16 web (RGB)\"",
+      "ids": [
+       "generate:dinov3_vitb16_pretrained"
+      ]
+     },
+     {
+      "t": "    color: \"#5c6bc0\"",
+      "ids": [
+       "generate:dinov3_vitb16_pretrained"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp035_dinov3_sat_rgb_middle_patch\"",
+      "ids": [
+       "generate:dinov3_vitl16_sat_pretrained"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:dinov3_vitl16_sat_pretrained"
+      ]
+     },
+     {
+      "t": "    label: \"DINOv3 ViT-L/16 SAT-493M (RGB)\"",
+      "ids": [
+       "generate:dinov3_vitl16_sat_pretrained"
+      ]
+     },
+     {
+      "t": "    color: \"#8d6e63\"",
+      "ids": [
+       "generate:dinov3_vitl16_sat_pretrained"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "comp_plots:"
+     },
+     {
+      "t": "  - type: knn_gsd_plot",
+      "ids": [
+       "model:spatial_knn"
+      ]
+     },
+     {
+      "t": "    metric: knn_geo_distance_comparison",
+      "ids": [
+       "model:spatial_knn"
+      ]
+     }
+    ]
+   }
   },
   "knn_lat_diff_plot": {
    "image": "images/comparisons/01d_dinov3_family_spatial_knn/knn_lat_diff_plot.png",
@@ -127,6 +210,12 @@
    "subs": {
     "model:spatial_knn": "k = 1, 2, 5, 10, 20, 50"
    },
+   "lines": {
+    "source:s2_3": "bands: S2L2A",
+    "generate:dinov3_vitb16_pretrained": "dinov3_vitb16_pretrained",
+    "extract:all_steps_of_middle_patch": "all_steps_of_middle_patch",
+    "generate:dinov3_vitl16_sat_pretrained": "dinov3_vitl16_sat_pretrained"
+   },
    "colors": {
     "generate:dinov3_vitb16_pretrained": [
      "#5c6bc0"
@@ -135,8 +224,113 @@
      "#8d6e63"
     ]
    },
-   "caption": "Difference in latitude between each chip and its k nearest neighbors in embedding space, averaged over all chips"
+   "caption": "Difference in latitude between each chip and its k nearest neighbors in embedding space, averaged over all chips",
+   "config": {
+    "file": "gelos-lc/configs/comparisons/01d_dinov3_family_spatial_knn.yaml",
+    "rows": [
+     {
+      "t": "experiments:"
+     },
+     {
+      "t": "  - config: \"exp034_dinov3_rgb_middle_patch\"",
+      "ids": [
+       "generate:dinov3_vitb16_pretrained"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:dinov3_vitb16_pretrained"
+      ]
+     },
+     {
+      "t": "    label: \"DINOv3 ViT-B/16 web (RGB)\"",
+      "ids": [
+       "generate:dinov3_vitb16_pretrained"
+      ]
+     },
+     {
+      "t": "    color: \"#5c6bc0\"",
+      "ids": [
+       "generate:dinov3_vitb16_pretrained"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp035_dinov3_sat_rgb_middle_patch\"",
+      "ids": [
+       "generate:dinov3_vitl16_sat_pretrained"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:dinov3_vitl16_sat_pretrained"
+      ]
+     },
+     {
+      "t": "    label: \"DINOv3 ViT-L/16 SAT-493M (RGB)\"",
+      "ids": [
+       "generate:dinov3_vitl16_sat_pretrained"
+      ]
+     },
+     {
+      "t": "    color: \"#8d6e63\"",
+      "ids": [
+       "generate:dinov3_vitl16_sat_pretrained"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "comp_plots:"
+     },
+     {
+      "t": "  - type: knn_lat_diff_plot",
+      "ids": [
+       "model:spatial_knn"
+      ]
+     },
+     {
+      "t": "    metric: knn_geo_distance_comparison",
+      "ids": [
+       "model:spatial_knn"
+      ]
+     }
+    ]
+   }
   }
+ },
+ "diff": {
+  "rows": [
+   {
+    "head": "exp034_dinov3_rgb_middle_patch.yaml",
+    "label": "DINOv3 ViT-B/16 web (RGB)",
+    "color": "#5c6bc0"
+   },
+   {
+    "head": "exp035_dinov3_sat_rgb_middle_patch.yaml",
+    "label": "DINOv3 ViT-L/16 SAT-493M (RGB)",
+    "color": "#8d6e63"
+   },
+   {
+    "t": "model:"
+   },
+   {
+    "t": "  init_args:"
+   },
+   {
+    "t": "    model: dinov3_vitb16_pretrained",
+    "sign": "-"
+   },
+   {
+    "t": "    model: dinov3_vitl16_sat_pretrained",
+    "sign": "+"
+   }
+  ]
  },
  "stages": [
   {
@@ -165,6 +359,20 @@
     {
      "id": "source:multi_sensor_annual",
      "label": "Multi-sensor,\nannual"
+    }
+   ],
+   "tools": [
+    {
+     "name": "STAC",
+     "logo": "images/tools/stac.png"
+    },
+    {
+     "name": "xarray",
+     "logo": "images/tools/xarray.svg"
+    },
+    {
+     "name": "Dask",
+     "logo": "images/tools/dask.svg"
     }
    ]
   },
@@ -222,6 +430,20 @@
     {
      "id": "generate:prithvi_eo_v2_600_tl_coords",
      "label": "Prithvi 600M TL"
+    }
+   ],
+   "tools": [
+    {
+     "name": "Zarr",
+     "logo": "images/tools/zarr.svg",
+     "caption": "cloud Zarr",
+     "option": "generate:alphaearth"
+    },
+    {
+     "name": "Source Cooperative",
+     "logo": "images/tools/source-coop.svg",
+     "caption": "source.coop",
+     "option": "generate:alphaearth"
     }
    ]
   },

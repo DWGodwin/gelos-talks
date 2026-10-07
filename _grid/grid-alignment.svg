@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -20 1500 1000" role="img" aria-label="Chips of 160 m, 320 m and 640 m leave some bands with part-patches. A 960 m chip, 2 times the 480 m least common multiple, is the first square past 640 m that Sentinel-2 10 m and Landsat 30 m bands all cut into whole 16 by 16 pixel patches, with patch borders that coincide across sensors." fill="none" stroke="currentColor">
+  <g id="grid-10" class="fragment custom pixels s2" data-fragment-index="1" stroke-width="1.0">
+    <path d="M0 0v960M10 0v960M20 0v960M30 0v960M40 0v960M50 0v960M60 0v960M70 0v960M80 0v960M90 0v960M100 0v960M110 0v960M120 0v960M130 0v960M140 0v960M150 0v960M160 0v960M170 0v960M180 0v960M190 0v960M200 0v960M210 0v960M220 0v960M230 0v960M240 0v960M250 0v960M260 0v960M270 0v960M280 0v960M290 0v960M300 0v960M310 0v960M320 0v960M330 0v960M340 0v960M350 0v960M360 0v960M370 0v960M380 0v960M390 0v960M400 0v960M410 0v960M420 0v960M430 0v960M440 0v960M450 0v960M460 0v960M470 0v960M480 0v960M490 0v960M500 0v960M510 0v960M520 0v960M530 0v960M540 0v960M550 0v960M560 0v960M570 0v960M580 0v960M590 0v960M600 0v960M610 0v960M620 0v960M630 0v960M640 0v960M650 0v960M660 0v960M670 0v960M680 0v960M690 0v960M700 0v960M710 0v960M720 0v960M730 0v960M740 0v960M750 0v960M760 0v960M770 0v960M780 0v960M790 0v960M800 0v960M810 0v960M820 0v960M830 0v960M840 0v960M850 0v960M860 0v960M870 0v960M880 0v960M890 0v960M900 0v960M910 0v960M920 0v960M930 0v960M940 0v960M950 0v960M960 0v960M0 0h960M0 10h960M0 20h960M0 30h960M0 40h960M0 50h960M0 60h960M0 70h960M0 80h960M0 90h960M0 100h960M0 110h960M0 120h960M0 130h960M0 140h960M0 150h960M0 160h960M0 170h960M0 180h960M0 190h960M0 200h960M0 210h960M0 220h960M0 230h960M0 240h960M0 250h960M0 260h960M0 270h960M0 280h960M0 290h960M0 300h960M0 310h960M0 320h960M0 330h960M0 340h960M0 350h960M0 360h960M0 370h960M0 380h960M0 390h960M0 400h960M0 410h960M0 420h960M0 430h960M0 440h960M0 450h960M0 460h960M0 470h960M0 480h960M0 490h960M0 500h960M0 510h960M0 520h960M0 530h960M0 540h960M0 550h960M0 560h960M0 570h960M0 580h960M0 590h960M0 600h960M0 610h960M0 620h960M0 630h960M0 640h960M0 650h960M0 660h960M0 670h960M0 680h960M0 690h960M0 700h960M0 710h960M0 720h960M0 730h960M0 740h960M0 750h960M0 760h960M0 770h960M0 780h960M0 790h960M0 800h960M0 810h960M0 820h960M0 830h960M0 840h960M0 850h960M0 860h960M0 870h960M0 880h960M0 890h960M0 900h960M0 910h960M0 920h960M0 930h960M0 940h960M0 950h960M0 960h960"/>
+  </g>
+  <g id="grid-30" class="fragment custom pixels ls" data-fragment-index="2" stroke-width="1.7">
+    <path d="M0 0v960M30 0v960M60 0v960M90 0v960M120 0v960M150 0v960M180 0v960M210 0v960M240 0v960M270 0v960M300 0v960M330 0v960M360 0v960M390 0v960M420 0v960M450 0v960M480 0v960M510 0v960M540 0v960M570 0v960M600 0v960M630 0v960M660 0v960M690 0v960M720 0v960M750 0v960M780 0v960M810 0v960M840 0v960M870 0v960M900 0v960M930 0v960M960 0v960M0 0h960M0 30h960M0 60h960M0 90h960M0 120h960M0 150h960M0 180h960M0 210h960M0 240h960M0 270h960M0 300h960M0 330h960M0 360h960M0 390h960M0 420h960M0 450h960M0 480h960M0 510h960M0 540h960M0 570h960M0 600h960M0 630h960M0 660h960M0 690h960M0 720h960M0 750h960M0 780h960M0 810h960M0 840h960M0 870h960M0 900h960M0 930h960M0 960h960"/>
+  </g>
+  <g id="patch-10" class="fragment custom patches patch s2" data-fragment-index="3" stroke-width="2.1">
+    <line x1="0" y1="0" x2="0" y2="960" pathLength="1" style="--i: 0"/>
+    <line x1="0" y1="0" x2="960" y2="0" pathLength="1" style="--i: 0"/>
+    <line x1="160" y1="0" x2="160" y2="960" pathLength="1" style="--i: 1"/>
+    <line x1="0" y1="160" x2="960" y2="160" pathLength="1" style="--i: 1"/>
+    <line x1="320" y1="0" x2="320" y2="960" pathLength="1" style="--i: 2"/>
+    <line x1="0" y1="320" x2="960" y2="320" pathLength="1" style="--i: 2"/>
+    <line x1="480" y1="0" x2="480" y2="960" pathLength="1" style="--i: 3"/>
+    <line x1="0" y1="480" x2="960" y2="480" pathLength="1" style="--i: 3"/>
+    <line x1="640" y1="0" x2="640" y2="960" pathLength="1" style="--i: 4"/>
+    <line x1="0" y1="640" x2="960" y2="640" pathLength="1" style="--i: 4"/>
+    <line x1="800" y1="0" x2="800" y2="960" pathLength="1" style="--i: 5"/>
+    <line x1="0" y1="800" x2="960" y2="800" pathLength="1" style="--i: 5"/>
+    <line x1="960" y1="0" x2="960" y2="960" pathLength="1" style="--i: 6"/>
+    <line x1="0" y1="960" x2="960" y2="960" pathLength="1" style="--i: 6"/>
+  </g>
+  <g id="patch-30" class="fragment custom patches patch ls" data-fragment-index="4" stroke-width="5.3">
+    <line x1="0" y1="0" x2="0" y2="960" pathLength="1" style="--i: 0"/>
+    <line x1="0" y1="0" x2="960" y2="0" pathLength="1" style="--i: 0"/>
+    <line x1="480" y1="0" x2="480" y2="960" pathLength="1" style="--i: 1"/>
+    <line x1="0" y1="480" x2="960" y2="480" pathLength="1" style="--i: 1"/>
+    <line x1="960" y1="0" x2="960" y2="960" pathLength="1" style="--i: 2"/>
+    <line x1="0" y1="960" x2="960" y2="960" pathLength="1" style="--i: 2"/>
+  </g>
+  <g id="chip-160" class="fragment custom chip draw bad" data-fragment-index="5" style="--from: 160px; --to: 160px" stroke-width="4">
+    <rect class="outline" width="160" height="160" pathLength="1"/>
+    <g class="tag">
+      <rect x="35" y="115" width="125" height="45"/>
+      <text x="97.5" y="148" font-size="32" text-anchor="middle" fill="currentColor" stroke="none">160 m</text>
+    </g>
+  </g>
+  <g id="chip-320" class="fragment custom chip resize bad" data-fragment-index="6" style="--from: 160px; --to: 320px" stroke-width="4">
+    <rect class="outline" width="320" height="320" pathLength="1"/>
+    <g class="tag">
+      <rect x="195" y="275" width="125" height="45"/>
+      <text x="257.5" y="308" font-size="32" text-anchor="middle" fill="currentColor" stroke="none">320 m</text>
+    </g>
+  </g>
+  <g id="chip-640" class="fragment custom chip resize bad" data-fragment-index="7" style="--from: 320px; --to: 640px" stroke-width="4">
+    <rect class="outline" width="640" height="640" pathLength="1"/>
+    <g class="tag">
+      <rect x="515" y="595" width="125" height="45"/>
+      <text x="577.5" y="628" font-size="32" text-anchor="middle" fill="currentColor" stroke="none">640 m</text>
+    </g>
+  </g>
+  <g id="chip-960" class="fragment custom chip resize ok" data-fragment-index="8" style="--from: 640px; --to: 960px" stroke-width="4">
+    <rect class="outline" width="960" height="960" pathLength="1"/>
+    <g class="tag">
+      <rect x="835" y="915" width="125" height="45"/>
+      <text x="897.5" y="948" font-size="32" text-anchor="middle" fill="currentColor" stroke="none">960 m</text>
+    </g>
+  </g>
+  <g id="readout" fill="currentColor" stroke="none">
+    <g id="ro-band-10" class="fragment custom ro-band" data-fragment-index="1">
+      <rect class="swatch s2" x="1020" y="7" width="21" height="21"/>
+      <text class="name" x="1053" y="29" font-size="32">Sentinel-2 10 m</text>
+    </g>
+    <g id="ro-patch-10" class="fragment custom ro-patch" data-fragment-index="3">
+      <line class="patch s2" x1="1020" y1="57.5" x2="1041" y2="57.5" stroke="currentColor" stroke-width="2.1"/>
+      <text class="mono" x="1053" y="65" font-size="23">16 px patch = 160 m</text>
+    </g>
+    <g id="ro-band-30" class="fragment custom ro-band" data-fragment-index="2">
+      <rect class="swatch ls" x="1020" y="197" width="21" height="21"/>
+      <text class="name" x="1053" y="219" font-size="32">Landsat 30 m</text>
+    </g>
+    <g id="ro-patch-30" class="fragment custom ro-patch" data-fragment-index="4">
+      <line class="patch ls" x1="1020" y1="247.5" x2="1041" y2="247.5" stroke="currentColor" stroke-width="5.3"/>
+      <text class="mono" x="1053" y="255" font-size="23">16 px patch = 480 m</text>
+    </g>
+    <g id="ro-160" class="fragment custom ro-cand" data-fragment-index="5">
+      <text id="ro-10-160" class="row mono ok" x="1053" y="106" font-size="28" style="--i: 0">16 px → 1 patch</text>
+      <text id="ro-30-160" class="row mono bad" x="1053" y="296" font-size="28" style="--i: 1">5.33 px → 0.33 patches</text>
+      <text class="label mono" x="1020" y="740" font-size="20">CANDIDATE CHIP</text>
+      <text class="size" x="1020" y="850" font-size="100">160 m</text>
+    </g>
+    <g id="ro-320" class="fragment custom ro-cand" data-fragment-index="6">
+      <text id="ro-10-320" class="row mono ok" x="1053" y="106" font-size="28" style="--i: 0">32 px → 2 patches</text>
+      <text id="ro-30-320" class="row mono bad" x="1053" y="296" font-size="28" style="--i: 1">10.67 px → 0.67 patches</text>
+      <text class="label mono" x="1020" y="740" font-size="20">CANDIDATE CHIP</text>
+      <text class="size" x="1020" y="850" font-size="100">320 m</text>
+    </g>
+    <g id="ro-640" class="fragment custom ro-cand" data-fragment-index="7">
+      <text id="ro-10-640" class="row mono ok" x="1053" y="106" font-size="28" style="--i: 0">64 px → 4 patches</text>
+      <text id="ro-30-640" class="row mono bad" x="1053" y="296" font-size="28" style="--i: 1">21.33 px → 1.33 patches</text>
+      <text class="label mono" x="1020" y="740" font-size="20">CANDIDATE CHIP</text>
+      <text class="size" x="1020" y="850" font-size="100">640 m</text>
+    </g>
+    <g id="ro-960" class="fragment custom ro-cand" data-fragment-index="8">
+      <text id="ro-10-960" class="row mono ok" x="1053" y="106" font-size="28" style="--i: 0">96 px → 6 patches</text>
+      <text id="ro-30-960" class="row mono ok" x="1053" y="296" font-size="28" style="--i: 1">32 px → 2 patches</text>
+      <text class="label mono" x="1020" y="740" font-size="20">CANDIDATE CHIP</text>
+      <text class="size" x="1020" y="850" font-size="100">960 m</text>
+    </g>
+  </g>
+  <g id="verdict-160" class="fragment custom verdict bad" data-fragment-index="5" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="1370" y1="770" x2="1455" y2="855" pathLength="1" style="--i: 0"/>
+    <line x1="1455" y1="770" x2="1370" y2="855" pathLength="1" style="--i: 1"/>
+  </g>
+  <g id="verdict-320" class="fragment custom verdict bad" data-fragment-index="6" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="1370" y1="770" x2="1455" y2="855" pathLength="1" style="--i: 0"/>
+    <line x1="1455" y1="770" x2="1370" y2="855" pathLength="1" style="--i: 1"/>
+  </g>
+  <g id="verdict-640" class="fragment custom verdict bad" data-fragment-index="7" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="1370" y1="770" x2="1455" y2="855" pathLength="1" style="--i: 0"/>
+    <line x1="1455" y1="770" x2="1370" y2="855" pathLength="1" style="--i: 1"/>
+  </g>
+  <g id="verdict-960" class="fragment custom verdict ok" data-fragment-index="8" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M1370 816.75L1400.6 846.5L1455 778.5" pathLength="1"/>
+  </g>
+  <g id="caption" class="fragment custom caption" data-fragment-index="9" fill="currentColor" stroke="none">
+    <text class="mono" x="1020" y="950" font-size="23"><tspan class="hl">960 m</tspan> = 2 × lcm(160, 480)</text>
+  </g>
+</svg>

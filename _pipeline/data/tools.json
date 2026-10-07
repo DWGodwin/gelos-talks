@@ -1,0 +1,34 @@
+{
+ "stac": {
+  "name": "STAC",
+  "logo": "images/tools/stac.png"
+ },
+ "xarray": {
+  "name": "xarray",
+  "logo": "images/tools/xarray.svg"
+ },
+ "dask": {
+  "name": "Dask",
+  "logo": "images/tools/dask.svg"
+ },
+ "zarr": {
+  "name": "Zarr",
+  "logo": "images/tools/zarr.svg",
+  "caption": "cloud Zarr",
+  "option": "generate:alphaearth"
+ },
+ "source_coop": {
+  "name": "Source Cooperative",
+  "logo": "images/tools/source-coop.svg",
+  "caption": "source.coop",
+  "option": "generate:alphaearth"
+ },
+ "pmtiles": {
+  "name": "PMTiles",
+  "logo": "images/tools/pmtiles.svg"
+ },
+ "s3": {
+  "name": "Amazon S3",
+  "logo": "images/tools/s3.svg"
+ }
+}

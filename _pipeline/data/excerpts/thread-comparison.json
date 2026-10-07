@@ -1,0 +1,38 @@
+{
+ "file": "gelos-lc/configs/comparisons/02_across_families.yaml",
+ "rows": [
+  {
+   "t": "experiments:"
+  },
+  {
+   "t": "  - data_version: \"v0.50.1\"",
+   "ids": [
+    "version"
+   ]
+  },
+  {
+   "t": "    config: \"exp004_prithvi600\"",
+   "ids": [
+    "experiment"
+   ]
+  },
+  {
+   "t": "    strategy: \"all_steps_of_middle_patch\"",
+   "ids": [
+    "experiment"
+   ]
+  },
+  {
+   "gap": true
+  },
+  {
+   "t": "comp_plots:"
+  },
+  {
+   "t": "  - type: knn_purity_plot",
+   "ids": [
+    "plot"
+   ]
+  }
+ ]
+}

@@ -4,9 +4,8 @@
 // !default lets a theme layered on top (e.g. ../cng) override them.
 $ink: #F2F4F6 !default;
 $paper: #1D232B !default;
-$accent: #FFD626 !default;
+$accent: #2DD4BF !default;
 $accent-2: #418BD9 !default;
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;700&display=swap');
 
 $font-family-sans-serif: 'Inter', system-ui, sans-serif !default;
@@ -23,6 +22,20 @@ $presentation-h1-font-size: 2.5em !default;
 $presentation-h2-font-size: 1.8em !default;
 
 /*-- scss:rules --*/
+
+.flow {
+  background-clip: text;
+  -webkit-background-clip: text;          /* show the background only inside the glyphs */
+  -webkit-text-fill-color: transparent;   /* make the letters themselves see-through */
+  background-attachment: fixed;           /* anchor the image to the viewport, not the element */
+  animation: animate 40s linear infinite;
+  font-weight: 900;                       /* thick letters = more image visible */
+}
+
+@keyframes animate {
+  0%  { background-position: left 0px top 10px; }
+  40% { background-position: left 800px top 10px; }
+}
 
 .reveal a {
   text-decoration: underline;
@@ -114,7 +127,7 @@ $presentation-h2-font-size: 1.8em !default;
 }
 
 .reveal .hl,
-.yellow {
+.teal {
   color: $accent;
 }
 
@@ -249,4 +262,31 @@ $presentation-h2-font-size: 1.8em !default;
 .reveal-viewport .reveal .slide-logo,
 .reveal-viewport .reveal .slide-menu-button {
   bottom: 16px;
+}
+
+/* ---- Text helpers (continued) ----------------------------------------- */
+
+/* Stacked list of a few large labels, one paragraph each, with an optional
+   .caption line beneath; e.g. the three datasets on the intro slide */
+.reveal .trio {
+  margin-top: 0.6em;   /* breathing room under a .statement lead-in */
+}
+
+.reveal .trio > p {
+  margin: 0 0 0.75em;
+  font-size: 1.6em;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* Small muted line under a large label */
+.reveal .caption {
+  display: block;
+  margin-top: 0.1em;
+  font-size: 0.45em;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1.3;
+  color: rgba($ink, 0.5);
 }

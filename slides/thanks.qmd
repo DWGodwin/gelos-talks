@@ -1,0 +1,16 @@
+## {#thanks data-autoslide="0" data-state="no-bars"}
+
+<!-- Closing slide shared by every deck: "Thank you" in the .flow style of the
+     title slide, with the app link and the speaker's name left on screen
+     for Q&A. data-autoslide="0" holds it in auto-advancing decks; no-bars
+     hides the progress and countdown bars. -->
+
+::: {.center-v}
+[Thank you]{.flow style="font-size: 5em; line-height: 1; background-image: url(images/backgrounds/clark-cga-background.webp)"}
+
+[Questions?]{.statement-sub}
+
+[[clarkcga.github.io/gelos-app](https://clarkcga.github.io/gelos-app/)]{.muted}
+
+[Denys Godwin]{.muted}
+:::

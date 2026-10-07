@@ -1,0 +1,14 @@
+## {#title data-autoslide="0" data-state="no-bars"}
+
+<!-- Title slide shared by every deck. Decks set pagetitle instead of title, so
+     Quarto doesn't generate its own title slide and this one can use .flow.
+     data-autoslide="0" holds it in auto-advancing decks until you click;
+     no-bars hides the progress and countdown bars. -->
+
+::: {.center-v}
+[GELOS]{.flow style="font-size: 6em; line-height: 1; background-image: url(images/backgrounds/clark-cga-background.webp)"}
+
+[Geospatial Exploration of Latent Observation Space]{.statement-sub}
+
+[Denys Godwin]{.muted}
+:::

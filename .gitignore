@@ -3,3 +3,6 @@
 **/*.quarto_ipynb
 /.pixi/
 /videos/raw/
+__pycache__/
+/_extraction/cache/
+/_lc-figures/cache/

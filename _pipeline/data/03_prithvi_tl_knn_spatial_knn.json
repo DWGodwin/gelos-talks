@@ -78,6 +78,14 @@
    "subs": {
     "model:spatial_knn": "k = 1, 2, 5, 10, 20, 50"
    },
+   "lines": {
+    "source:s2_6": "bands: S2L2A",
+    "generate:prithvi_eo_v2_300": "model: prithvi_eo_v2_300",
+    "extract:all_steps_of_middle_patch": "all_steps_of_middle_patch",
+    "generate:prithvi_eo_v2_300_tl_coords": "prithvi_eo_v2_300_tl_coords",
+    "generate:prithvi_eo_v2_600": "model: prithvi_eo_v2_600",
+    "generate:prithvi_eo_v2_600_tl_coords": "prithvi_eo_v2_600_tl_coords"
+   },
    "colors": {
     "generate:prithvi_eo_v2_300": [
      "#8ab4e8"
@@ -92,7 +100,138 @@
      "#00838f"
     ]
    },
-   "caption": "Distance on the ground from each chip to its k nearest neighbors in embedding space, averaged over all chips"
+   "caption": "Distance on the ground from each chip to its k nearest neighbors in embedding space, averaged over all chips",
+   "config": {
+    "file": "gelos-lc/configs/comparisons/03_prithvi_tl_knn_spatial_knn.yaml",
+    "rows": [
+     {
+      "t": "experiments:"
+     },
+     {
+      "t": "  - config: \"exp001_prithvi300\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300"
+      ]
+     },
+     {
+      "t": "    label: \"Prithvi 300M | S2 (6-band) | No coords\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300"
+      ]
+     },
+     {
+      "t": "    color: \"#8ab4e8\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp038_prithvi300_tl\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300_tl_coords"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300_tl_coords"
+      ]
+     },
+     {
+      "t": "    label: \"Prithvi 300M TL | S2 (6-band) | Time + location\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300_tl_coords"
+      ]
+     },
+     {
+      "t": "    color: \"#1f4e8c\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300_tl_coords"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp004_prithvi600\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "t": "    label: \"Prithvi 600M | S2 (6-band) | No coords\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "t": "    color: \"#80cbc4\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp039_prithvi600_tl\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600_tl_coords"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600_tl_coords"
+      ]
+     },
+     {
+      "t": "    label: \"Prithvi 600M TL | S2 (6-band) | Time + location\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600_tl_coords"
+      ]
+     },
+     {
+      "t": "    color: \"#00838f\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600_tl_coords"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "comp_plots:"
+     },
+     {
+      "t": "  - type: knn_gsd_plot",
+      "ids": [
+       "model:spatial_knn"
+      ]
+     },
+     {
+      "t": "    metric: knn_geo_distance_comparison",
+      "ids": [
+       "model:spatial_knn"
+      ]
+     }
+    ]
+   }
   },
   "knn_lat_diff_plot": {
    "image": "images/comparisons/03_prithvi_tl_knn_spatial_knn/knn_lat_diff_plot.png",
@@ -169,6 +308,14 @@
    "subs": {
     "model:spatial_knn": "k = 1, 2, 5, 10, 20, 50"
    },
+   "lines": {
+    "source:s2_6": "bands: S2L2A",
+    "generate:prithvi_eo_v2_300": "model: prithvi_eo_v2_300",
+    "extract:all_steps_of_middle_patch": "all_steps_of_middle_patch",
+    "generate:prithvi_eo_v2_300_tl_coords": "prithvi_eo_v2_300_tl_coords",
+    "generate:prithvi_eo_v2_600": "model: prithvi_eo_v2_600",
+    "generate:prithvi_eo_v2_600_tl_coords": "prithvi_eo_v2_600_tl_coords"
+   },
    "colors": {
     "generate:prithvi_eo_v2_300": [
      "#8ab4e8"
@@ -183,7 +330,138 @@
      "#00838f"
     ]
    },
-   "caption": "Difference in latitude between each chip and its k nearest neighbors in embedding space, averaged over all chips"
+   "caption": "Difference in latitude between each chip and its k nearest neighbors in embedding space, averaged over all chips",
+   "config": {
+    "file": "gelos-lc/configs/comparisons/03_prithvi_tl_knn_spatial_knn.yaml",
+    "rows": [
+     {
+      "t": "experiments:"
+     },
+     {
+      "t": "  - config: \"exp001_prithvi300\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300"
+      ]
+     },
+     {
+      "t": "    label: \"Prithvi 300M | S2 (6-band) | No coords\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300"
+      ]
+     },
+     {
+      "t": "    color: \"#8ab4e8\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp038_prithvi300_tl\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300_tl_coords"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300_tl_coords"
+      ]
+     },
+     {
+      "t": "    label: \"Prithvi 300M TL | S2 (6-band) | Time + location\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300_tl_coords"
+      ]
+     },
+     {
+      "t": "    color: \"#1f4e8c\"",
+      "ids": [
+       "generate:prithvi_eo_v2_300_tl_coords"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp004_prithvi600\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "t": "    label: \"Prithvi 600M | S2 (6-band) | No coords\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "t": "    color: \"#80cbc4\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp039_prithvi600_tl\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600_tl_coords"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600_tl_coords"
+      ]
+     },
+     {
+      "t": "    label: \"Prithvi 600M TL | S2 (6-band) | Time + location\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600_tl_coords"
+      ]
+     },
+     {
+      "t": "    color: \"#00838f\"",
+      "ids": [
+       "generate:prithvi_eo_v2_600_tl_coords"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "comp_plots:"
+     },
+     {
+      "t": "  - type: knn_lat_diff_plot",
+      "ids": [
+       "model:spatial_knn"
+      ]
+     },
+     {
+      "t": "    metric: knn_geo_distance_comparison",
+      "ids": [
+       "model:spatial_knn"
+      ]
+     }
+    ]
+   }
   }
  },
  "stages": [
@@ -213,6 +491,20 @@
     {
      "id": "source:multi_sensor_annual",
      "label": "Multi-sensor,\nannual"
+    }
+   ],
+   "tools": [
+    {
+     "name": "STAC",
+     "logo": "images/tools/stac.png"
+    },
+    {
+     "name": "xarray",
+     "logo": "images/tools/xarray.svg"
+    },
+    {
+     "name": "Dask",
+     "logo": "images/tools/dask.svg"
     }
    ]
   },
@@ -270,6 +562,20 @@
     {
      "id": "generate:prithvi_eo_v2_600_tl_coords",
      "label": "Prithvi 600M TL"
+    }
+   ],
+   "tools": [
+    {
+     "name": "Zarr",
+     "logo": "images/tools/zarr.svg",
+     "caption": "cloud Zarr",
+     "option": "generate:alphaearth"
+    },
+    {
+     "name": "Source Cooperative",
+     "logo": "images/tools/source-coop.svg",
+     "caption": "source.coop",
+     "option": "generate:alphaearth"
     }
    ]
   },

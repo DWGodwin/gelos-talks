@@ -11,7 +11,7 @@
 
 ::: {.center-v}
 [GELOS]{.statement}
-[Fire]{.statement .hl}
+[Fire]{.flow style="display: block; font-size: 4em; line-height: 1; background-image: url(images/backgrounds/clark-cga-background.webp)"}
 :::
 
 ## GELOS Fire {#fire-dataset}

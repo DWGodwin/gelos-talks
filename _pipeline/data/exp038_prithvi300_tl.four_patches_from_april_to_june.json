@@ -41,7 +41,114 @@
     ],
     []
    ],
-   "caption": "Each point is one chip's embedding, projected to 2D with t-SNE and colored by land cover class"
+   "lines": {
+    "source:s2_6": "bands: S2L2A",
+    "generate:prithvi_eo_v2_300_tl_coords": "prithvi_eo_v2_300_tl_coords",
+    "extract:four_patches_from_april_to_june": "four_patches_from_april_to_june",
+    "transform:tsne": "transform: tsne"
+   },
+   "caption": "Each point is one chip's embedding, projected to 2D with t-SNE and colored by land cover class",
+   "config": {
+    "file": "gelos-lc/configs/exp038_prithvi300_tl.yaml",
+    "rows": [
+     {
+      "t": "data_version: \"v0.50.1\"",
+      "ids": [
+       "source:s2_6"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "data:"
+     },
+     {
+      "t": "  init_args:"
+     },
+     {
+      "t": "    bands:",
+      "ids": [
+       "source:s2_6"
+      ]
+     },
+     {
+      "t": "      S2L2A: [BLUE, GREEN, RED, NIR_NARROW, SWIR_1, SWIR_2]",
+      "ids": [
+       "source:s2_6"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "model:"
+     },
+     {
+      "t": "  init_args:"
+     },
+     {
+      "t": "    model: prithvi_eo_v2_300_tl_coords",
+      "ids": [
+       "generate:prithvi_eo_v2_300_tl_coords"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "embedding_extraction_strategies:"
+     },
+     {
+      "t": "  four_patches_from_april_to_june:"
+     },
+     {
+      "t": "    title: \"4 Central Patches, Apr–Jun\"",
+      "ids": [
+       "extract:four_patches_from_april_to_june"
+      ]
+     },
+     {
+      "t": "    slice_args:",
+      "ids": [
+       "extract:four_patches_from_april_to_june"
+      ]
+     },
+     {
+      "t": "    - start: 73",
+      "ids": [
+       "extract:four_patches_from_april_to_june"
+      ]
+     },
+     {
+      "t": "      stop: 77",
+      "ids": [
+       "extract:four_patches_from_april_to_june"
+      ]
+     },
+     {
+      "t": "      step: 1",
+      "ids": [
+       "extract:four_patches_from_april_to_june"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "    plots:"
+     },
+     {
+      "t": "      - type: scatter_2d"
+     },
+     {
+      "t": "        transform: tsne",
+      "ids": [
+       "transform:tsne"
+      ]
+     }
+    ]
+   }
   },
   "umap_scatter_2d": {
    "image": "images/experiments/exp038_prithvi300_tl/four_patches_from_april_to_june_umap_scatter_2d.png",
@@ -81,7 +188,114 @@
     ],
     []
    ],
-   "caption": "Each point is one chip's embedding, projected to 2D with UMAP and colored by land cover class"
+   "lines": {
+    "source:s2_6": "bands: S2L2A",
+    "generate:prithvi_eo_v2_300_tl_coords": "prithvi_eo_v2_300_tl_coords",
+    "extract:four_patches_from_april_to_june": "four_patches_from_april_to_june",
+    "transform:umap": "transform: umap"
+   },
+   "caption": "Each point is one chip's embedding, projected to 2D with UMAP and colored by land cover class",
+   "config": {
+    "file": "gelos-lc/configs/exp038_prithvi300_tl.yaml",
+    "rows": [
+     {
+      "t": "data_version: \"v0.50.1\"",
+      "ids": [
+       "source:s2_6"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "data:"
+     },
+     {
+      "t": "  init_args:"
+     },
+     {
+      "t": "    bands:",
+      "ids": [
+       "source:s2_6"
+      ]
+     },
+     {
+      "t": "      S2L2A: [BLUE, GREEN, RED, NIR_NARROW, SWIR_1, SWIR_2]",
+      "ids": [
+       "source:s2_6"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "model:"
+     },
+     {
+      "t": "  init_args:"
+     },
+     {
+      "t": "    model: prithvi_eo_v2_300_tl_coords",
+      "ids": [
+       "generate:prithvi_eo_v2_300_tl_coords"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "embedding_extraction_strategies:"
+     },
+     {
+      "t": "  four_patches_from_april_to_june:"
+     },
+     {
+      "t": "    title: \"4 Central Patches, Apr–Jun\"",
+      "ids": [
+       "extract:four_patches_from_april_to_june"
+      ]
+     },
+     {
+      "t": "    slice_args:",
+      "ids": [
+       "extract:four_patches_from_april_to_june"
+      ]
+     },
+     {
+      "t": "    - start: 73",
+      "ids": [
+       "extract:four_patches_from_april_to_june"
+      ]
+     },
+     {
+      "t": "      stop: 77",
+      "ids": [
+       "extract:four_patches_from_april_to_june"
+      ]
+     },
+     {
+      "t": "      step: 1",
+      "ids": [
+       "extract:four_patches_from_april_to_june"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "    plots:"
+     },
+     {
+      "t": "      - type: scatter_2d"
+     },
+     {
+      "t": "        transform: umap",
+      "ids": [
+       "transform:umap"
+      ]
+     }
+    ]
+   }
   }
  },
  "stages": [
@@ -111,6 +325,20 @@
     {
      "id": "source:multi_sensor_annual",
      "label": "Multi-sensor,\nannual"
+    }
+   ],
+   "tools": [
+    {
+     "name": "STAC",
+     "logo": "images/tools/stac.png"
+    },
+    {
+     "name": "xarray",
+     "logo": "images/tools/xarray.svg"
+    },
+    {
+     "name": "Dask",
+     "logo": "images/tools/dask.svg"
     }
    ]
   },
@@ -168,6 +396,20 @@
     {
      "id": "generate:prithvi_eo_v2_600_tl_coords",
      "label": "Prithvi 600M TL"
+    }
+   ],
+   "tools": [
+    {
+     "name": "Zarr",
+     "logo": "images/tools/zarr.svg",
+     "caption": "cloud Zarr",
+     "option": "generate:alphaearth"
+    },
+    {
+     "name": "Source Cooperative",
+     "logo": "images/tools/source-coop.svg",
+     "caption": "source.coop",
+     "option": "generate:alphaearth"
     }
    ]
   },

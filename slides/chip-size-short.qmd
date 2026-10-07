@@ -1,0 +1,14 @@
+<!-- Short version of chip-size.qmd, for timed decks: the slide opens with the
+     pixel and patch grids already drawn and only steps through the four
+     candidate chips (160, 320, 640, 960 m) and the caption (5 clicks).
+     data-autoslide holds each of its six states for 3 s, so the slide takes
+     18 s of the CNG lightning talk. It also makes the slide advance by itself
+     in a deck with no auto-slide; drop it there. -->
+
+## Why 960 m chips? {#chip-size-short data-autoslide="3000"}
+
+{{< grid-alignment start=patches >}}
+
+::: {.footer}
+Chip origins are snapped to a 60 m-aligned UTM grid, so one 30 m Landsat pixel covers exactly 3 × 3 Sentinel-2 10 m pixels and the grids nest.
+:::

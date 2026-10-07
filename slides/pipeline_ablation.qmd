@@ -1,7 +1,9 @@
 <!-- Band ablation: how far each chip's embedding moves (cosine similarity to
      the unperturbed control) when 10% noise is added to the blue or the NIR
-     band, per land cover class. A question slide, then one click per model; the slide opens already
-     stacked, since the pipeline has been drawn by now.
+     band, per land cover class. A question slide, then the slide opens already
+     stacked, since the pipeline has been drawn by now, on what sets the three
+     experiments apart (config=diff: the perturb_bands lines of each config).
+     One click shows the plot, and one more per model after that.
      Run `pixi run sync` after changing a shortcode (see README). -->
 
 ## {#q-band-ablation}
@@ -19,5 +21,5 @@
   06a_prithvi300_band_ablation_middle_patch:per_class_ecdf_plot
   06b_prithvi600_band_ablation_middle_patch:per_class_ecdf_plot
   06c_terramind_base_band_ablation_middle_patch:per_class_ecdf_plot
-  start=stacked
+  start=stacked config=diff
 >}}

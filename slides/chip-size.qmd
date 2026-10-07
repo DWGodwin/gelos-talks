@@ -1,0 +1,15 @@
+<!-- Why chips are 960 m on a side: one animated figure, stepped with clicks.
+     Pixel grids for Sentinel-2 (10 m) and Landsat (30 m) stack up, each is
+     cut into 16 × 16 px ViT patches, then four chip sizes are tried: 160, 320
+     and 640 m leave Landsat with part-patches; 960 m, the first multiple of
+     lcm(160, 480) = 480 m past 640 m, tiles both and gives more context per
+     chip than settling for 480 m. The figure is generated: see _grid/ and
+     "Grid-alignment figure" in the README. -->
+
+## Why 960 m chips? {#chip-size}
+
+{{< grid-alignment >}}
+
+::: {.footer}
+Chip origins are snapped to a 60 m-aligned UTM grid, so one 30 m Landsat pixel covers exactly 3 × 3 Sentinel-2 10 m pixels and the grids nest.
+:::

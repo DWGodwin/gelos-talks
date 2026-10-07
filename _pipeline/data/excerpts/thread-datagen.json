@@ -1,0 +1,14 @@
+{
+ "file": "gelos-lc-datagen/config.yml",
+ "rows": [
+  {
+   "t": "dataset:"
+  },
+  {
+   "t": "  version: \"v0.50.1\"",
+   "ids": [
+    "version"
+   ]
+  }
+ ]
+}

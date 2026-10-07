@@ -1,21 +1,12 @@
 ---
-title: "GELOS"
-subtitle: "CNG lightning talk"
+pagetitle: "GELOS"
 author: "Denys Godwin"
 format: cng-revealjs
-title-slide-attributes:
-  data-autoslide: "0"
-  data-state: no-bars
+# Add ?autoSlide=0 before the # in the preview URL to stop auto-advance while editing.
+# Include a subset of slides/ here; aim for 20 slides × 15 s.
+# pagetitle, not title: the title slide comes from slides/title.qmd.
 ---
 
-<!-- Add ?autoSlide=0 before the # in the preview URL to stop auto-advance while editing -->
+{{< include slides/title.qmd >}}
 
-<!-- Include a subset of slides/ here; aim for 20 slides × 15 s -->
-
-## {#applause data-autoslide="0" data-state="no-bars"}
-
-::: {.center-v}
-[Thank you!]{.statement}
-
-[(applause time!)]{.muted}
-:::
+{{< include slides/thanks.qmd >}}

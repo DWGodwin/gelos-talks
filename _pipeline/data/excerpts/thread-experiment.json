@@ -1,0 +1,26 @@
+{
+ "file": "gelos-lc/configs/exp004_prithvi600.yaml",
+ "rows": [
+  {
+   "t": "data_version: \"v0.50.1\"",
+   "ids": [
+    "version"
+   ]
+  },
+  {
+   "gap": true
+  },
+  {
+   "t": "model:"
+  },
+  {
+   "t": "  init_args:"
+  },
+  {
+   "t": "    model: prithvi_eo_v2_600",
+   "ids": [
+    "model"
+   ]
+  }
+ ]
+}

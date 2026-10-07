@@ -1,0 +1,331 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 647" role="img" aria-label="S2 L2A, S1 RTC and DEM chips at four seasons are cut into 6 by 6 patches and pass through Terramind V1 Large, which returns one token per patch per season. Of those tokens, Center Patch × 4 Time Steps keeps 4; 4 Central Patches, Apr–Jun keeps 4." fill="currentColor" stroke="none">
+  <g id="inputs">
+    <text class="head" x="122" y="18" font-size="14" text-anchor="middle">Jan–Mar</text>
+    <text class="head" x="192" y="18" font-size="14" text-anchor="middle">Apr–Jun</text>
+    <text class="head" x="262" y="18" font-size="14" text-anchor="middle">Jul–Sep</text>
+    <text class="head" x="332" y="18" font-size="14" text-anchor="middle">Oct–Dec</text>
+    <g id="in-s2l2a" class="used">
+      <text class="name" x="78" y="66" font-size="17" text-anchor="end">S2 L2A</text>
+      <image href="images/lc-dataset/chips/s2l2a_0.png" x="90" y="28" width="64" height="64"/>
+      <image href="images/lc-dataset/chips/s2l2a_1.png" x="160" y="28" width="64" height="64"/>
+      <image href="images/lc-dataset/chips/s2l2a_2.png" x="230" y="28" width="64" height="64"/>
+      <image href="images/lc-dataset/chips/s2l2a_3.png" x="300" y="28" width="64" height="64"/>
+    </g>
+    <g id="in-s1rtc" class="used">
+      <text class="name" x="78" y="136" font-size="17" text-anchor="end">S1 RTC</text>
+      <image href="images/lc-dataset/chips/s1rtc_0.png" x="90" y="98" width="64" height="64"/>
+      <image href="images/lc-dataset/chips/s1rtc_1.png" x="160" y="98" width="64" height="64"/>
+      <image href="images/lc-dataset/chips/s1rtc_2.png" x="230" y="98" width="64" height="64"/>
+      <image href="images/lc-dataset/chips/s1rtc_3.png" x="300" y="98" width="64" height="64"/>
+    </g>
+    <g id="in-lc2l2" class="unused">
+      <text class="name" x="78" y="206" font-size="17" text-anchor="end">Landsat</text>
+      <image href="images/lc-dataset/chips/lc2l2_0.png" x="90" y="168" width="64" height="64"/>
+      <image href="images/lc-dataset/chips/lc2l2_1.png" x="160" y="168" width="64" height="64"/>
+      <image href="images/lc-dataset/chips/lc2l2_2.png" x="230" y="168" width="64" height="64"/>
+      <image href="images/lc-dataset/chips/lc2l2_3.png" x="300" y="168" width="64" height="64"/>
+    </g>
+    <g id="in-dem" class="used">
+      <text class="name" x="78" y="276" font-size="17" text-anchor="end">DEM</text>
+      <image href="images/lc-dataset/chips/dem.png" x="90" y="238" width="64" height="64"/>
+    </g>
+    <text class="mono note" x="90" y="324" font-size="13">chip 044914 · 96 × 96 px at 10 m</text>
+  </g>
+  <g id="patchify" class="fragment custom patchify" data-fragment-index="1">
+    <path d="M90 28v64M100.67 28v64M111.33 28v64M122 28v64M132.67 28v64M143.33 28v64M154 28v64M90 28h64M90 38.67h64M90 49.33h64M90 60h64M90 70.67h64M90 81.33h64M90 92h64" pathLength="1" style="--i: 0"/>
+    <path d="M160 28v64M170.67 28v64M181.33 28v64M192 28v64M202.67 28v64M213.33 28v64M224 28v64M160 28h64M160 38.67h64M160 49.33h64M160 60h64M160 70.67h64M160 81.33h64M160 92h64" pathLength="1" style="--i: 1"/>
+    <path d="M230 28v64M240.67 28v64M251.33 28v64M262 28v64M272.67 28v64M283.33 28v64M294 28v64M230 28h64M230 38.67h64M230 49.33h64M230 60h64M230 70.67h64M230 81.33h64M230 92h64" pathLength="1" style="--i: 2"/>
+    <path d="M300 28v64M310.67 28v64M321.33 28v64M332 28v64M342.67 28v64M353.33 28v64M364 28v64M300 28h64M300 38.67h64M300 49.33h64M300 60h64M300 70.67h64M300 81.33h64M300 92h64" pathLength="1" style="--i: 3"/>
+    <path d="M90 98v64M100.67 98v64M111.33 98v64M122 98v64M132.67 98v64M143.33 98v64M154 98v64M90 98h64M90 108.67h64M90 119.33h64M90 130h64M90 140.67h64M90 151.33h64M90 162h64" pathLength="1" style="--i: 4"/>
+    <path d="M160 98v64M170.67 98v64M181.33 98v64M192 98v64M202.67 98v64M213.33 98v64M224 98v64M160 98h64M160 108.67h64M160 119.33h64M160 130h64M160 140.67h64M160 151.33h64M160 162h64" pathLength="1" style="--i: 5"/>
+    <path d="M230 98v64M240.67 98v64M251.33 98v64M262 98v64M272.67 98v64M283.33 98v64M294 98v64M230 98h64M230 108.67h64M230 119.33h64M230 130h64M230 140.67h64M230 151.33h64M230 162h64" pathLength="1" style="--i: 6"/>
+    <path d="M300 98v64M310.67 98v64M321.33 98v64M332 98v64M342.67 98v64M353.33 98v64M364 98v64M300 98h64M300 108.67h64M300 119.33h64M300 130h64M300 140.67h64M300 151.33h64M300 162h64" pathLength="1" style="--i: 7"/>
+    <path d="M90 238v64M100.67 238v64M111.33 238v64M122 238v64M132.67 238v64M143.33 238v64M154 238v64M90 238h64M90 248.67h64M90 259.33h64M90 270h64M90 280.67h64M90 291.33h64M90 302h64" pathLength="1" style="--i: 8"/>
+    <text class="mono" x="353.6" y="324" font-size="13" stroke="none">6 × 6 patches of 16 px</text>
+  </g>
+  <g id="model">
+    <path class="wire" d="M374 165H410M624 165H690V312"/>
+    <path class="tip" d="M420 165l-12 -7v14z"/>
+    <path class="tip" d="M690 324l-7 -12h14z"/>
+    <path class="block" d="M424 55L624 100V230L424 275Z"/>
+    <path class="fragment custom glow" data-fragment-index="2" d="M424 55L624 100V230L424 275Z"/>
+    <text class="mono label" x="518" y="128" font-size="12" text-anchor="middle">PRETRAINED ENCODER</text>
+    <text class="title" x="518" y="164" font-size="25" text-anchor="middle">Terramind V1</text>
+    <text class="title" x="518" y="194" font-size="25" text-anchor="middle">Large</text>
+  </g>
+  <g id="feed" class="fragment custom feed" data-fragment-index="2">
+    <g class="ghost" style="--dx: 318px; --dy: 105px; --i: 0">
+      <image href="images/lc-dataset/chips/s2l2a_0.png" x="90" y="28" width="64" height="64"/>
+      <path d="M90 28v64M100.67 28v64M111.33 28v64M122 28v64M132.67 28v64M143.33 28v64M154 28v64M90 28h64M90 38.67h64M90 49.33h64M90 60h64M90 70.67h64M90 81.33h64M90 92h64" pathLength="1"/>
+    </g>
+    <g class="ghost" style="--dx: 248px; --dy: 105px; --i: 1">
+      <image href="images/lc-dataset/chips/s2l2a_1.png" x="160" y="28" width="64" height="64"/>
+      <path d="M160 28v64M170.67 28v64M181.33 28v64M192 28v64M202.67 28v64M213.33 28v64M224 28v64M160 28h64M160 38.67h64M160 49.33h64M160 60h64M160 70.67h64M160 81.33h64M160 92h64" pathLength="1"/>
+    </g>
+    <g class="ghost" style="--dx: 178px; --dy: 105px; --i: 2">
+      <image href="images/lc-dataset/chips/s2l2a_2.png" x="230" y="28" width="64" height="64"/>
+      <path d="M230 28v64M240.67 28v64M251.33 28v64M262 28v64M272.67 28v64M283.33 28v64M294 28v64M230 28h64M230 38.67h64M230 49.33h64M230 60h64M230 70.67h64M230 81.33h64M230 92h64" pathLength="1"/>
+    </g>
+    <g class="ghost" style="--dx: 108px; --dy: 105px; --i: 3">
+      <image href="images/lc-dataset/chips/s2l2a_3.png" x="300" y="28" width="64" height="64"/>
+      <path d="M300 28v64M310.67 28v64M321.33 28v64M332 28v64M342.67 28v64M353.33 28v64M364 28v64M300 28h64M300 38.67h64M300 49.33h64M300 60h64M300 70.67h64M300 81.33h64M300 92h64" pathLength="1"/>
+    </g>
+    <g class="ghost" style="--dx: 318px; --dy: 35px; --i: 0">
+      <image href="images/lc-dataset/chips/s1rtc_0.png" x="90" y="98" width="64" height="64"/>
+      <path d="M90 98v64M100.67 98v64M111.33 98v64M122 98v64M132.67 98v64M143.33 98v64M154 98v64M90 98h64M90 108.67h64M90 119.33h64M90 130h64M90 140.67h64M90 151.33h64M90 162h64" pathLength="1"/>
+    </g>
+    <g class="ghost" style="--dx: 248px; --dy: 35px; --i: 1">
+      <image href="images/lc-dataset/chips/s1rtc_1.png" x="160" y="98" width="64" height="64"/>
+      <path d="M160 98v64M170.67 98v64M181.33 98v64M192 98v64M202.67 98v64M213.33 98v64M224 98v64M160 98h64M160 108.67h64M160 119.33h64M160 130h64M160 140.67h64M160 151.33h64M160 162h64" pathLength="1"/>
+    </g>
+    <g class="ghost" style="--dx: 178px; --dy: 35px; --i: 2">
+      <image href="images/lc-dataset/chips/s1rtc_2.png" x="230" y="98" width="64" height="64"/>
+      <path d="M230 98v64M240.67 98v64M251.33 98v64M262 98v64M272.67 98v64M283.33 98v64M294 98v64M230 98h64M230 108.67h64M230 119.33h64M230 130h64M230 140.67h64M230 151.33h64M230 162h64" pathLength="1"/>
+    </g>
+    <g class="ghost" style="--dx: 108px; --dy: 35px; --i: 3">
+      <image href="images/lc-dataset/chips/s1rtc_3.png" x="300" y="98" width="64" height="64"/>
+      <path d="M300 98v64M310.67 98v64M321.33 98v64M332 98v64M342.67 98v64M353.33 98v64M364 98v64M300 98h64M300 108.67h64M300 119.33h64M300 130h64M300 140.67h64M300 151.33h64M300 162h64" pathLength="1"/>
+    </g>
+    <g class="ghost" style="--dx: 318px; --dy: -105px; --i: 0">
+      <image href="images/lc-dataset/chips/dem.png" x="90" y="238" width="64" height="64"/>
+      <path d="M90 238v64M100.67 238v64M111.33 238v64M122 238v64M132.67 238v64M143.33 238v64M154 238v64M90 238h64M90 248.67h64M90 259.33h64M90 270h64M90 280.67h64M90 291.33h64M90 302h64" pathLength="1"/>
+    </g>
+  </g>
+  <g id="tokens" class="fragment custom tokens" data-fragment-index="2">
+    <text class="head" x="273" y="352" font-size="17" text-anchor="middle">Jan–Mar</text>
+    <text class="mono note" x="273" y="642" font-size="13" text-anchor="middle">time 0</text>
+    <text class="head" x="571" y="352" font-size="17" text-anchor="middle">Apr–Jun</text>
+    <text class="mono note" x="571" y="642" font-size="13" text-anchor="middle">time 1</text>
+    <text class="head" x="869" y="352" font-size="17" text-anchor="middle">Jul–Sep</text>
+    <text class="mono note" x="869" y="642" font-size="13" text-anchor="middle">time 2</text>
+    <text class="head" x="1167" y="352" font-size="17" text-anchor="middle">Oct–Dec</text>
+    <text class="mono note" x="1167" y="642" font-size="13" text-anchor="middle">time 3</text>
+    <g class="cells">
+      <rect x="145" y="365" width="41" height="41" rx="3" class="tok" fill="#e3705b" style="--dx: 524.5px; --dy: -61.5px; --i: 0"/>
+      <rect x="188" y="365" width="41" height="41" rx="3" class="tok" fill="#58059d" style="--dx: 481.5px; --dy: -61.5px; --i: 1"/>
+      <rect x="231" y="365" width="41" height="41" rx="3" class="tok" fill="#22078d" style="--dx: 438.5px; --dy: -61.5px; --i: 2"/>
+      <rect x="274" y="365" width="41" height="41" rx="3" class="tok" fill="#24078e" style="--dx: 395.5px; --dy: -61.5px; --i: 3"/>
+      <rect x="317" y="365" width="41" height="41" rx="3" class="tok" fill="#4f059a" style="--dx: 352.5px; --dy: -61.5px; --i: 4"/>
+      <rect x="360" y="365" width="41" height="41" rx="3" class="tok" fill="#1b078b" style="--dx: 309.5px; --dy: -61.5px; --i: 5"/>
+      <rect x="145" y="408" width="41" height="41" rx="3" class="tok" fill="#ed824e" style="--dx: 524.5px; --dy: -104.5px; --i: 6"/>
+      <rect x="188" y="408" width="41" height="41" rx="3" class="tok" fill="#120889" style="--dx: 481.5px; --dy: -104.5px; --i: 7"/>
+      <rect x="231" y="408" width="41" height="41" rx="3" class="tok" fill="#0e0887" style="--dx: 438.5px; --dy: -104.5px; --i: 8"/>
+      <rect x="274" y="408" width="41" height="41" rx="3" class="tok" fill="#20078d" style="--dx: 395.5px; --dy: -104.5px; --i: 9"/>
+      <rect x="317" y="408" width="41" height="41" rx="3" class="tok" fill="#470598" style="--dx: 352.5px; --dy: -104.5px; --i: 10"/>
+      <rect x="360" y="408" width="41" height="41" rx="3" class="tok" fill="#7803a6" style="--dx: 309.5px; --dy: -104.5px; --i: 11"/>
+      <rect x="145" y="451" width="41" height="41" rx="3" class="tok" fill="#7f04a7" style="--dx: 524.5px; --dy: -147.5px; --i: 12"/>
+      <rect x="188" y="451" width="41" height="41" rx="3" class="tok" fill="#4a0599" style="--dx: 481.5px; --dy: -147.5px; --i: 13"/>
+      <rect x="231" y="451" width="41" height="41" rx="3" class="tok" fill="#8308a5" style="--dx: 438.5px; --dy: -147.5px; --i: 14"/>
+      <rect x="274" y="451" width="41" height="41" rx="3" class="tok" fill="#0d0887" style="--dx: 395.5px; --dy: -147.5px; --i: 15"/>
+      <rect x="317" y="451" width="41" height="41" rx="3" class="tok" fill="#360693" style="--dx: 352.5px; --dy: -147.5px; --i: 16"/>
+      <rect x="360" y="451" width="41" height="41" rx="3" class="tok" fill="#b23088" style="--dx: 309.5px; --dy: -147.5px; --i: 17"/>
+      <rect x="145" y="494" width="41" height="41" rx="3" class="tok" fill="#8207a5" style="--dx: 524.5px; --dy: -190.5px; --i: 18"/>
+      <rect x="188" y="494" width="41" height="41" rx="3" class="tok" fill="#a02193" style="--dx: 481.5px; --dy: -190.5px; --i: 19"/>
+      <rect x="231" y="494" width="41" height="41" rx="3" class="tok" fill="#6e04a3" style="--dx: 438.5px; --dy: -190.5px; --i: 20"/>
+      <rect x="274" y="494" width="41" height="41" rx="3" class="tok" fill="#2d0790" style="--dx: 395.5px; --dy: -190.5px; --i: 21"/>
+      <rect x="317" y="494" width="41" height="41" rx="3" class="tok" fill="#6404a0" style="--dx: 352.5px; --dy: -190.5px; --i: 22"/>
+      <rect x="360" y="494" width="41" height="41" rx="3" class="tok" fill="#a22392" style="--dx: 309.5px; --dy: -190.5px; --i: 23"/>
+      <rect x="145" y="537" width="41" height="41" rx="3" class="tok" fill="#f6a93a" style="--dx: 524.5px; --dy: -233.5px; --i: 24"/>
+      <rect x="188" y="537" width="41" height="41" rx="3" class="tok" fill="#9f2094" style="--dx: 481.5px; --dy: -233.5px; --i: 25"/>
+      <rect x="231" y="537" width="41" height="41" rx="3" class="tok" fill="#ac2b8c" style="--dx: 438.5px; --dy: -233.5px; --i: 26"/>
+      <rect x="274" y="537" width="41" height="41" rx="3" class="tok" fill="#2e0791" style="--dx: 395.5px; --dy: -233.5px; --i: 27"/>
+      <rect x="317" y="537" width="41" height="41" rx="3" class="tok" fill="#f0f921" style="--dx: 352.5px; --dy: -233.5px; --i: 28"/>
+      <rect x="360" y="537" width="41" height="41" rx="3" class="tok" fill="#f4c232" style="--dx: 309.5px; --dy: -233.5px; --i: 29"/>
+      <rect x="145" y="580" width="41" height="41" rx="3" class="tok" fill="#8a0ea0" style="--dx: 524.5px; --dy: -276.5px; --i: 30"/>
+      <rect x="188" y="580" width="41" height="41" rx="3" class="tok" fill="#470598" style="--dx: 481.5px; --dy: -276.5px; --i: 31"/>
+      <rect x="231" y="580" width="41" height="41" rx="3" class="tok" fill="#3b0695" style="--dx: 438.5px; --dy: -276.5px; --i: 32"/>
+      <rect x="274" y="580" width="41" height="41" rx="3" class="tok" fill="#7e03a8" style="--dx: 395.5px; --dy: -276.5px; --i: 33"/>
+      <rect x="317" y="580" width="41" height="41" rx="3" class="tok" fill="#490599" style="--dx: 352.5px; --dy: -276.5px; --i: 34"/>
+      <rect x="360" y="580" width="41" height="41" rx="3" class="tok" fill="#c4407d" style="--dx: 309.5px; --dy: -276.5px; --i: 35"/>
+      <rect x="443" y="365" width="41" height="41" rx="3" class="tok" fill="#c13d7f" style="--dx: 226.5px; --dy: -61.5px; --i: 36"/>
+      <rect x="486" y="365" width="41" height="41" rx="3" class="tok" fill="#7d03a8" style="--dx: 183.5px; --dy: -61.5px; --i: 37"/>
+      <rect x="529" y="365" width="41" height="41" rx="3" class="tok" fill="#ad2c8b" style="--dx: 140.5px; --dy: -61.5px; --i: 38"/>
+      <rect x="572" y="365" width="41" height="41" rx="3" class="tok" fill="#d25171" style="--dx: 97.5px; --dy: -61.5px; --i: 39"/>
+      <rect x="615" y="365" width="41" height="41" rx="3" class="tok" fill="#f2e328" style="--dx: 54.5px; --dy: -61.5px; --i: 40"/>
+      <rect x="658" y="365" width="41" height="41" rx="3" class="tok" fill="#f0f921" style="--dx: 11.5px; --dy: -61.5px; --i: 41"/>
+      <rect x="443" y="408" width="41" height="41" rx="3" class="tok" fill="#af2e8a" style="--dx: 226.5px; --dy: -104.5px; --i: 42"/>
+      <rect x="486" y="408" width="41" height="41" rx="3" class="tok" fill="#5c059e" style="--dx: 183.5px; --dy: -104.5px; --i: 43"/>
+      <rect x="529" y="408" width="41" height="41" rx="3" class="tok" fill="#58059d" style="--dx: 140.5px; --dy: -104.5px; --i: 44"/>
+      <rect x="572" y="408" width="41" height="41" rx="3" class="tok" fill="#f7a43b" style="--dx: 97.5px; --dy: -104.5px; --i: 45"/>
+      <rect x="615" y="408" width="41" height="41" rx="3" class="tok" fill="#f69143" style="--dx: 54.5px; --dy: -104.5px; --i: 46"/>
+      <rect x="658" y="408" width="41" height="41" rx="3" class="tok" fill="#f1f323" style="--dx: 11.5px; --dy: -104.5px; --i: 47"/>
+      <rect x="443" y="451" width="41" height="41" rx="3" class="tok" fill="#e97a53" style="--dx: 226.5px; --dy: -147.5px; --i: 48"/>
+      <rect x="486" y="451" width="41" height="41" rx="3" class="tok" fill="#7c03a7" style="--dx: 183.5px; --dy: -147.5px; --i: 49"/>
+      <rect x="529" y="451" width="41" height="41" rx="3" class="tok" fill="#981a98" style="--dx: 140.5px; --dy: -147.5px; --i: 50"/>
+      <rect x="572" y="451" width="41" height="41" rx="3" class="tok" fill="#f4cc2f" style="--dx: 97.5px; --dy: -147.5px; --i: 51"/>
+      <rect x="615" y="451" width="41" height="41" rx="3" class="tok" fill="#f69242" style="--dx: 54.5px; --dy: -147.5px; --i: 52"/>
+      <rect x="658" y="451" width="41" height="41" rx="3" class="tok" fill="#e87954" style="--dx: 11.5px; --dy: -147.5px; --i: 53"/>
+      <rect x="443" y="494" width="41" height="41" rx="3" class="tok" fill="#ac2b8c" style="--dx: 226.5px; --dy: -190.5px; --i: 54"/>
+      <rect x="486" y="494" width="41" height="41" rx="3" class="tok" fill="#f1ef24" style="--dx: 183.5px; --dy: -190.5px; --i: 55"/>
+      <rect x="529" y="494" width="41" height="41" rx="3" class="tok" fill="#f6ad38" style="--dx: 140.5px; --dy: -190.5px; --i: 56"/>
+      <rect x="572" y="494" width="41" height="41" rx="3" class="tok" fill="#e47259" style="--dx: 97.5px; --dy: -190.5px; --i: 57"/>
+      <rect x="615" y="494" width="41" height="41" rx="3" class="tok" fill="#ee834d" style="--dx: 54.5px; --dy: -190.5px; --i: 58"/>
+      <rect x="658" y="494" width="41" height="41" rx="3" class="tok" fill="#9a1b97" style="--dx: 11.5px; --dy: -190.5px; --i: 59"/>
+      <rect x="443" y="537" width="41" height="41" rx="3" class="tok" fill="#b12f89" style="--dx: 226.5px; --dy: -233.5px; --i: 60"/>
+      <rect x="486" y="537" width="41" height="41" rx="3" class="tok" fill="#dc6463" style="--dx: 183.5px; --dy: -233.5px; --i: 61"/>
+      <rect x="529" y="537" width="41" height="41" rx="3" class="tok" fill="#bc3982" style="--dx: 140.5px; --dy: -233.5px; --i: 62"/>
+      <rect x="572" y="537" width="41" height="41" rx="3" class="tok" fill="#d6596b" style="--dx: 97.5px; --dy: -233.5px; --i: 63"/>
+      <rect x="615" y="537" width="41" height="41" rx="3" class="tok" fill="#f4ca30" style="--dx: 54.5px; --dy: -233.5px; --i: 64"/>
+      <rect x="658" y="537" width="41" height="41" rx="3" class="tok" fill="#c6427c" style="--dx: 11.5px; --dy: -233.5px; --i: 65"/>
+      <rect x="443" y="580" width="41" height="41" rx="3" class="tok" fill="#320692" style="--dx: 226.5px; --dy: -276.5px; --i: 66"/>
+      <rect x="486" y="580" width="41" height="41" rx="3" class="tok" fill="#0d0887" style="--dx: 183.5px; --dy: -276.5px; --i: 67"/>
+      <rect x="529" y="580" width="41" height="41" rx="3" class="tok" fill="#c03c80" style="--dx: 140.5px; --dy: -276.5px; --i: 68"/>
+      <rect x="572" y="580" width="41" height="41" rx="3" class="tok" fill="#c4407d" style="--dx: 97.5px; --dy: -276.5px; --i: 69"/>
+      <rect x="615" y="580" width="41" height="41" rx="3" class="tok" fill="#ef844c" style="--dx: 54.5px; --dy: -276.5px; --i: 70"/>
+      <rect x="658" y="580" width="41" height="41" rx="3" class="tok" fill="#df6860" style="--dx: 11.5px; --dy: -276.5px; --i: 71"/>
+      <rect x="741" y="365" width="41" height="41" rx="3" class="tok" fill="#d3546f" style="--dx: -71.5px; --dy: -61.5px; --i: 72"/>
+      <rect x="784" y="365" width="41" height="41" rx="3" class="tok" fill="#d4556e" style="--dx: -114.5px; --dy: -61.5px; --i: 73"/>
+      <rect x="827" y="365" width="41" height="41" rx="3" class="tok" fill="#a42490" style="--dx: -157.5px; --dy: -61.5px; --i: 74"/>
+      <rect x="870" y="365" width="41" height="41" rx="3" class="tok" fill="#130889" style="--dx: -200.5px; --dy: -61.5px; --i: 75"/>
+      <rect x="913" y="365" width="41" height="41" rx="3" class="tok" fill="#2d0790" style="--dx: -243.5px; --dy: -61.5px; --i: 76"/>
+      <rect x="956" y="365" width="41" height="41" rx="3" class="tok" fill="#4c0599" style="--dx: -286.5px; --dy: -61.5px; --i: 77"/>
+      <rect x="741" y="408" width="41" height="41" rx="3" class="tok" fill="#7e03a8" style="--dx: -71.5px; --dy: -104.5px; --i: 78"/>
+      <rect x="784" y="408" width="41" height="41" rx="3" class="tok" fill="#f28a48" style="--dx: -114.5px; --dy: -104.5px; --i: 79"/>
+      <rect x="827" y="408" width="41" height="41" rx="3" class="tok" fill="#f0874a" style="--dx: -157.5px; --dy: -104.5px; --i: 80"/>
+      <rect x="870" y="408" width="41" height="41" rx="3" class="tok" fill="#110888" style="--dx: -200.5px; --dy: -104.5px; --i: 81"/>
+      <rect x="913" y="408" width="41" height="41" rx="3" class="tok" fill="#18088a" style="--dx: -243.5px; --dy: -104.5px; --i: 82"/>
+      <rect x="956" y="408" width="41" height="41" rx="3" class="tok" fill="#17088a" style="--dx: -286.5px; --dy: -104.5px; --i: 83"/>
+      <rect x="741" y="451" width="41" height="41" rx="3" class="tok" fill="#df6960" style="--dx: -71.5px; --dy: -147.5px; --i: 84"/>
+      <rect x="784" y="451" width="41" height="41" rx="3" class="tok" fill="#dc6364" style="--dx: -114.5px; --dy: -147.5px; --i: 85"/>
+      <rect x="827" y="451" width="41" height="41" rx="3" class="tok" fill="#c03d7f" style="--dx: -157.5px; --dy: -147.5px; --i: 86"/>
+      <rect x="870" y="451" width="41" height="41" rx="3" class="tok" fill="#0d0887" style="--dx: -200.5px; --dy: -147.5px; --i: 87"/>
+      <rect x="913" y="451" width="41" height="41" rx="3" class="tok" fill="#6d04a3" style="--dx: -243.5px; --dy: -147.5px; --i: 88"/>
+      <rect x="956" y="451" width="41" height="41" rx="3" class="tok" fill="#e06b5e" style="--dx: -286.5px; --dy: -147.5px; --i: 89"/>
+      <rect x="741" y="494" width="41" height="41" rx="3" class="tok" fill="#971999" style="--dx: -71.5px; --dy: -190.5px; --i: 90"/>
+      <rect x="784" y="494" width="41" height="41" rx="3" class="tok" fill="#22078d" style="--dx: -114.5px; --dy: -190.5px; --i: 91"/>
+      <rect x="827" y="494" width="41" height="41" rx="3" class="tok" fill="#300691" style="--dx: -157.5px; --dy: -190.5px; --i: 92"/>
+      <rect x="870" y="494" width="41" height="41" rx="3" class="tok" fill="#370693" style="--dx: -200.5px; --dy: -190.5px; --i: 93"/>
+      <rect x="913" y="494" width="41" height="41" rx="3" class="tok" fill="#b23088" style="--dx: -243.5px; --dy: -190.5px; --i: 94"/>
+      <rect x="956" y="494" width="41" height="41" rx="3" class="tok" fill="#f58f44" style="--dx: -286.5px; --dy: -190.5px; --i: 95"/>
+      <rect x="741" y="537" width="41" height="41" rx="3" class="tok" fill="#450697" style="--dx: -71.5px; --dy: -233.5px; --i: 96"/>
+      <rect x="784" y="537" width="41" height="41" rx="3" class="tok" fill="#29078f" style="--dx: -114.5px; --dy: -233.5px; --i: 97"/>
+      <rect x="827" y="537" width="41" height="41" rx="3" class="tok" fill="#310691" style="--dx: -157.5px; --dy: -233.5px; --i: 98"/>
+      <rect x="870" y="537" width="41" height="41" rx="3" class="tok" fill="#5d049e" style="--dx: -200.5px; --dy: -233.5px; --i: 99"/>
+      <rect x="913" y="537" width="41" height="41" rx="3" class="tok" fill="#f0f921" style="--dx: -243.5px; --dy: -233.5px; --i: 100"/>
+      <rect x="956" y="537" width="41" height="41" rx="3" class="tok" fill="#f0f921" style="--dx: -286.5px; --dy: -233.5px; --i: 101"/>
+      <rect x="741" y="580" width="41" height="41" rx="3" class="tok" fill="#3a0694" style="--dx: -71.5px; --dy: -276.5px; --i: 102"/>
+      <rect x="784" y="580" width="41" height="41" rx="3" class="tok" fill="#6204a0" style="--dx: -114.5px; --dy: -276.5px; --i: 103"/>
+      <rect x="827" y="580" width="41" height="41" rx="3" class="tok" fill="#7803a6" style="--dx: -157.5px; --dy: -276.5px; --i: 104"/>
+      <rect x="870" y="580" width="41" height="41" rx="3" class="tok" fill="#90139d" style="--dx: -200.5px; --dy: -276.5px; --i: 105"/>
+      <rect x="913" y="580" width="41" height="41" rx="3" class="tok" fill="#c13e7f" style="--dx: -243.5px; --dy: -276.5px; --i: 106"/>
+      <rect x="956" y="580" width="41" height="41" rx="3" class="tok" fill="#f4c830" style="--dx: -286.5px; --dy: -276.5px; --i: 107"/>
+      <rect x="1039" y="365" width="41" height="41" rx="3" class="tok" fill="#bf3c80" style="--dx: -369.5px; --dy: -61.5px; --i: 108"/>
+      <rect x="1082" y="365" width="41" height="41" rx="3" class="tok" fill="#860aa3" style="--dx: -412.5px; --dy: -61.5px; --i: 109"/>
+      <rect x="1125" y="365" width="41" height="41" rx="3" class="tok" fill="#6204a0" style="--dx: -455.5px; --dy: -61.5px; --i: 110"/>
+      <rect x="1168" y="365" width="41" height="41" rx="3" class="tok" fill="#0e0887" style="--dx: -498.5px; --dy: -61.5px; --i: 111"/>
+      <rect x="1211" y="365" width="41" height="41" rx="3" class="tok" fill="#16088a" style="--dx: -541.5px; --dy: -61.5px; --i: 112"/>
+      <rect x="1254" y="365" width="41" height="41" rx="3" class="tok" fill="#1b078b" style="--dx: -584.5px; --dy: -61.5px; --i: 113"/>
+      <rect x="1039" y="408" width="41" height="41" rx="3" class="tok" fill="#b73585" style="--dx: -369.5px; --dy: -104.5px; --i: 114"/>
+      <rect x="1082" y="408" width="41" height="41" rx="3" class="tok" fill="#57059c" style="--dx: -412.5px; --dy: -104.5px; --i: 115"/>
+      <rect x="1125" y="408" width="41" height="41" rx="3" class="tok" fill="#450697" style="--dx: -455.5px; --dy: -104.5px; --i: 116"/>
+      <rect x="1168" y="408" width="41" height="41" rx="3" class="tok" fill="#aa2a8d" style="--dx: -498.5px; --dy: -104.5px; --i: 117"/>
+      <rect x="1211" y="408" width="41" height="41" rx="3" class="tok" fill="#3e0695" style="--dx: -541.5px; --dy: -104.5px; --i: 118"/>
+      <rect x="1254" y="408" width="41" height="41" rx="3" class="tok" fill="#7f04a7" style="--dx: -584.5px; --dy: -104.5px; --i: 119"/>
+      <rect x="1039" y="451" width="41" height="41" rx="3" class="tok" fill="#92149c" style="--dx: -369.5px; --dy: -147.5px; --i: 120"/>
+      <rect x="1082" y="451" width="41" height="41" rx="3" class="tok" fill="#8c0f9f" style="--dx: -412.5px; --dy: -147.5px; --i: 121"/>
+      <rect x="1125" y="451" width="41" height="41" rx="3" class="tok" fill="#971999" style="--dx: -455.5px; --dy: -147.5px; --i: 122"/>
+      <rect x="1168" y="451" width="41" height="41" rx="3" class="tok" fill="#8004a7" style="--dx: -498.5px; --dy: -147.5px; --i: 123"/>
+      <rect x="1211" y="451" width="41" height="41" rx="3" class="tok" fill="#c13d7f" style="--dx: -541.5px; --dy: -147.5px; --i: 124"/>
+      <rect x="1254" y="451" width="41" height="41" rx="3" class="tok" fill="#e67457" style="--dx: -584.5px; --dy: -147.5px; --i: 125"/>
+      <rect x="1039" y="494" width="41" height="41" rx="3" class="tok" fill="#7f04a7" style="--dx: -369.5px; --dy: -190.5px; --i: 126"/>
+      <rect x="1082" y="494" width="41" height="41" rx="3" class="tok" fill="#f2e228" style="--dx: -412.5px; --dy: -190.5px; --i: 127"/>
+      <rect x="1125" y="494" width="41" height="41" rx="3" class="tok" fill="#bc3982" style="--dx: -455.5px; --dy: -190.5px; --i: 128"/>
+      <rect x="1168" y="494" width="41" height="41" rx="3" class="tok" fill="#8f129e" style="--dx: -498.5px; --dy: -190.5px; --i: 129"/>
+      <rect x="1211" y="494" width="41" height="41" rx="3" class="tok" fill="#c7437b" style="--dx: -541.5px; --dy: -190.5px; --i: 130"/>
+      <rect x="1254" y="494" width="41" height="41" rx="3" class="tok" fill="#d75b6a" style="--dx: -584.5px; --dy: -190.5px; --i: 131"/>
+      <rect x="1039" y="537" width="41" height="41" rx="3" class="tok" fill="#890ca1" style="--dx: -369.5px; --dy: -233.5px; --i: 132"/>
+      <rect x="1082" y="537" width="41" height="41" rx="3" class="tok" fill="#ab2a8d" style="--dx: -412.5px; --dy: -233.5px; --i: 133"/>
+      <rect x="1125" y="537" width="41" height="41" rx="3" class="tok" fill="#aa2a8d" style="--dx: -455.5px; --dy: -233.5px; --i: 134"/>
+      <rect x="1168" y="537" width="41" height="41" rx="3" class="tok" fill="#8207a5" style="--dx: -498.5px; --dy: -233.5px; --i: 135"/>
+      <rect x="1211" y="537" width="41" height="41" rx="3" class="tok" fill="#f0f522" style="--dx: -541.5px; --dy: -233.5px; --i: 136"/>
+      <rect x="1254" y="537" width="41" height="41" rx="3" class="tok" fill="#f0f921" style="--dx: -584.5px; --dy: -233.5px; --i: 137"/>
+      <rect x="1039" y="580" width="41" height="41" rx="3" class="tok" fill="#0d0887" style="--dx: -369.5px; --dy: -276.5px; --i: 138"/>
+      <rect x="1082" y="580" width="41" height="41" rx="3" class="tok" fill="#410696" style="--dx: -412.5px; --dy: -276.5px; --i: 139"/>
+      <rect x="1125" y="580" width="41" height="41" rx="3" class="tok" fill="#9e1f94" style="--dx: -455.5px; --dy: -276.5px; --i: 140"/>
+      <rect x="1168" y="580" width="41" height="41" rx="3" class="tok" fill="#b12f89" style="--dx: -498.5px; --dy: -276.5px; --i: 141"/>
+      <rect x="1211" y="580" width="41" height="41" rx="3" class="tok" fill="#50059b" style="--dx: -541.5px; --dy: -276.5px; --i: 142"/>
+      <rect x="1254" y="580" width="41" height="41" rx="3" class="tok" fill="#f5b536" style="--dx: -584.5px; --dy: -276.5px; --i: 143"/>
+    </g>
+  </g>
+  <text id="summary" class="fragment custom summary mono" data-fragment-index="2" x="710" y="314" font-size="15">144 tokens = 4 time steps × 36 patches</text>
+  <g id="picks">
+    <g id="pick-all_steps_of_middle_patch" class="fragment custom pick" data-fragment-index="3">
+      <g class="kept" style="--i: 0">
+        <rect x="231" y="451" width="41" height="41" rx="3"/>
+        <text class="mono" x="251.5" y="476.9" font-size="15" text-anchor="middle">14</text>
+      </g>
+      <g class="kept" style="--i: 1">
+        <rect x="529" y="451" width="41" height="41" rx="3"/>
+        <text class="mono" x="549.5" y="476.9" font-size="15" text-anchor="middle">14</text>
+      </g>
+      <g class="kept" style="--i: 2">
+        <rect x="827" y="451" width="41" height="41" rx="3"/>
+        <text class="mono" x="847.5" y="476.9" font-size="15" text-anchor="middle">14</text>
+      </g>
+      <g class="kept" style="--i: 3">
+        <rect x="1125" y="451" width="41" height="41" rx="3"/>
+        <text class="mono" x="1145.5" y="476.9" font-size="15" text-anchor="middle">14</text>
+      </g>
+      <rect class="source" x="111.33" y="49.33" width="10.67" height="10.67"/>
+      <rect class="source" x="111.33" y="119.33" width="10.67" height="10.67"/>
+      <rect class="source" x="111.33" y="259.33" width="10.67" height="10.67"/>
+      <rect class="source" x="181.33" y="49.33" width="10.67" height="10.67"/>
+      <rect class="source" x="181.33" y="119.33" width="10.67" height="10.67"/>
+      <rect class="source" x="251.33" y="49.33" width="10.67" height="10.67"/>
+      <rect class="source" x="251.33" y="119.33" width="10.67" height="10.67"/>
+      <rect class="source" x="321.33" y="49.33" width="10.67" height="10.67"/>
+      <rect class="source" x="321.33" y="119.33" width="10.67" height="10.67"/>
+    </g>
+    <g id="pick-four_patches_from_april_to_june" class="fragment custom pick" data-fragment-index="4">
+      <g class="kept" style="--i: 0">
+        <rect x="486" y="451" width="41" height="41" rx="3"/>
+        <text class="mono" x="506.5" y="476.9" font-size="15" text-anchor="middle">13</text>
+      </g>
+      <g class="kept" style="--i: 1">
+        <rect x="529" y="451" width="41" height="41" rx="3"/>
+        <text class="mono" x="549.5" y="476.9" font-size="15" text-anchor="middle">14</text>
+      </g>
+      <g class="kept" style="--i: 2">
+        <rect x="572" y="451" width="41" height="41" rx="3"/>
+        <text class="mono" x="592.5" y="476.9" font-size="15" text-anchor="middle">15</text>
+      </g>
+      <g class="kept" style="--i: 3">
+        <rect x="615" y="451" width="41" height="41" rx="3"/>
+        <text class="mono" x="635.5" y="476.9" font-size="15" text-anchor="middle">16</text>
+      </g>
+      <rect class="source" x="170.67" y="49.33" width="10.67" height="10.67"/>
+      <rect class="source" x="170.67" y="119.33" width="10.67" height="10.67"/>
+      <rect class="source" x="100.67" y="259.33" width="10.67" height="10.67"/>
+      <rect class="source" x="181.33" y="49.33" width="10.67" height="10.67"/>
+      <rect class="source" x="181.33" y="119.33" width="10.67" height="10.67"/>
+      <rect class="source" x="111.33" y="259.33" width="10.67" height="10.67"/>
+      <rect class="source" x="192" y="49.33" width="10.67" height="10.67"/>
+      <rect class="source" x="192" y="119.33" width="10.67" height="10.67"/>
+      <rect class="source" x="122" y="259.33" width="10.67" height="10.67"/>
+      <rect class="source" x="202.67" y="49.33" width="10.67" height="10.67"/>
+      <rect class="source" x="202.67" y="119.33" width="10.67" height="10.67"/>
+      <rect class="source" x="132.67" y="259.33" width="10.67" height="10.67"/>
+    </g>
+  </g>
+  <g id="readout">
+    <text class="fragment custom ro-head mono" data-fragment-index="3" x="730" y="20" font-size="13">exp010_terramind_v1_large.yaml · embedding_extraction_strategies</text>
+    <g id="ro-all_steps_of_middle_patch" class="fragment custom strategy" data-fragment-index="3">
+      <rect class="bar" x="730" y="44" width="5" height="88"/>
+      <text x="752" y="69"><tspan class="title" font-size="26">Center Patch × 4 Time Steps</tspan><tspan class="mono key" font-size="14" dx="14">all_steps_of_middle_patch</tspan></text>
+      <text class="mono key" x="752" y="98" font-size="17">time</text>
+      <text class="mono slice" x="816" y="98" font-size="17">start: 0 · stop: null · step: 1</text>
+      <text class="mono key" x="752" y="124" font-size="17">patch</text>
+      <text class="mono slice" x="816" y="124" font-size="17">start: 14 · stop: 15 · step: 1</text>
+      <text class="mono count" x="1440" y="124" font-size="17" text-anchor="end">→ 4 tokens</text>
+    </g>
+    <g id="ro-four_patches_from_april_to_june" class="fragment custom strategy" data-fragment-index="4">
+      <rect class="bar" x="730" y="154" width="5" height="88"/>
+      <text x="752" y="179"><tspan class="title" font-size="26">4 Central Patches, Apr–Jun</tspan><tspan class="mono key" font-size="14" dx="14">four_patches_from_april_to_june</tspan></text>
+      <text class="mono key" x="752" y="208" font-size="17">time</text>
+      <text class="mono slice" x="816" y="208" font-size="17">start: 1 · stop: 2 · step: 1</text>
+      <text class="mono key" x="752" y="234" font-size="17">patch</text>
+      <text class="mono slice" x="816" y="234" font-size="17">start: 13 · stop: 17 · step: 1</text>
+      <text class="mono count" x="1440" y="234" font-size="17" text-anchor="end">→ 4 tokens</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 458" role="img" aria-label="Bar chart of chips per land cover class: Rangeland 35,468, Crops 17,623, Trees 11,806, Bare ground 6,396, Water 4,434, Built area 2,858.">
+<text class="heading" x="240" y="30">Chips per land cover class</text>
+<line class="baseline" x1="240" y1="50" x2="240" y2="442"/>
+<g class="row"><title>Rangeland: 35,468 chips</title>
+<text class="name" x="222" y="78">Rangeland</text>
+<path class="bar" fill="#e3e2c3" d="M240 58h626.0a4 4 0 0 1 4 4v32a4 4 0 0 1 -4 4H240Z"/>
+<text class="value mono" x="884.0" y="78">35,468</text>
+</g>
+<g class="row"><title>Crops: 17,623 chips</title>
+<text class="name" x="222" y="142">Crops</text>
+<path class="bar" fill="#e49635" d="M240 122h309.0a4 4 0 0 1 4 4v32a4 4 0 0 1 -4 4H240Z"/>
+<text class="value mono" x="567.0" y="142">17,623</text>
+</g>
+<g class="row"><title>Trees: 11,806 chips</title>
+<text class="name" x="222" y="206">Trees</text>
+<path class="bar" fill="#397d49" d="M240 186h205.7a4 4 0 0 1 4 4v32a4 4 0 0 1 -4 4H240Z"/>
+<text class="value mono" x="463.7" y="206">11,806</text>
+</g>
+<g class="row"><title>Bare ground: 6,396 chips</title>
+<text class="name" x="222" y="270">Bare ground</text>
+<path class="bar" fill="#a59b8f" d="M240 250h109.6a4 4 0 0 1 4 4v32a4 4 0 0 1 -4 4H240Z"/>
+<text class="value mono" x="367.6" y="270">6,396</text>
+</g>
+<g class="row"><title>Water: 4,434 chips</title>
+<text class="name" x="222" y="334">Water</text>
+<path class="bar" fill="#419bdf" d="M240 314h74.8a4 4 0 0 1 4 4v32a4 4 0 0 1 -4 4H240Z"/>
+<text class="value mono" x="332.8" y="334">4,434</text>
+</g>
+<g class="row"><title>Built area: 2,858 chips</title>
+<text class="name" x="222" y="398">Built area</text>
+<path class="bar" fill="#c4281b" d="M240 378h46.8a4 4 0 0 1 4 4v32a4 4 0 0 1 -4 4H240Z"/>
+<text class="value mono" x="304.8" y="398">2,858</text>
+</g>
+</svg>

@@ -1,69 +1,70 @@
 <!-- gelos-app: the pipeline that feeds the dashboard, then one slide per
-     feature with a screen recording. Record to videos/raw/<name>.mov, run
-     `pixi run clips`, and the clip replaces its placeholder (see README). -->
+     feature: the app's link above a screen recording, named by its clip
+     file. Record to videos/raw/<name>.mov, run `pixi run clips`, and the
+     clip replaces its placeholder (see README). -->
 
 ## From t-SNE to the dashboard {#app-pipeline}
 
-{{< pipeline exp001_prithvi300.cls_token:tsne_scatter_2d image=images/app/dashboard.png >}}
+{{< pipeline exp001_prithvi300.cls_token:tsne_scatter_2d image=images/app/dashboard.png tools=pmtiles,s3 >}}
 
 ## {#app-zoom-to-samples}
 
 ::: {.feature}
-{{< clip videos/00_zoom-to-samples.mp4 >}}
+::: {.feature-head}
+[clarkcga.github.io/gelos-app](https://clarkcga.github.io/gelos-app/)
 :::
 
-::: {.notes}
-Zoom to samples
+{{< clip videos/00_zoom-to-samples.mp4 >}}
 :::
 
 ## {#app-select-input-visualization}
 
 ::: {.feature}
-{{< clip videos/01_select-input-visualization.mp4 >}}
+::: {.feature-head}
+[clarkcga.github.io/gelos-app](https://clarkcga.github.io/gelos-app/)
 :::
 
-::: {.notes}
-Select input visualization
+{{< clip videos/01_select-input-visualization.mp4 >}}
 :::
 
 ## {#app-box-select-change-model}
 
 ::: {.feature}
-{{< clip videos/02_box-select-change-model.mp4 >}}
+::: {.feature-head}
+[clarkcga.github.io/gelos-app](https://clarkcga.github.io/gelos-app/)
 :::
 
-::: {.notes}
-Box select, change model
+{{< clip videos/02_box-select-change-model.mp4 >}}
 :::
 
 ## {#app-box-select-change-dino}
 
 ::: {.feature}
-{{< clip videos/03_box-select-change-dino.mp4 >}}
+::: {.feature-head}
+[clarkcga.github.io/gelos-app](https://clarkcga.github.io/gelos-app/)
 :::
 
-::: {.notes}
-Box select, change to DINO
+{{< clip videos/03_box-select-change-dino.mp4 >}}
 :::
 
 ## {#app-box-select-built-area}
 
 ::: {.feature}
-{{< clip videos/04_box-select-built-area.mp4 >}}
+::: {.feature-head}
+[clarkcga.github.io/gelos-app](https://clarkcga.github.io/gelos-app/)
 :::
 
-::: {.notes}
-Box select built area
+{{< clip videos/04_box-select-built-area.mp4 >}}
 :::
 
 ## {#app-visualize-neighbors-cross-model}
 
 ::: {.feature}
-{{< clip videos/05_visualize-neighbors-cross-model.mp4 >}}
+::: {.feature-head}
+[clarkcga.github.io/gelos-app](https://clarkcga.github.io/gelos-app/)
 :::
 
-::: {.notes}
-Visualize neighbors across models
+{{< clip videos/05_visualize-neighbors-cross-model.mp4 >}}
 :::
 
 ## {#app-link}

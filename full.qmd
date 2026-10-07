@@ -1,16 +1,21 @@
 ---
-title: "GELOS"
-subtitle: "Geospatial Exploration of Latent Observation Space"
+pagetitle: "GELOS"
 author: "Denys Godwin"
 format: slides-revealjs
+# Master deck: include every slide file in slides/, in order (see README).
+# Smaller decks include a subset.
+# pagetitle, not title: the title slide comes from slides/title.qmd.
 ---
 
-<!-- Master deck: include every slide file in slides/, in order (see README).
-     Smaller decks include a subset. -->
+{{< include slides/title.qmd >}}
 
 {{< include slides/intro.qmd >}}
 
 {{< include slides/lc-dataset.qmd >}}
+
+{{< include slides/chip-size.qmd >}}
+
+{{< include slides/lc-extraction.qmd >}}
 
 {{< include slides/pipeline_tsne.qmd >}}
 
@@ -22,6 +27,10 @@ format: slides-revealjs
 
 {{< include slides/pipeline_rf.qmd >}}
 
+{{< include slides/lc-configs.qmd >}}
+
 {{< include slides/crop.qmd >}}
 
 {{< include slides/fire.qmd >}}
+
+{{< include slides/thanks.qmd >}}

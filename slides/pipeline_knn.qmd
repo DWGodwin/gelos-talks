@@ -1,6 +1,7 @@
 <!-- Comparisons: several experiments on one plot. Each metric is introduced
      by a question slide, then shown for the cross-family comparison: class
-     kNN purity (the pipeline is drawn here), then spatial kNN (GSD, and one
+     kNN purity (the pipeline is drawn here, with the comparison's config
+     shown for one click before the plot), then spatial kNN (GSD, and one
      click on, the latitude difference). The comparisons after that open
      already stacked: class kNN purity first, then one click swaps to GSD for
      the same experiments.
@@ -17,7 +18,7 @@
 
 ## Across model families {#pipeline-knn-across-families}
 
-{{< pipeline 02_across_families:knn_purity_plot >}}
+{{< pipeline 02_across_families:knn_purity_plot config=yaml >}}
 
 ## {#q-knn-gsd}
 
@@ -35,52 +36,11 @@
   02_across_families_spatial_knn:knn_lat_diff_plot
   start=stacked
 >}}
-
-## Prithvi: 300M vs 600M {#pipeline-knn-prithvi}
-
-{{< pipeline
-  01a_prithvi_family:knn_purity_plot
-  01a_prithvi_family_spatial_knn:knn_gsd_plot
-  start=stacked
->}}
-
-## Terramind: base vs large {#pipeline-knn-terramind}
-
-{{< pipeline
-  01b_terramind_family:knn_purity_plot
-  01b_terramind_family_spatial_knn:knn_gsd_plot
-  start=stacked
->}}
-
-## OlmoEarth: S2 vs S2+S1 {#pipeline-knn-olmoearth}
-
-{{< pipeline
-  01c_olmoearth_family:knn_purity_plot
-  01c_olmoearth_family_spatial_knn:knn_gsd_plot
-  start=stacked
->}}
-
 ## DINOv3: web vs satellite {#pipeline-knn-dinov3}
 
 {{< pipeline
   01d_dinov3_family:knn_purity_plot
   01d_dinov3_family_spatial_knn:knn_gsd_plot
-  start=stacked
->}}
-
-## Prithvi: time and location inputs {#pipeline-knn-prithvi-tl}
-
-{{< pipeline
-  03_prithvi_tl_knn:knn_purity_plot
-  03_prithvi_tl_knn_spatial_knn:knn_gsd_plot
-  start=stacked
->}}
-
-## Terramind base: sensors {#pipeline-knn-terramind-base-sensors}
-
-{{< pipeline
-  04a_terramind_base_sensors:knn_purity_plot
-  04a_terramind_base_sensors_spatial_knn:knn_gsd_plot
   start=stacked
 >}}
 

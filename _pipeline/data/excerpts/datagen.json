@@ -1,0 +1,161 @@
+{
+ "file": "gelos-lc-datagen/config.yml",
+ "rows": [
+  {
+   "t": "dataset:"
+  },
+  {
+   "t": "  version: \"v0.50.1\"",
+   "ids": [
+    "version"
+   ]
+  },
+  {
+   "gap": true
+  },
+  {
+   "t": "s2l2a:"
+  },
+  {
+   "t": "  collection: \"sentinel-2-l2a\"",
+   "ids": [
+    "s2l2a"
+   ]
+  },
+  {
+   "t": "  time_ranges:",
+   "ids": [
+    "s2l2a"
+   ]
+  },
+  {
+   "t": "    - \"2023-01-01/2023-03-31\"",
+   "c": "# (Jan-Feb-Mar)",
+   "ids": [
+    "s2l2a"
+   ]
+  },
+  {
+   "t": "    - \"2023-04-01/2023-06-30\"",
+   "c": "# (Apr-May-Jun)",
+   "ids": [
+    "s2l2a"
+   ]
+  },
+  {
+   "t": "    - \"2023-07-01/2023-09-30\"",
+   "c": "# (Jul-Aug-Sep)",
+   "ids": [
+    "s2l2a"
+   ]
+  },
+  {
+   "t": "    - \"2023-10-01/2023-12-31\"",
+   "c": "# (Oct-Nov-Dec)",
+   "ids": [
+    "s2l2a"
+   ]
+  },
+  {
+   "t": "  cloud_cover: 30",
+   "c": "# Maximum allowed cloud cover percentage in scene",
+   "ids": [
+    "s2l2a"
+   ]
+  },
+  {
+   "gap": true
+  },
+  {
+   "t": "s1rtc:"
+  },
+  {
+   "t": "  delta_days: 12",
+   "ids": [
+    "s1rtc"
+   ]
+  },
+  {
+   "t": "  collection: \"sentinel-1-rtc\"",
+   "ids": [
+    "s1rtc"
+   ]
+  },
+  {
+   "gap": true
+  },
+  {
+   "t": "lc2l2:"
+  },
+  {
+   "t": "  delta_days: 91",
+   "c": "# get the full season for lc2l2",
+   "ids": [
+    "lc2l2"
+   ]
+  },
+  {
+   "t": "  collection: \"landsat-c2-l2\"",
+   "ids": [
+    "lc2l2"
+   ]
+  },
+  {
+   "t": "  platforms: [\"landsat-8\", \"landsat-9\"]",
+   "ids": [
+    "lc2l2"
+   ]
+  },
+  {
+   "t": "  cloud_cover: 50",
+   "c": "# Maximum allowed cloud cover percentage in scene",
+   "ids": [
+    "lc2l2"
+   ]
+  },
+  {
+   "gap": true
+  },
+  {
+   "t": "dem:"
+  },
+  {
+   "t": "  collection: \"cop-dem-glo-30\"",
+   "ids": [
+    "dem"
+   ]
+  },
+  {
+   "gap": true
+  },
+  {
+   "t": "lulc:"
+  },
+  {
+   "t": "  collection: \"io-lulc-annual-v02\"",
+   "ids": [
+    "lulc"
+   ]
+  },
+  {
+   "gap": true
+  },
+  {
+   "t": "chips:"
+  },
+  {
+   "t": "  sample_size: 960",
+   "c": "# Size of samples for homogeneity check in meters",
+   "ids": [
+    "chips"
+   ]
+  },
+  {
+   "t": "  chip_size: 960",
+   "c": "# Final chip size for training data in meters",
+   "ids": [
+    "chips"
+   ]
+  }
+ ]
+}

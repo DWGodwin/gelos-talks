@@ -1,0 +1,146 @@
+{
+ "file": "gelos-lc/configs/exp004_prithvi600.yaml",
+ "rows": [
+  {
+   "t": "data_version: \"v0.50.1\"",
+   "ids": [
+    "data"
+   ]
+  },
+  {
+   "gap": true
+  },
+  {
+   "t": "data:"
+  },
+  {
+   "t": "  init_args:"
+  },
+  {
+   "t": "    bands:",
+   "ids": [
+    "data"
+   ]
+  },
+  {
+   "t": "      S2L2A: [BLUE, GREEN, RED, NIR_NARROW, SWIR_1, SWIR_2]",
+   "ids": [
+    "data"
+   ]
+  },
+  {
+   "gap": true
+  },
+  {
+   "t": "model:"
+  },
+  {
+   "t": "  init_args:"
+  },
+  {
+   "t": "    model: prithvi_eo_v2_600",
+   "ids": [
+    "model"
+   ]
+  },
+  {
+   "gap": true
+  },
+  {
+   "t": "embedding_extraction_strategies:"
+  },
+  {
+   "t": "  cls_token:"
+  },
+  {
+   "t": "    title: \"CLS Token\"",
+   "ids": [
+    "extract"
+   ]
+  },
+  {
+   "t": "    slice_args:",
+   "ids": [
+    "extract"
+   ]
+  },
+  {
+   "t": "    - start: 0",
+   "ids": [
+    "extract"
+   ]
+  },
+  {
+   "t": "      stop: 1",
+   "ids": [
+    "extract"
+   ]
+  },
+  {
+   "t": "      step: 1",
+   "ids": [
+    "extract"
+   ]
+  },
+  {
+   "gap": true
+  },
+  {
+   "t": "    metrics:"
+  },
+  {
+   "t": "        - type: knn_purity",
+   "ids": [
+    "analysis"
+   ]
+  },
+  {
+   "t": "          params:",
+   "ids": [
+    "analysis"
+   ]
+  },
+  {
+   "t": "            k_values: [1, 2, 5, 10, 20, 50]",
+   "ids": [
+    "analysis"
+   ]
+  },
+  {
+   "gap": true
+  },
+  {
+   "t": "    plots:"
+  },
+  {
+   "t": "      - type: scatter_2d",
+   "ids": [
+    "analysis"
+   ]
+  },
+  {
+   "t": "        transform: tsne",
+   "ids": [
+    "analysis"
+   ]
+  },
+  {
+   "gap": true
+  },
+  {
+   "t": "    models:"
+  },
+  {
+   "t": "      - type: random_forest",
+   "ids": [
+    "analysis"
+   ]
+  },
+  {
+   "t": "        transform: raw",
+   "ids": [
+    "analysis"
+   ]
+  }
+ ]
+}

@@ -41,7 +41,77 @@
     ],
     []
    ],
-   "caption": "Each point is one chip's embedding, projected to 2D with t-SNE and colored by land cover class"
+   "lines": {
+    "generate:alphaearth": "backend: alphaearth",
+    "extract:middle_patch": "middle_patch",
+    "transform:tsne": "transform: tsne"
+   },
+   "caption": "Each point is one chip's embedding, projected to 2D with t-SNE and colored by land cover class",
+   "config": {
+    "file": "gelos-lc/configs/exp023_alphaearth_middle_patch.yaml",
+    "rows": [
+     {
+      "t": "data_version: \"v0.50.1\"",
+      "ids": [
+       "source:multi_sensor_annual"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "cloud_embedding:"
+     },
+     {
+      "t": "  backend: alphaearth",
+      "ids": [
+       "generate:alphaearth"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "embedding_extraction_strategies:"
+     },
+     {
+      "t": "  middle_patch:"
+     },
+     {
+      "t": "    title: \"AlphaEarth Annual (Center Patch)\"",
+      "ids": [
+       "extract:middle_patch"
+      ]
+     },
+     {
+      "t": "    slice_args:",
+      "ids": [
+       "extract:middle_patch"
+      ]
+     },
+     {
+      "t": "      - {start: 0, stop: null, step: 1}",
+      "ids": [
+       "extract:middle_patch"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "    plots:"
+     },
+     {
+      "t": "      - type: scatter_2d"
+     },
+     {
+      "t": "        transform: tsne",
+      "ids": [
+       "transform:tsne"
+      ]
+     }
+    ]
+   }
   },
   "umap_scatter_2d": {
    "image": "images/experiments/exp023_alphaearth_middle_patch/middle_patch_umap_scatter_2d.png",
@@ -81,7 +151,77 @@
     ],
     []
    ],
-   "caption": "Each point is one chip's embedding, projected to 2D with UMAP and colored by land cover class"
+   "lines": {
+    "generate:alphaearth": "backend: alphaearth",
+    "extract:middle_patch": "middle_patch",
+    "transform:umap": "transform: umap"
+   },
+   "caption": "Each point is one chip's embedding, projected to 2D with UMAP and colored by land cover class",
+   "config": {
+    "file": "gelos-lc/configs/exp023_alphaearth_middle_patch.yaml",
+    "rows": [
+     {
+      "t": "data_version: \"v0.50.1\"",
+      "ids": [
+       "source:multi_sensor_annual"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "cloud_embedding:"
+     },
+     {
+      "t": "  backend: alphaearth",
+      "ids": [
+       "generate:alphaearth"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "embedding_extraction_strategies:"
+     },
+     {
+      "t": "  middle_patch:"
+     },
+     {
+      "t": "    title: \"AlphaEarth Annual (Center Patch)\"",
+      "ids": [
+       "extract:middle_patch"
+      ]
+     },
+     {
+      "t": "    slice_args:",
+      "ids": [
+       "extract:middle_patch"
+      ]
+     },
+     {
+      "t": "      - {start: 0, stop: null, step: 1}",
+      "ids": [
+       "extract:middle_patch"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "    plots:"
+     },
+     {
+      "t": "      - type: scatter_2d"
+     },
+     {
+      "t": "        transform: umap",
+      "ids": [
+       "transform:umap"
+      ]
+     }
+    ]
+   }
   },
   "random_forest_confusion_matrix": {
    "image": "images/experiments/exp023_alphaearth_middle_patch/middle_patch_random_forest_confusion_matrix.png",
@@ -128,7 +268,81 @@
      ]
     ]
    ],
-   "caption": "Held-out predictions of a random forest trained on the embeddings, with 5-fold cross-validation"
+   "lines": {
+    "generate:alphaearth": "backend: alphaearth",
+    "extract:middle_patch": "middle_patch",
+    "transform:none": "transform: raw",
+    "model:random_forest": "type: random_forest"
+   },
+   "caption": "Held-out predictions of a random forest trained on the embeddings, with 5-fold cross-validation",
+   "config": {
+    "file": "gelos-lc/configs/exp023_alphaearth_middle_patch.yaml",
+    "rows": [
+     {
+      "t": "data_version: \"v0.50.1\"",
+      "ids": [
+       "source:multi_sensor_annual"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "cloud_embedding:"
+     },
+     {
+      "t": "  backend: alphaearth",
+      "ids": [
+       "generate:alphaearth"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "embedding_extraction_strategies:"
+     },
+     {
+      "t": "  middle_patch:"
+     },
+     {
+      "t": "    title: \"AlphaEarth Annual (Center Patch)\"",
+      "ids": [
+       "extract:middle_patch"
+      ]
+     },
+     {
+      "t": "    slice_args:",
+      "ids": [
+       "extract:middle_patch"
+      ]
+     },
+     {
+      "t": "      - {start: 0, stop: null, step: 1}",
+      "ids": [
+       "extract:middle_patch"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "    models:"
+     },
+     {
+      "t": "      - type: random_forest",
+      "ids": [
+       "model:random_forest"
+      ]
+     },
+     {
+      "t": "        transform: raw",
+      "ids": [
+       "transform:none"
+      ]
+     }
+    ]
+   }
   }
  },
  "stages": [
@@ -158,6 +372,20 @@
     {
      "id": "source:multi_sensor_annual",
      "label": "Multi-sensor,\nannual"
+    }
+   ],
+   "tools": [
+    {
+     "name": "STAC",
+     "logo": "images/tools/stac.png"
+    },
+    {
+     "name": "xarray",
+     "logo": "images/tools/xarray.svg"
+    },
+    {
+     "name": "Dask",
+     "logo": "images/tools/dask.svg"
     }
    ]
   },
@@ -215,6 +443,20 @@
     {
      "id": "generate:prithvi_eo_v2_600_tl_coords",
      "label": "Prithvi 600M TL"
+    }
+   ],
+   "tools": [
+    {
+     "name": "Zarr",
+     "logo": "images/tools/zarr.svg",
+     "caption": "cloud Zarr",
+     "option": "generate:alphaearth"
+    },
+    {
+     "name": "Source Cooperative",
+     "logo": "images/tools/source-coop.svg",
+     "caption": "source.coop",
+     "option": "generate:alphaearth"
     }
    ]
   },

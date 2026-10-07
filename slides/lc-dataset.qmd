@@ -1,15 +1,18 @@
 <!-- GELOS Land Cover: the dataset and the setup, before any results. What the
-     chips are, how embeddings are pulled out of each model, and the two
-     questions asked of them. Hands off to pipeline_tsne.qmd, which draws the
-     pipeline and shows the plots that answer those questions.
-     Drafted from pages 4-6 and 14 of the ESA-NASA workshop talk (May 2026);
-     figures are low-resolution copies from that PDF. -->
+     chips are and the gelos-lc-datagen config that produces them (one click
+     per line of the list, lighting up the keys behind it). Hands off to
+     chip-size.qmd (why chips are 960 m), then lc-extraction.qmd (how
+     embeddings are pulled out of each model), then pipeline_tsne.qmd, which
+     draws the pipeline and shows the plots.
+     Drafted from pages 4-6 of the ESA-NASA workshop talk (May 2026); the map
+     and bar chart are generated from the published chip table: see
+     _lc-figures/ and "Land Cover figures" in the README. -->
 
 ## {#lc-section}
 
 ::: {.center-v}
 [GELOS]{.statement}
-[Land Cover]{.statement .hl}
+[Land Cover]{.flow style="display: block; font-size: 4em; line-height: 1; background-image: url(images/backgrounds/clark-cga-background.webp)"}
 :::
 
 ## GELOS Land Cover {#lc-dataset}
@@ -18,7 +21,7 @@
 ::: {}
 [Class separation for global categorical land cover]{.muted}
 
-- [78,535]{.hl} pure land cover chips
+- [78,585]{.hl} pure land cover chips
 - GSD 960 m × 960 m
 - Sentinel-1 RTC: 4 scenes / year
 - Sentinel-2 L2A: 4 scenes / year\*
@@ -29,14 +32,27 @@
 :::
 
 ::: {}
-![](images/lc-dataset/chip-locations-map.png){width=520 fig-alt="World map with red dots marking the locations of GELOS Land Cover chips on every inhabited continent."}
+{{< lc-figure map >}}
 
-![](images/lc-dataset/class-distribution.png){width=520 fig-alt="Bar chart of chip counts per land cover class, in descending order: Rangeland, Crops, Trees, Bare ground, Water, Built area."}
+{{< lc-figure classes >}}
 :::
 :::
 
-## Embedding extraction configurations {#lc-extraction}
+## The config {#lc-datagen}
 
-![](images/lc-dataset/embedding-extraction-strategies.png){width=1250 fig-alt="Multimodal inputs (Sentinel-2 L2A, Sentinel-1 RTC and Landsat at four seasons, plus DEM) pass through a pretrained encoder. From the output embeddings at four time steps, three extraction strategies are highlighted: the CLS token, all steps of the middle patch, and all patches from April to June."}
+::: {.two-col .cfg-cols}
+::: {}
+[STAC and xarray parameters are controlled here]{.muted}
 
-[+ baseline comparison to [raw pixels]{.hl}]{.muted}
+- [[78,585]{.hl} pure land cover chips]{cfg="lulc chips"}
+- [GSD 960 m × 960 m]{cfg="chips"}
+- [Sentinel-1 RTC: 4 scenes / year]{cfg="s1rtc"}
+- [Sentinel-2 L2A: 4 scenes / year\*]{cfg="s2l2a"}
+- [Landsat Collection 2: 4 scenes / year\*]{cfg="lc2l2"}
+- [DEM: 1 annual scene]{cfg="dem"}
+
+[\* Cloud-free]{.muted cfg="s2l2a lc2l2"}
+:::
+
+{{< config datagen lulc+chips s1rtc s2l2a lc2l2 dem size=18 >}}
+:::

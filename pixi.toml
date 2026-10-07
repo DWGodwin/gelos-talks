@@ -7,9 +7,21 @@ platforms = ["osx-arm64", "linux-64"]
 python = ">=3.12"
 pyyaml = "*"
 ffmpeg = "*"
+numpy = ">=2.5.3,<3"
+pillow = ">=12.3.0,<13"
+tifffile = ">=2026.9.20,<2027"
+pmtiles = ">=3.8.1,<4"
+mapbox-vector-tile = ">=2.2.0,<3"
+shapely = ">=2.2.0,<3"
 
 [tasks]
 # Regenerate _pipeline/data/ and images/comparisons/ from ../gelos-lc
 sync = "python _pipeline/sync.py"
 # Convert screen recordings in videos/raw/ to web-ready videos/<name>.mp4
 clips = "python _pipeline/clips.py"
+# Regenerate _grid/grid-alignment.svg, the figure on the chip-size slide
+grid-figure = "python _grid/make_grid_figure.py"
+# Regenerate _extraction/extraction.svg and its chips, the figure on the extraction slide
+extraction-figure = "python _extraction/make_extraction_figure.py"
+# Regenerate _lc-figures/*.svg, the chip map and class histogram on the land-cover slide
+lc-figures = "python _lc-figures/make_lc_figures.py"

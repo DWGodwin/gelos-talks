@@ -1,6 +1,7 @@
 <!-- Last part of GELOS Land Cover, each half introduced by a question slide:
      every model's random forest confusion matrix (the pipeline is drawn again
-     here), then every model's trajectories, opening already stacked
+     here, with the config lines behind it shown for one click before the
+     plot), then every model's trajectories, opening already stacked
      (AlphaEarth is annual, so it has none). Prithvi's random forests use the
      CLS token; its trajectories use the center patch at 4 time steps.
      Run `pixi run sync` after changing a shortcode (see README). -->
@@ -18,12 +19,12 @@
 
 {{< pipeline
   exp004_prithvi600.cls_token:random_forest_confusion_matrix
-  exp039_prithvi600_tl.cls_token:random_forest_confusion_matrix
   exp014_terramind_v1_large_s2_s1.all_steps_of_middle_patch:random_forest_confusion_matrix
   exp037_olmoearth_v1_2_base_s2_s1_timestamps.all_steps_of_middle_patch:random_forest_confusion_matrix
   exp035_dinov3_sat_rgb_middle_patch.all_steps_of_middle_patch:random_forest_confusion_matrix
   exp023_alphaearth_middle_patch.middle_patch:random_forest_confusion_matrix
   exp019_spectral_bands_s2_s1_middle_patch.all_steps_of_middle_patch:random_forest_confusion_matrix
+  config=yaml
 >}}
 
 ## {#q-trajectory}
@@ -39,7 +40,6 @@
 
 {{< pipeline
   exp004_prithvi600.all_steps_of_middle_patch:raw_temporal_cosine_similarity
-  exp039_prithvi600_tl.all_steps_of_middle_patch:raw_temporal_cosine_similarity
   exp014_terramind_v1_large_s2_s1.all_steps_of_middle_patch:raw_temporal_cosine_similarity
   exp037_olmoearth_v1_2_base_s2_s1_timestamps.all_steps_of_middle_patch:raw_temporal_cosine_similarity
   exp035_dinov3_sat_rgb_middle_patch.all_steps_of_middle_patch:raw_temporal_cosine_similarity

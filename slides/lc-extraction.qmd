@@ -1,0 +1,12 @@
+<!-- How embeddings are pulled out of each model: one animated figure, stepped
+     with clicks (patches, tokens, then one per extraction strategy). Follows
+     the chip-size slide (chip-size.qmd), which explains the 960 m chips the
+     figure cuts up, and hands off to pipeline_tsne.qmd, which draws the
+     pipeline and shows the plots. The figure is generated: see _extraction/
+     and "Extraction figure" in the README. -->
+
+## Embedding extraction configurations {#lc-extraction}
+
+{{< extraction >}}
+
+[+ baseline comparison to [raw pixels]{.hl}]{.muted}

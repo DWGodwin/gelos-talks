@@ -41,7 +41,114 @@
     ],
     []
    ],
-   "caption": "Each point is one chip's embedding, projected to 2D with t-SNE and colored by land cover class"
+   "lines": {
+    "source:s2_6": "bands: S2L2A",
+    "generate:prithvi_eo_v2_600": "model: prithvi_eo_v2_600",
+    "extract:cls_token": "cls_token",
+    "transform:tsne": "transform: tsne"
+   },
+   "caption": "Each point is one chip's embedding, projected to 2D with t-SNE and colored by land cover class",
+   "config": {
+    "file": "gelos-lc/configs/exp033_prithvi600_dataset_stats.yaml",
+    "rows": [
+     {
+      "t": "data_version: \"v0.50.1\"",
+      "ids": [
+       "source:s2_6"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "data:"
+     },
+     {
+      "t": "  init_args:"
+     },
+     {
+      "t": "    bands:",
+      "ids": [
+       "source:s2_6"
+      ]
+     },
+     {
+      "t": "      S2L2A: [BLUE, GREEN, RED, NIR_NARROW, SWIR_1, SWIR_2]",
+      "ids": [
+       "source:s2_6"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "model:"
+     },
+     {
+      "t": "  init_args:"
+     },
+     {
+      "t": "    model: prithvi_eo_v2_600",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "embedding_extraction_strategies:"
+     },
+     {
+      "t": "  cls_token:"
+     },
+     {
+      "t": "    title: \"CLS Token\"",
+      "ids": [
+       "extract:cls_token"
+      ]
+     },
+     {
+      "t": "    slice_args:",
+      "ids": [
+       "extract:cls_token"
+      ]
+     },
+     {
+      "t": "    - start: 0",
+      "ids": [
+       "extract:cls_token"
+      ]
+     },
+     {
+      "t": "      stop: 1",
+      "ids": [
+       "extract:cls_token"
+      ]
+     },
+     {
+      "t": "      step: 1",
+      "ids": [
+       "extract:cls_token"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "    plots:"
+     },
+     {
+      "t": "      - type: scatter_2d"
+     },
+     {
+      "t": "        transform: tsne",
+      "ids": [
+       "transform:tsne"
+      ]
+     }
+    ]
+   }
   },
   "umap_scatter_2d": {
    "image": "images/experiments/exp033_prithvi600_dataset_stats/cls_token_umap_scatter_2d.png",
@@ -81,7 +188,114 @@
     ],
     []
    ],
-   "caption": "Each point is one chip's embedding, projected to 2D with UMAP and colored by land cover class"
+   "lines": {
+    "source:s2_6": "bands: S2L2A",
+    "generate:prithvi_eo_v2_600": "model: prithvi_eo_v2_600",
+    "extract:cls_token": "cls_token",
+    "transform:umap": "transform: umap"
+   },
+   "caption": "Each point is one chip's embedding, projected to 2D with UMAP and colored by land cover class",
+   "config": {
+    "file": "gelos-lc/configs/exp033_prithvi600_dataset_stats.yaml",
+    "rows": [
+     {
+      "t": "data_version: \"v0.50.1\"",
+      "ids": [
+       "source:s2_6"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "data:"
+     },
+     {
+      "t": "  init_args:"
+     },
+     {
+      "t": "    bands:",
+      "ids": [
+       "source:s2_6"
+      ]
+     },
+     {
+      "t": "      S2L2A: [BLUE, GREEN, RED, NIR_NARROW, SWIR_1, SWIR_2]",
+      "ids": [
+       "source:s2_6"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "model:"
+     },
+     {
+      "t": "  init_args:"
+     },
+     {
+      "t": "    model: prithvi_eo_v2_600",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "embedding_extraction_strategies:"
+     },
+     {
+      "t": "  cls_token:"
+     },
+     {
+      "t": "    title: \"CLS Token\"",
+      "ids": [
+       "extract:cls_token"
+      ]
+     },
+     {
+      "t": "    slice_args:",
+      "ids": [
+       "extract:cls_token"
+      ]
+     },
+     {
+      "t": "    - start: 0",
+      "ids": [
+       "extract:cls_token"
+      ]
+     },
+     {
+      "t": "      stop: 1",
+      "ids": [
+       "extract:cls_token"
+      ]
+     },
+     {
+      "t": "      step: 1",
+      "ids": [
+       "extract:cls_token"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "    plots:"
+     },
+     {
+      "t": "      - type: scatter_2d"
+     },
+     {
+      "t": "        transform: umap",
+      "ids": [
+       "transform:umap"
+      ]
+     }
+    ]
+   }
   },
   "random_forest_confusion_matrix": {
    "image": "images/experiments/exp033_prithvi600_dataset_stats/cls_token_random_forest_confusion_matrix.png",
@@ -128,7 +342,118 @@
      ]
     ]
    ],
-   "caption": "Held-out predictions of a random forest trained on the embeddings, with 5-fold cross-validation"
+   "lines": {
+    "source:s2_6": "bands: S2L2A",
+    "generate:prithvi_eo_v2_600": "model: prithvi_eo_v2_600",
+    "extract:cls_token": "cls_token",
+    "transform:none": "transform: raw",
+    "model:random_forest": "type: random_forest"
+   },
+   "caption": "Held-out predictions of a random forest trained on the embeddings, with 5-fold cross-validation",
+   "config": {
+    "file": "gelos-lc/configs/exp033_prithvi600_dataset_stats.yaml",
+    "rows": [
+     {
+      "t": "data_version: \"v0.50.1\"",
+      "ids": [
+       "source:s2_6"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "data:"
+     },
+     {
+      "t": "  init_args:"
+     },
+     {
+      "t": "    bands:",
+      "ids": [
+       "source:s2_6"
+      ]
+     },
+     {
+      "t": "      S2L2A: [BLUE, GREEN, RED, NIR_NARROW, SWIR_1, SWIR_2]",
+      "ids": [
+       "source:s2_6"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "model:"
+     },
+     {
+      "t": "  init_args:"
+     },
+     {
+      "t": "    model: prithvi_eo_v2_600",
+      "ids": [
+       "generate:prithvi_eo_v2_600"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "embedding_extraction_strategies:"
+     },
+     {
+      "t": "  cls_token:"
+     },
+     {
+      "t": "    title: \"CLS Token\"",
+      "ids": [
+       "extract:cls_token"
+      ]
+     },
+     {
+      "t": "    slice_args:",
+      "ids": [
+       "extract:cls_token"
+      ]
+     },
+     {
+      "t": "    - start: 0",
+      "ids": [
+       "extract:cls_token"
+      ]
+     },
+     {
+      "t": "      stop: 1",
+      "ids": [
+       "extract:cls_token"
+      ]
+     },
+     {
+      "t": "      step: 1",
+      "ids": [
+       "extract:cls_token"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "    models:"
+     },
+     {
+      "t": "      - type: random_forest",
+      "ids": [
+       "model:random_forest"
+      ]
+     },
+     {
+      "t": "        transform: raw",
+      "ids": [
+       "transform:none"
+      ]
+     }
+    ]
+   }
   }
  },
  "stages": [
@@ -158,6 +483,20 @@
     {
      "id": "source:multi_sensor_annual",
      "label": "Multi-sensor,\nannual"
+    }
+   ],
+   "tools": [
+    {
+     "name": "STAC",
+     "logo": "images/tools/stac.png"
+    },
+    {
+     "name": "xarray",
+     "logo": "images/tools/xarray.svg"
+    },
+    {
+     "name": "Dask",
+     "logo": "images/tools/dask.svg"
     }
    ]
   },
@@ -215,6 +554,20 @@
     {
      "id": "generate:prithvi_eo_v2_600_tl_coords",
      "label": "Prithvi 600M TL"
+    }
+   ],
+   "tools": [
+    {
+     "name": "Zarr",
+     "logo": "images/tools/zarr.svg",
+     "caption": "cloud Zarr",
+     "option": "generate:alphaearth"
+    },
+    {
+     "name": "Source Cooperative",
+     "logo": "images/tools/source-coop.svg",
+     "caption": "source.coop",
+     "option": "generate:alphaearth"
     }
    ]
   },

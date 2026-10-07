@@ -12,7 +12,9 @@ slides/              slide files; decks include these, they never render alone
 images/              figures used by slides
   comparisons/, experiments/   figures copied from gelos-lc by `pixi run sync`
 videos/              screen recordings used by slides (videos/raw/ holds the originals, uncommitted)
-_pipeline/           animated pipeline diagram and clip shortcodes (labels, sync script, generated data)
+_pipeline/           animated pipeline diagram, config panel and clip shortcodes (labels, excerpt list, sync script, generated data)
+_grid/               animated grid-alignment figure (generator, generated SVG, CSS, shortcode)
+_extraction/         animated extraction figure (generator, generated SVG, CSS, shortcode)
 _extensions/
   dwgodwin/slides/   house style (format: slides-revealjs)
   dwgodwin/cng/      CNG lightning-talk style, layered on the house style (format: cng-revealjs)
@@ -27,13 +29,14 @@ Each deck is front matter plus a list of includes:
 ## Making a new talk
 
 1. Copy `full.qmd` to e.g. `agu-2026.qmd`.
-2. Delete the includes you don't need and set the front matter (title, format, auto-slide...).
+2. Delete the includes you don't need and set the front matter (pagetitle, format, auto-slide...). Use `pagetitle`, not `title`: `title` makes Quarto add its own title slide in front of `slides/title.qmd`.
 3. Add a row to the table in `index.qmd`.
 
 ## Editing slides
 
 - Fix a slide in `slides/` and every deck that includes it picks up the change.
 - Keep each file to one section of the story, written as `##` slides with an `{#id}`.
+- `slides/title.qmd` opens every deck and `slides/thanks.qmd` closes it; include both in any new deck.
 - When a talk needs a shorter or longer version of a section, add a variant file (e.g. `results.qmd` plus a full-deck-only `results-detail.qmd`) rather than editing the shared one.
 - Reference images as `images/...`. Includes are pasted into the deck, so paths are relative to the deck at the repo root, not to `slides/`.
 - Use the house-style helper classes (`.center-v`, `.statement`, `.hl`, `.muted`, `.two-col`, `.formula`, `.a-fade`/`.a-rise`, ...). The CNG theme is layered on the house style, so they work in either format.
@@ -62,20 +65,51 @@ Each argument is one view, written `<name>:<plot>`, and views are shown in the o
 - **Single-experiment plots:** `<experiment>.<strategy>:<plot>`, where the experiment is a config name, the strategy one of its extraction strategies, and the plot a key under `experiment_plots` in `_pipeline/labels.yml`.
 - **Several views on one slide:** the pipeline is drawn for the first view, and each view after it adds a click. The plot swaps and only the stacked options that differ change (the model, the extraction strategy, the transform), the new one slotting in from the right as the old one slots out to the left. Every view names its own experiment, strategy and plot, so one model can use a different strategy per plot, and a model can be left out of a plot it doesn't have.
 - **Skipping the build:** `start=stacked` opens the slide on the stacked options and the plot, with no clicks for the stages or the path. Use it once the audience has seen the pipeline drawn, e.g. to show the same plot for another experiment.
+- **Config lines:** when the path is drawn, each option it passes through shows the line of the experiment's config that selects it (`model: prithvi_eo_v2_600`, `transform: tsne`) under its label. The lines stay on the stacked options unless the stack would have to shrink to fit them. Nothing to set: they are read from the configs, and an option whose experiments disagree shows none.
+- **Showing the config:** `config=yaml` adds a click between the options stacking and the first plot. The plot's place is taken by the lines of the config behind it, cut from the real file, with each stacked option linked to the lines that select it. For a comparison, these are its experiments (their legend colors beside them) and the plot.
+- **Showing what differs:** `config=diff`, for a comparison, shows in the same place what sets its experiments apart: under each one's file name and label, the lines of its config that differ from the control's (the experiment named by `control_label`, or else the first). Only the `data` and `model` sections are compared. A comparison whose experiments differ by more than about 40 lines has no diff, and the shortcode says so.
+
+```markdown
+{{< pipeline 02_across_families:knn_purity_plot config=yaml >}}
+
+{{< pipeline 06a_prithvi300_band_ablation_middle_patch:per_class_ecdf_plot start=stacked config=diff >}}
+```
 
 After adding a slide, or when configs or figures change in gelos-lc, run:
 
 ```bash
-pixi run sync    # expects gelos-lc next to this repo; otherwise add --gelos-lc <path>
+pixi run sync    # expects gelos-lc and gelos-lc-datagen next to this repo; otherwise add --gelos-lc <path> --gelos-lc-datagen <path>
 ```
 
-This rewrites `_pipeline/data/` from the configs and copies the figures that slides use into `images/`. Commit both: the publish workflow has no access to gelos-lc.
+This rewrites `_pipeline/data/` from the configs and copies the figures that slides use into `images/`. Commit both: the publish workflow has no access to the other repos.
 
 The slide title shows while the stages and path are drawn, then fades once the options stack, so the plot can use the full height of the slide.
 
 Display names, the order of options, and how many are drawn before "+ N more" are set in `_pipeline/labels.yml`.
 
 Each plot type can also have a `caption` there: one line explaining the metric, shown under the plot once the options stack (and dropped when `image=` replaces the plot). The first slide of each plot type is preceded by a question slide, an eyebrow naming the metric over the question it helps answer (see `#q-knn-purity` in `slides/pipeline_knn.qmd`).
+
+**Tool logos.** Each stage can show the tools it is built on: a row of small logos under its options, revealed with the stage and faded out with the rest of the diagram once the options stack. The `tools:` catalog at the bottom of `_pipeline/labels.yml` names each tool once: `name`, `logo` in `images/tools/` (or `logo: null` for a text badge), and optionally `pill: true` for a light background behind a dark logo, a `caption` shown under the logo instead of the name, and an `option` tying the tool to one pipeline option (an id such as `generate:alphaearth`), so the logo lights up when the path reaches that option and hangs under it once the options stack. Each stage lists the catalog keys it uses under `tools:`; a stage without them draws no row, and several tools can share an `option` (Zarr and Source Cooperative both sit under AlphaEarth). A slide can also add `tools=pmtiles,s3` to the shortcode to draw a row of catalog tools under the plot or image once the options stack, for tools that come after the pipeline (see `#app-pipeline` in `slides/app.qmd`). The catalog is kept to the cloud-native pieces (STAC, xarray, Dask, Zarr, Source Cooperative, PMTiles, S3) and can be extended by adding an entry and a logo. `pixi run sync` copies the catalog into the data files (and to `_pipeline/data/tools.json`) and checks that every logo exists; where each logo came from is recorded in `images/tools/SOURCES.md`.
+
+## Config panels
+
+`{{< config ... >}}` shows lines of a real config as a panel, and can step through them in time with the slide's text (see `#lc-datagen` in `slides/lc-dataset.qmd`, and `slides/lc-configs.qmd`):
+
+```markdown
+::: {.two-col .cfg-cols}
+::: {}
+- [Sentinel-2 L2A: 4 scenes / year]{cfg="s2l2a"}
+- [960 m chips]{cfg="chips"}
+:::
+
+{{< config datagen s2l2a chips size=18 >}}
+:::
+```
+
+- **Excerpts:** the first argument names an excerpt in `_pipeline/excerpts.yml`: a file in gelos-lc or gelos-lc-datagen, and named regions, each a list of keys to show. `pixi run sync` cuts those lines out of the file, so a panel can't drift from the config. The text is the file's own, apart from what the top of `_pipeline/excerpt.py` lists (dropped comments and blank lines, lists reflowed onto one line); lines left out between regions are marked by a small gap.
+- **Steps:** each argument after the name adds a click that lights up one region, or several joined with `+`. With none, the panel is static.
+- **Tied text:** a span with `cfg="<region>"` (or several regions, separated by spaces) is lit along with its region and dimmed while another one is.
+- **Layout:** `.two-col .cfg-cols` puts text beside a panel, the panel taking the width of its longest line; `.cfg-chain` puts several panels side by side with an arrow between them. `size=<px>` sets a panel's font size.
 
 ## Screen recordings
 
@@ -104,6 +138,32 @@ Until the file exists the slide shows a placeholder naming the path. To add a cl
 3. Run `pixi run clips`, which writes `videos/<name>.mp4` (H.264, at most 1920 px wide, no audio, sped up). Commit that file.
 
 Clips are muted, loop, and restart whenever their slide is shown. `pixi run clips` speeds them up by the factor in `_pipeline/clips.yml` (default 2×, with per-clip overrides); editing that file re-encodes every clip.
+
+## Grid-alignment figure
+
+`{{< grid-alignment >}}` (see `slides/chip-size.qmd`) shows why chips are 960 m on a side: the pixel grids of each band stack up, each is cut into 16 × 16 px patches, then candidate chip sizes are tried: 160, 320 and 640 m leave Landsat with part-patches, and 960 m (2 × lcm(160, 480)) is the first size past 640 m that tiles both bands. It is one inline SVG with a click per step.
+
+- **Geometry, text and steps:** `_grid/make_grid_figure.py`, with `CHIP_CANDIDATES`, `PATCH` and `BANDS` at the top. Run `pixi run grid-figure` and commit `_grid/grid-alignment.svg`; never edit the SVG by hand.
+- **Colour and timing:** `_grid/grid-alignment.css`, with the durations as custom properties at the top.
+- **Skipping the build:** `{{< grid-alignment start=patches >}}` opens with the pixel and patch grids already drawn, leaving only the clicks that try each candidate chip (`start=grids` opens with just the pixel grids). `slides/chip-size-short.qmd` uses it for timed decks, with `data-autoslide` on the slide setting how long each step is held.
+
+## Extraction figure
+
+`{{< extraction >}}` (see `slides/lc-dataset.qmd`) shows how embeddings are pulled out of a model: a chip's images at four seasons are cut into patches and go into the model, one token per patch per season comes out, then each extraction strategy keeps some of those tokens. It is one inline SVG with a click per step: patches, tokens, then one per strategy.
+
+- **Model, inputs and strategies:** read from one gelos-lc config, named by `CONFIG` at the top of `_extraction/make_extraction_figure.py`. The sensors under its `data.init_args.bands` go into the model and the others dim; each strategy's `slice_args` are applied to the token sequence as gelos applies them, so the figure highlights what the config selects. The run prints which season and patches each strategy keeps.
+- **Chips:** `CHIP_ID` picks the chip. Its GeoTIFFs are downloaded from the open `gelos-fm` bucket into `_extraction/cache/` (not committed) and rendered to `images/lc-dataset/chips/`. Token colours are the mean colour of each token's Sentinel-2 patch.
+- **Regenerating:** run `pixi run extraction-figure` (expects gelos-lc next to this repo; otherwise add `--gelos-lc <path>`) and commit `_extraction/extraction.svg` and `images/lc-dataset/chips/`; never edit the SVG by hand. A model not yet listed in `PATCH` needs its patch size added there.
+- **Colour and timing:** `_extraction/extraction.css`, with the durations as custom properties at the top.
+
+## Land Cover figures
+
+`{{< lc-figure map >}}` and `{{< lc-figure classes >}}` (see `slides/lc-dataset.qmd`) show the dataset: a world map of where the chips are, and a bar chart of how many there are of each land cover class. Both are static inline SVGs drawn from the same table, so they agree.
+
+- **Data:** the chip centroids that gelos-lc-datagen publishes for the GELOS app (`pmtiles/centroids.pmtiles` in the open `gelos-fm` bucket: one point per chip, with its class), downloaded into `_lc-figures/cache/` (not committed) along with the Natural Earth 1:110m land polygons. The run prints the chip count per class and the total.
+- **Map:** Equal Earth, cut off at 60° S. Chips are counted in 1° cells and each occupied cell is one dot at the mean position of its chips, with an area that grows with the count; `CELL`, `DOT_MIN` and `DOT_MAX` at the top of `_lc-figures/make_lc_figures.py` set this.
+- **Regenerating:** run `pixi run lc-figures` and commit `_lc-figures/chip-map.svg` and `_lc-figures/class-distribution.svg`; never edit the SVGs by hand.
+- **Colour and type:** `_lc-figures/lc-figures.css`, except the bars, which are filled with each class's colour from the chip table (the colour the GELOS app draws it in).
 
 ## Preview and publish
 

@@ -69,6 +69,13 @@
    "subs": {
     "model:spatial_knn": "k = 1, 2, 5, 10, 20, 50"
    },
+   "lines": {
+    "source:s2_12+s1": "bands: S2L2A, S1RTC",
+    "generate:terramind_v1_base": "model: terramind_v1_base",
+    "extract:all_steps_of_middle_patch": "all_steps_of_middle_patch",
+    "generate:terramind_v1_large": "model: terramind_v1_large",
+    "generate:spectral_bands": "SpectralBandsEmbeddingTask"
+   },
    "colors": {
     "generate:terramind_v1_base": [
      "#c45a5a"
@@ -80,7 +87,111 @@
      "#333333"
     ]
    },
-   "caption": "Distance on the ground from each chip to its k nearest neighbors in embedding space, averaged over all chips"
+   "caption": "Distance on the ground from each chip to its k nearest neighbors in embedding space, averaged over all chips",
+   "config": {
+    "file": "gelos-lc/configs/comparisons/01b_terramind_family_spatial_knn.yaml",
+    "rows": [
+     {
+      "t": "experiments:"
+     },
+     {
+      "t": "  - config: \"exp013_terramind_v1_base_s2_s1\"",
+      "ids": [
+       "generate:terramind_v1_base"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:terramind_v1_base"
+      ]
+     },
+     {
+      "t": "    label: \"TM Base | S2+S1 | Temporal (4 steps)\"",
+      "ids": [
+       "generate:terramind_v1_base"
+      ]
+     },
+     {
+      "t": "    color: \"#c45a5a\"",
+      "ids": [
+       "generate:terramind_v1_base"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp014_terramind_v1_large_s2_s1\"",
+      "ids": [
+       "generate:terramind_v1_large"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:terramind_v1_large"
+      ]
+     },
+     {
+      "t": "    label: \"TM Large | S2+S1 | Temporal (4 steps)\"",
+      "ids": [
+       "generate:terramind_v1_large"
+      ]
+     },
+     {
+      "t": "    color: \"#e57e2e\"",
+      "ids": [
+       "generate:terramind_v1_large"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp019_spectral_bands_s2_s1_middle_patch\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    label: \"Spectral Bands | S2+S1 | Temporal (4 steps)\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    color: \"#333333\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "comp_plots:"
+     },
+     {
+      "t": "  - type: knn_gsd_plot",
+      "ids": [
+       "model:spatial_knn"
+      ]
+     },
+     {
+      "t": "    metric: knn_geo_distance_comparison",
+      "ids": [
+       "model:spatial_knn"
+      ]
+     }
+    ]
+   }
   },
   "knn_lat_diff_plot": {
    "image": "images/comparisons/01b_terramind_family_spatial_knn/knn_lat_diff_plot.png",
@@ -148,6 +259,13 @@
    "subs": {
     "model:spatial_knn": "k = 1, 2, 5, 10, 20, 50"
    },
+   "lines": {
+    "source:s2_12+s1": "bands: S2L2A, S1RTC",
+    "generate:terramind_v1_base": "model: terramind_v1_base",
+    "extract:all_steps_of_middle_patch": "all_steps_of_middle_patch",
+    "generate:terramind_v1_large": "model: terramind_v1_large",
+    "generate:spectral_bands": "SpectralBandsEmbeddingTask"
+   },
    "colors": {
     "generate:terramind_v1_base": [
      "#c45a5a"
@@ -159,8 +277,221 @@
      "#333333"
     ]
    },
-   "caption": "Difference in latitude between each chip and its k nearest neighbors in embedding space, averaged over all chips"
+   "caption": "Difference in latitude between each chip and its k nearest neighbors in embedding space, averaged over all chips",
+   "config": {
+    "file": "gelos-lc/configs/comparisons/01b_terramind_family_spatial_knn.yaml",
+    "rows": [
+     {
+      "t": "experiments:"
+     },
+     {
+      "t": "  - config: \"exp013_terramind_v1_base_s2_s1\"",
+      "ids": [
+       "generate:terramind_v1_base"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:terramind_v1_base"
+      ]
+     },
+     {
+      "t": "    label: \"TM Base | S2+S1 | Temporal (4 steps)\"",
+      "ids": [
+       "generate:terramind_v1_base"
+      ]
+     },
+     {
+      "t": "    color: \"#c45a5a\"",
+      "ids": [
+       "generate:terramind_v1_base"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp014_terramind_v1_large_s2_s1\"",
+      "ids": [
+       "generate:terramind_v1_large"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:terramind_v1_large"
+      ]
+     },
+     {
+      "t": "    label: \"TM Large | S2+S1 | Temporal (4 steps)\"",
+      "ids": [
+       "generate:terramind_v1_large"
+      ]
+     },
+     {
+      "t": "    color: \"#e57e2e\"",
+      "ids": [
+       "generate:terramind_v1_large"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "  - config: \"exp019_spectral_bands_s2_s1_middle_patch\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    strategy: \"all_steps_of_middle_patch\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    label: \"Spectral Bands | S2+S1 | Temporal (4 steps)\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "t": "    color: \"#333333\"",
+      "ids": [
+       "generate:spectral_bands"
+      ]
+     },
+     {
+      "gap": true
+     },
+     {
+      "t": "comp_plots:"
+     },
+     {
+      "t": "  - type: knn_lat_diff_plot",
+      "ids": [
+       "model:spatial_knn"
+      ]
+     },
+     {
+      "t": "    metric: knn_geo_distance_comparison",
+      "ids": [
+       "model:spatial_knn"
+      ]
+     }
+    ]
+   }
   }
+ },
+ "diff": {
+  "rows": [
+   {
+    "head": "exp013_terramind_v1_base_s2_s1.yaml",
+    "label": "TM Base | S2+S1 | Temporal (4 steps)",
+    "color": "#c45a5a"
+   },
+   {
+    "head": "exp014_terramind_v1_large_s2_s1.yaml",
+    "label": "TM Large | S2+S1 | Temporal (4 steps)",
+    "color": "#e57e2e"
+   },
+   {
+    "t": "model:"
+   },
+   {
+    "t": "  init_args:"
+   },
+   {
+    "t": "    model: terramind_v1_base",
+    "sign": "-"
+   },
+   {
+    "t": "    model: terramind_v1_large",
+    "sign": "+"
+   },
+   {
+    "head": "exp019_spectral_bands_s2_s1_middle_patch.yaml",
+    "label": "Spectral Bands | S2+S1 | Temporal (4 steps)",
+    "color": "#333333"
+   },
+   {
+    "t": "data:"
+   },
+   {
+    "t": "  init_args:"
+   },
+   {
+    "t": "    normalize: false",
+    "sign": "+"
+   },
+   {
+    "t": "model:"
+   },
+   {
+    "t": "  class_path: terratorch.tasks.EmbeddingGenerationTask",
+    "sign": "-"
+   },
+   {
+    "t": "  class_path: gelos.spectral_bands.SpectralBandsEmbeddingTask",
+    "sign": "+"
+   },
+   {
+    "t": "  init_args:"
+   },
+   {
+    "t": "    patch_size: 16",
+    "sign": "+"
+   },
+   {
+    "t": "    model: terramind_v1_base",
+    "sign": "-"
+   },
+   {
+    "t": "    model_args:",
+    "sign": "-"
+   },
+   {
+    "t": "      modalities: [S2L2A, S1RTC]",
+    "sign": "-"
+   },
+   {
+    "t": "      merge_method: mean",
+    "sign": "-"
+   },
+   {
+    "t": "      pretrained: True",
+    "sign": "-"
+   },
+   {
+    "t": "    output_format: parquet",
+    "sign": "-"
+   },
+   {
+    "t": "    layers: [-1]",
+    "sign": "-"
+   },
+   {
+    "t": "    embedding_pooling: null",
+    "sign": "-"
+   },
+   {
+    "t": "    has_cls: False",
+    "sign": "-"
+   },
+   {
+    "t": "    temporal_cfg:",
+    "sign": "-"
+   },
+   {
+    "t": "      temporal_wrapper: True",
+    "sign": "-"
+   },
+   {
+    "t": "      temporal_pooling: keep",
+    "sign": "-"
+   }
+  ]
  },
  "stages": [
   {
@@ -189,6 +520,20 @@
     {
      "id": "source:multi_sensor_annual",
      "label": "Multi-sensor,\nannual"
+    }
+   ],
+   "tools": [
+    {
+     "name": "STAC",
+     "logo": "images/tools/stac.png"
+    },
+    {
+     "name": "xarray",
+     "logo": "images/tools/xarray.svg"
+    },
+    {
+     "name": "Dask",
+     "logo": "images/tools/dask.svg"
     }
    ]
   },
@@ -246,6 +591,20 @@
     {
      "id": "generate:prithvi_eo_v2_600_tl_coords",
      "label": "Prithvi 600M TL"
+    }
+   ],
+   "tools": [
+    {
+     "name": "Zarr",
+     "logo": "images/tools/zarr.svg",
+     "caption": "cloud Zarr",
+     "option": "generate:alphaearth"
+    },
+    {
+     "name": "Source Cooperative",
+     "logo": "images/tools/source-coop.svg",
+     "caption": "source.coop",
+     "option": "generate:alphaearth"
     }
    ]
   },
