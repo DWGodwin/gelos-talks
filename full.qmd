@@ -21,11 +21,13 @@ format: slides-revealjs
 
 {{< include slides/app.qmd >}}
 
+{{< include slides/pipeline_rf.qmd >}}
+
 {{< include slides/pipeline_knn.qmd >}}
 
 {{< include slides/pipeline_ablation.qmd >}}
 
-{{< include slides/pipeline_rf.qmd >}}
+{{< include slides/pipeline_trajectory.qmd >}}
 
 {{< include slides/lc-configs.qmd >}}
 

@@ -3,8 +3,9 @@
      the config lines behind them (config=yaml) and the next the plot. Each
      click after that swaps in the t-SNE of another model. Prithvi uses the
      CLS token, AlphaEarth its annual center patch, the others the center
-     patch at 4 time steps. app.qmd follows, then the comparisons (pipeline_knn.qmd),
-     then random forests and trajectories (pipeline_rf.qmd).
+     patch at 4 time steps. app.qmd follows, then the metrics: random forests
+     (pipeline_rf.qmd), the comparisons (pipeline_knn.qmd), the band ablation
+     (pipeline_ablation.qmd) and trajectories (pipeline_trajectory.qmd).
      Run `pixi run sync` after changing a shortcode (see README). -->
 
 ## {#q-tsne}

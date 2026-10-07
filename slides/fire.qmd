@@ -85,15 +85,3 @@
      scale differs from the middle-patch plots (about 0.25-2.5 here, 5-45
      there). -->
 
-## Wasserstein distance {#fire-wasserstein}
-
-[Between control years and the event year sample]{.muted}
-
-![](images/fire/wasserstein-distance.png){fig-alt="Bar chart of model-level Wasserstein distance with cosine ground cost, by model, coloured by sensor modality. In descending order: TerraMind Large S2, TerraMind Base S2, TerraMind Large S1, Prithvi 300M S2, TerraMind Large S1 + S2, TerraMind Base S1, TerraMind Base S1 + S2, Prithvi 600M S2."}
-
-<!-- Suggestion (definition): Wasserstein distance is the cost of moving one
-     distribution of embeddings onto another; here the cost between two
-     embeddings is their cosine distance.
-     Suggestion (takeaway): the source slide states none. The chart orders
-     the models from TerraMind Large S2 (about 0.25) down to Prithvi 600M S2
-     (about 0.13). -->

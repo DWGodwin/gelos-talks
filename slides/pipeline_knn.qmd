@@ -1,4 +1,5 @@
-<!-- Comparisons: several experiments on one plot. Each metric is introduced
+<!-- Comparisons: several experiments on one plot. Follows the random forests
+     (pipeline_rf.qmd), which open the metrics. Each metric is introduced
      by a question slide, then shown for the cross-family comparison: class
      kNN purity (the pipeline is drawn here, with the comparison's config
      shown for one click before the plot), then spatial kNN (GSD, and one
@@ -36,6 +37,7 @@
   02_across_families_spatial_knn:knn_lat_diff_plot
   start=stacked
 >}}
+
 ## DINOv3: web vs satellite {#pipeline-knn-dinov3}
 
 {{< pipeline
