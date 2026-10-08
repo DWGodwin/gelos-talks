@@ -26,6 +26,7 @@ format: cng-revealjs
 #   13  app-pipeline-short
 #   14-20  seven app clips, each shorter than 15 s
 # pagetitle, not title: the title slide comes from slides/title.qmd.
+# Closes with thanks-short.qmd, which has no "Questions?": no Q&A here.
 ---
 
 {{< include slides/title.qmd >}}
@@ -44,4 +45,4 @@ format: cng-revealjs
 
 {{< include slides/app-short.qmd >}}
 
-{{< include slides/thanks.qmd >}}
+{{< include slides/thanks-short.qmd >}}

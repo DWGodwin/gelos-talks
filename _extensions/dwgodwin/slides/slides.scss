@@ -127,6 +127,43 @@ $presentation-h2-font-size: 1.8em !default;
   text-align: center;
 }
 
+/* Credits block at the foot of a centered slide (the closing slide): a few
+   lines of names, one paragraph each (a blank line between them in the
+   source, or Pandoc runs them together), then a row of institution logos.
+   Sits below the slide's main content with some air above it. */
+.reveal .credits {
+  margin-top: 1.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25em;
+}
+
+.reveal .credits p {
+  margin: 0;
+}
+
+.reveal .credits .muted {
+  font-size: 0.7em;
+}
+
+.reveal .logo-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5em;
+  margin-top: 0.75em;
+  opacity: 0.85;
+}
+
+.reveal .logo-row p {
+  display: contents;   /* the images sit on one row even when Pandoc wraps them in <p> */
+}
+
+.reveal .logo-row img {
+  margin: 0;
+}
+
 /* ---- Text helpers ------------------------------------------------------ */
 
 .reveal .muted {

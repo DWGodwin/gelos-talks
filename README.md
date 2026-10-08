@@ -36,7 +36,7 @@ Each deck is front matter plus a list of includes:
 
 - Fix a slide in `slides/` and every deck that includes it picks up the change.
 - Keep each file to one section of the story, written as `##` slides with an `{#id}`.
-- `slides/title.qmd` opens every deck and `slides/thanks.qmd` closes it; include both in any new deck.
+- `slides/title.qmd` opens every deck and `slides/thanks.qmd` closes it; include both in any new deck. A deck with no Q&A (the lightning talk) closes with `slides/thanks-short.qmd` instead.
 - When a talk needs a shorter or longer version of a section, add a variant file (e.g. `results.qmd` plus a full-deck-only `results-detail.qmd`) rather than editing the shared one.
 - Reference images as `images/...`. Includes are pasted into the deck, so paths are relative to the deck at the repo root, not to `slides/`.
 - Use the house-style helper classes (`.center-v`, `.statement`, `.hl`, `.muted`, `.two-col`, `.formula`, `.a-fade`/`.a-rise`, ...). The CNG theme is layered on the house style, so they work in either format.

@@ -1,17 +1,13 @@
 ## {#thanks data-autoslide="0" data-state="no-bars"}
 
-<!-- Closing slide shared by every deck: "Thank you" in the .flow style of the
-     title slide, with the app link, the team and its institutions left on
-     screen for Q&A. The team is credited here rather than on the title slide
-     so the title keeps its single name, and here rather than on its own slide
-     so that timed decks with a fixed slide count (cng-lightning.qmd) can
-     include it. data-autoslide="0" holds it in auto-advancing decks; no-bars
-     hides the progress and countdown bars. -->
+<!-- Lightning-talk version of thanks.qmd: the same closing slide, with "Try
+     the app" over the link in place of "Questions?", since a lightning talk
+     has no Q&A. Keep the team and logos in step with thanks.qmd. -->
 
 ::: {.center-v}
 [Thank you]{.flow style="font-size: 5em; line-height: 1; background-image: url(images/backgrounds/clark-cga-background.webp)"}
 
-[Questions?]{.statement-sub}
+[Try the app]{.statement-sub}
 
 [[clarkcga.github.io/gelos-app](https://clarkcga.github.io/gelos-app/)]{.muted}
 
