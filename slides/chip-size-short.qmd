@@ -9,6 +9,3 @@
 
 {{< grid-alignment start=patches >}}
 
-::: {.footer}
-Chip origins are snapped to a 60 m-aligned UTM grid, so one 30 m Landsat pixel covers exactly 3 × 3 Sentinel-2 10 m pixels and the grids nest.
-:::

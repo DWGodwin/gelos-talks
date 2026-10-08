@@ -13,7 +13,7 @@
 
 ::: {.feature}
 ::: {.feature-head}
-[Hover a point, fly to its chip]{.statement-sub}
+[Select a sample to visualize it]{.statement-sub}
 [clarkcga.github.io/gelos-app](https://clarkcga.github.io/gelos-app/){.muted}
 :::
 
@@ -24,7 +24,7 @@
 
 ::: {.feature}
 ::: {.feature-head}
-[See the chip in any sensor's imagery]{.statement-sub}
+[See the sample in any sensor's imagery]{.statement-sub}
 [clarkcga.github.io/gelos-app](https://clarkcga.github.io/gelos-app/){.muted}
 :::
 
@@ -46,7 +46,7 @@
 
 ::: {.feature}
 ::: {.feature-head}
-[… even to a web-trained DINOv3]{.statement-sub}
+[Box-select a cluster, then switch models]{.statement-sub}
 [clarkcga.github.io/gelos-app](https://clarkcga.github.io/gelos-app/){.muted}
 :::
 
@@ -57,7 +57,7 @@
 
 ::: {.feature}
 ::: {.feature-head}
-[Select a city on the map…]{.statement-sub}
+[Select a cluster on the map...]{.statement-sub}
 [clarkcga.github.io/gelos-app](https://clarkcga.github.io/gelos-app/){.muted}
 :::
 
@@ -68,7 +68,7 @@
 
 ::: {.feature}
 ::: {.feature-head}
-[… and find it in every latent space]{.statement-sub}
+[... and find it in every latent space]{.statement-sub}
 [clarkcga.github.io/gelos-app](https://clarkcga.github.io/gelos-app/){.muted}
 :::
 
@@ -79,7 +79,7 @@
 
 ::: {.feature}
 ::: {.feature-head}
-[A chip's nearest neighbors, model by model]{.statement-sub}
+[Visualize nearest neighbors in multiple models]{.statement-sub}
 [clarkcga.github.io/gelos-app](https://clarkcga.github.io/gelos-app/){.muted}
 :::
 

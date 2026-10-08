@@ -9,8 +9,8 @@
 ::: {.center-v}
 ![](images/intro/no-one-knows-sota-paper.png){.a-rise width=1000 fig-alt="Title and author block of the paper 'No One Knows the State of the Art in Geospatial Foundation Models' by Corley et al."}
 
-[Benchmarks rank models [after fine-tuning]{.hl}]{.statement-sub .a-rise style="--d:3s"}
-[GELOS explores the [frozen embedding space]{.hl} instead]{.statement-sub .a-rise style="--d:6.5s"}
+[Benchmarks rank model performance on [ground truth]{.hl}]{.statement-sub .a-rise style="--d:3s"}
+[GELOS complements this by exploring the [frozen embedding space]{.hl} instead]{.statement-sub .a-rise style="--d:6.5s"}
 [to see [where]{.hl} models differ, and [why]{.hl}]{.statement-sub .a-rise style="--d:10s"}
 :::
 
