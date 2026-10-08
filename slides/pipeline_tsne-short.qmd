@@ -1,0 +1,31 @@
+<!-- Timed version of pipeline_tsne.qmd, in three slides of 15 s. The
+     question, with its second line rising in. Then the pipeline is drawn for
+     Prithvi 600M's t-SNE: data-autoslide times the slide and the four clicks
+     that draw the stages (5 × 1.2 s), hold= the path, the config lines and
+     the plot (3 × 3 s). Then the t-SNE of each model, opening already stacked
+     on the plot the last slide ended on, each held 3 s (5 × 3 s). Hands off
+     to pipeline_knn-short.qmd. -->
+
+## {#q-tsne-short}
+
+::: {.center-v}
+[t-SNE]{.eyebrow}
+
+[What does each model's]{.statement}
+[latent space look like?]{.statement .hl .a-rise style="--d:1.8s"}
+:::
+
+## How GELOS works {#pipeline-models-short data-autoslide="1200"}
+
+{{< pipeline exp004_prithvi600.cls_token:tsne_scatter_2d config=yaml hold=3000 >}}
+
+## Across models {#pipeline-tsne-short data-autoslide="3000"}
+
+{{< pipeline
+  exp004_prithvi600.cls_token:tsne_scatter_2d
+  exp014_terramind_v1_large_s2_s1.all_steps_of_middle_patch:tsne_scatter_2d
+  exp037_olmoearth_v1_2_base_s2_s1_timestamps.all_steps_of_middle_patch:tsne_scatter_2d
+  exp023_alphaearth_middle_patch.middle_patch:tsne_scatter_2d
+  exp019_spectral_bands_s2_s1_middle_patch.all_steps_of_middle_patch:tsne_scatter_2d
+  start=stacked
+>}}

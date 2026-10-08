@@ -1,12 +1,16 @@
 <script>
 // Countdown bar that runs right-to-left over each slide. Only shown when the
 // deck sets auto-slide (and not with ?autoSlide=0), so it never counts down to
-// a slide change that won't happen. Respects per-slide data-autoslide values.
+// a slide change that won't happen. Respects per-slide data-autoslide values,
+// and restarts on every fragment, since Reveal times each fragment of a slide
+// separately (by the fragment's own data-autoslide if it has one, else the
+// slide's).
 document.addEventListener('DOMContentLoaded', function () {
   function resetCountdown() {
     var fill = document.getElementById('slide-countdown-fill');
     var slide = Reveal.getCurrentSlide();
-    var ms = parseInt(slide && slide.getAttribute('data-autoslide'), 10);
+    var fragment = slide && slide.querySelector('.current-fragment[data-autoslide]');
+    var ms = parseInt((fragment || slide) && (fragment || slide).getAttribute('data-autoslide'), 10);
     if (isNaN(ms)) ms = Reveal.getConfig().autoSlide;
     fill.style.setProperty('--countdown', ms / 1000 + 's');
     fill.style.animation = 'none';
@@ -15,13 +19,24 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function startCountdown() {
-    if (!Reveal.getConfig().autoSlide) return;
+    if (!Reveal.getConfig().autoSlide) {
+      // Reveal honours a slide's or fragment's data-autoslide even when the
+      // deck's auto-slide is off (unset, or ?autoSlide=0 while editing), so
+      // drop them: a timed slide then waits for a click like any other
+      document.querySelectorAll('.reveal [data-autoslide]').forEach(function (el) {
+        el.removeAttribute('data-autoslide');
+      });
+      Reveal.sync(); // the first slide's timer was already set from its attribute
+      return;
+    }
     var bar = document.createElement('div');
     bar.id = 'slide-countdown';
     bar.innerHTML = '<div id="slide-countdown-fill"></div>';
     document.querySelector('.reveal').appendChild(bar);
     resetCountdown();
-    Reveal.on('slidechanged', resetCountdown);
+    ['slidechanged', 'fragmentshown', 'fragmenthidden'].forEach(function (ev) {
+      Reveal.on(ev, resetCountdown);
+    });
   }
 
   if (Reveal.isReady()) startCountdown();

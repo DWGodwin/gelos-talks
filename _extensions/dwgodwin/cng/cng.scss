@@ -1,12 +1,15 @@
 /* CNG lightning-talk theme, from
    https://github.com/cloudnativegeo/lightning-talk-quarto-TEMPLATE (custom.scss).
    Used by format: cng-revealjs. Layered on ../slides/slides.scss, so this file
-   holds only what differs from the house style: brand fonts, link color, and
-   the classes the CNG template adds. */
+   holds only what differs from the house style: brand fonts, the accent, link
+   color, and the classes the CNG template adds. */
 
 /*-- scss:defaults --*/
 $font-family-sans-serif: 'iA Writer Quattro S', sans-serif;
 $font-family-monospace: 'Berkeley Mono', ui-monospace, monospace;
+// Sunshine Yellow, the template's highlight colour (.hl, .eyebrow, link hover,
+// and through --accent the teal of the house style's figures)
+$accent: #FFD626;
 
 /*-- scss:rules --*/
 

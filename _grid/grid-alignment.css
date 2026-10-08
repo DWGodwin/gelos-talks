@@ -12,14 +12,15 @@
   --t-align: 600ms;
   --ease: cubic-bezier(.2, .8, .2, 1);
 
-  /* Palette: ink, paper and fonts come from the theme; the two accents are
-     copied from _extensions/dwgodwin/slides/slides.scss, which doesn't export
-     them. Red and green are only used for the verdicts. */
+  /* Palette: ink, paper and fonts come from the theme, and the patch colour
+     from its --accent (teal, or the CNG theme's yellow); the blue is copied
+     from _extensions/dwgodwin/slides/slides.scss. Red and green are only
+     used for the verdicts. */
   --ga-ink: var(--r-main-color, #F2F4F6);
   --ga-paper: var(--r-background-color, #1D232B);
   --ga-s2: #418BD9;
   --ga-ls: var(--ga-ink);
-  --ga-patch: #2DD4BF;
+  --ga-patch: var(--accent, #2DD4BF);
   --ga-ok: #5BD68B;
   --ga-bad: #FF6B5E;
 }

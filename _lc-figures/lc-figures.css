@@ -4,13 +4,13 @@
    are SVG user units: both figures are 1000 wide. */
 
 .reveal .lc-figure {
-  /* Palette: ink, paper and fonts come from the theme; the accent is copied
-     from _extensions/dwgodwin/slides/slides.scss, which doesn't export it.
-     Teal is the chips on the map, as on the grid-alignment and extraction
-     figures; the bars wear the dataset's own class colours. */
+  /* Palette: ink, paper, fonts and the accent (--accent: teal, or the CNG
+     theme's yellow) come from the theme. The accent is the chips on the map,
+     as on the grid-alignment and extraction figures; the bars wear the
+     dataset's own class colours. */
   --lc-ink: var(--r-main-color, #F2F4F6);
   --lc-paper: var(--r-background-color, #1D232B);
-  --lc-chip: #2DD4BF;
+  --lc-chip: var(--accent, #2DD4BF);
 }
 
 /* Sized to stack two of them in one column of .two-col */

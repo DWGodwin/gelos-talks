@@ -4,3 +4,15 @@ default: 2
 # Per-clip overrides, keyed by recording name (without extension):
 speeds:
   # 04_box-select-built-area: 3
+# Recordings also cut into several clips, keyed by recording name. Each part
+# names the clip it writes (videos/<name>.mp4) and where it starts and ends in
+# the recording, in seconds before the speed-up; leave out start or end for
+# the recording's beginning or end. The whole recording is still written too.
+parts:
+  # 53 s recording, 26.7 s at 2x: too long for one 15 s slide of the CNG
+  # lightning talk, so it is cut where the second model switch begins
+  04_box-select-built-area:
+    - name: 04a_box-select-city
+      end: 25
+    - name: 04b_find-city-in-latent-spaces
+      start: 25

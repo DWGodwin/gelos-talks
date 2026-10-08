@@ -23,6 +23,14 @@ $presentation-h2-font-size: 1.8em !default;
 
 /*-- scss:rules --*/
 
+/* The accents, for the plain-CSS figure stylesheets (_pipeline, _grid,
+   _extraction, _lc-figures), which can't read Sass variables. A theme layered
+   on this one (e.g. ../cng) sets $accent and every figure follows. */
+.reveal {
+  --accent: #{$accent};
+  --accent-2: #{$accent-2};
+}
+
 .flow {
   background-clip: text;
   -webkit-background-clip: text;          /* show the background only inside the glyphs */

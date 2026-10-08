@@ -1,0 +1,22 @@
+<!-- The metrics for timed decks, in three slides of 15 s: one question for
+     both, then class kNN purity for the cross-family comparison, then the
+     same experiments' kNN GSD. The plots open already stacked, since the
+     pipeline was drawn on pipeline_tsne-short.qmd, and have no clicks, so
+     each slide is held for the deck's 15 s. Hands off to app-short.qmd. -->
+
+## {#q-knn-short}
+
+::: {.center-v}
+[kNN purity · kNN GSD]{.eyebrow}
+
+[Do models organize latent space]{.statement}
+[by land cover, or by location?]{.statement .hl .a-rise style="--d:1.8s"}
+:::
+
+## Across model families {#pipeline-knn-short}
+
+{{< pipeline 02_across_families:knn_purity_plot start=stacked >}}
+
+## Across model families: location {#pipeline-knn-gsd-short}
+
+{{< pipeline 02_across_families_spatial_knn:knn_gsd_plot start=stacked >}}

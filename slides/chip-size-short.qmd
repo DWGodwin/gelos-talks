@@ -1,11 +1,11 @@
 <!-- Short version of chip-size.qmd, for timed decks: the slide opens with the
      pixel and patch grids already drawn and only steps through the four
      candidate chips (160, 320, 640, 960 m) and the caption (5 clicks).
-     data-autoslide holds each of its six states for 3 s, so the slide takes
-     18 s of the CNG lightning talk. It also makes the slide advance by itself
-     in a deck with no auto-slide; drop it there. -->
+     data-autoslide holds each of its six states for 2.5 s, so the slide
+     takes the CNG lightning talk's 15 s; in a deck with no auto-slide the
+     house style's countdown.html strips it, so the slide waits for clicks. -->
 
-## Why 960 m chips? {#chip-size-short data-autoslide="3000"}
+## Why 960 m chips? {#chip-size-short data-autoslide="2500"}
 
 {{< grid-alignment start=patches >}}
 

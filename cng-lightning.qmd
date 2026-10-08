@@ -2,11 +2,46 @@
 pagetitle: "GELOS"
 author: "Denys Godwin"
 format: cng-revealjs
-# Add ?autoSlide=0 before the # in the preview URL to stop auto-advance while editing.
-# Include a subset of slides/ here; aim for 20 slides × 15 s.
+# CNG lightning talk, laid out like the organizers' template
+# (github.com/cloudnativegeo/lightning-talk-quarto-TEMPLATE): a title slide,
+# exactly 20 content slides of 15 s each, auto-advancing, then a closing
+# slide. Don't add or remove a slide; a slide with clicks times them to add
+# up to 15 s (see "Timed decks" in the README). Only GELOS Land Cover, with
+# the app as the finale. Add ?autoSlide=0 before the # in the preview URL to
+# stop auto-advance while editing.
+#
+# The 20 slides (title and thanks are held until a click):
+#    1  intro-short                      why GELOS
+#    2  three-datasets-short
+#    3  lc-dataset-short                 GELOS Land Cover
+#    4  lc-datagen-short                 the config, 6 × 2.5 s
+#    5  chip-size-short                  6 × 2.5 s
+#    6  lc-extraction-short              5 × 3 s
+#    7  q-tsne-short
+#    8  pipeline-models-short            the pipeline drawn, 5 × 1.2 s + 3 × 3 s
+#    9  pipeline-tsne-short              t-SNE per model, 5 × 3 s
+#   10  q-knn-short
+#   11  pipeline-knn-short               kNN purity
+#   12  pipeline-knn-gsd-short           kNN GSD
+#   13  app-pipeline-short
+#   14-20  seven app clips, each shorter than 15 s
 # pagetitle, not title: the title slide comes from slides/title.qmd.
 ---
 
 {{< include slides/title.qmd >}}
+
+{{< include slides/intro-short.qmd >}}
+
+{{< include slides/lc-dataset-short.qmd >}}
+
+{{< include slides/chip-size-short.qmd >}}
+
+{{< include slides/lc-extraction-short.qmd >}}
+
+{{< include slides/pipeline_tsne-short.qmd >}}
+
+{{< include slides/pipeline_knn-short.qmd >}}
+
+{{< include slides/app-short.qmd >}}
 
 {{< include slides/thanks.qmd >}}

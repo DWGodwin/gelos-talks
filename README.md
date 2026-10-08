@@ -6,7 +6,7 @@ Slides about [GELOS](https://github.com/ClarkCGA/gelos), built with [Quarto Reve
 
 ```
 full.qmd             master deck: every slide file
-cng-lightning.qmd    CNG lightning talk (5 min, auto-advancing)
+cng-lightning.qmd    CNG lightning talk (20 slides × 15 s, auto-advancing): GELOS Land Cover and the app
 index.qmd            landing page linking all decks
 slides/              slide files; decks include these, they never render alone
 images/              figures used by slides
@@ -68,6 +68,7 @@ Each argument is one view, written `<name>:<plot>`, and views are shown in the o
 - **Config lines:** when the path is drawn, each option it passes through shows the line of the experiment's config that selects it (`model: prithvi_eo_v2_600`, `transform: tsne`) under its label. The lines stay on the stacked options unless the stack would have to shrink to fit them. Nothing to set: they are read from the configs, and an option whose experiments disagree shows none.
 - **Showing the config:** `config=yaml` adds a click between the options stacking and the first plot. The plot's place is taken by the lines of the config behind it, cut from the real file, with each stacked option linked to the lines that select it. For a comparison, these are its experiments (their legend colors beside them) and the plot.
 - **Showing what differs:** `config=diff`, for a comparison, shows in the same place what sets its experiments apart: under each one's file name and label, the lines of its config that differ from the control's (the experiment named by `control_label`, or else the first). Only the `data` and `model` sections are compared. A comparison whose experiments differ by more than about 40 lines has no diff, and the shortcode says so.
+- **Timing, in auto-advancing decks:** `hold=<ms>` is how long each click from the path on (the path, the stacked options or the config, then each plot) stays on screen; the slide's `data-autoslide` then only times the clicks that draw the stages. See "Timed decks" below.
 
 ```markdown
 {{< pipeline 02_across_families:knn_purity_plot config=yaml >}}
@@ -137,7 +138,9 @@ Until the file exists the slide shows a placeholder naming the path. To add a cl
 2. Save it as `videos/raw/<name>.mov` (not committed).
 3. Run `pixi run clips`, which writes `videos/<name>.mp4` (H.264, at most 1920 px wide, no audio, sped up). Commit that file.
 
-Clips are muted, loop, and restart whenever their slide is shown. `pixi run clips` speeds them up by the factor in `_pipeline/clips.yml` (default 2×, with per-clip overrides); editing that file re-encodes every clip.
+Clips are muted, loop, and restart whenever their slide is shown. `pixi run clips` speeds them up by the factor in `_pipeline/clips.yml` (default 2×, with per-clip overrides); editing that file re-encodes every clip. A recording that is too long for one slide can also be cut into several clips: list it under `parts` in `clips.yml`, each part with the name of the clip it writes and where it starts and ends in the recording (in seconds, before the speed-up). The whole recording is still written as well.
+
+When a deck opens, `pipeline.js` downloads every clip in deck order and plays each from its local copy, so a slow conference connection can't stall one mid-slide. A counter at the bottom left (`loading clips 3 / 8`) shows the download; on a timed deck, wait on the title slide until it reads `clips ready` and fades. A clip that fails to download keeps its URL and streams as before, and the counter says so.
 
 ## Grid-alignment figure
 
@@ -145,7 +148,7 @@ Clips are muted, loop, and restart whenever their slide is shown. `pixi run clip
 
 - **Geometry, text and steps:** `_grid/make_grid_figure.py`, with `CHIP_CANDIDATES`, `PATCH` and `BANDS` at the top. Run `pixi run grid-figure` and commit `_grid/grid-alignment.svg`; never edit the SVG by hand.
 - **Colour and timing:** `_grid/grid-alignment.css`, with the durations as custom properties at the top.
-- **Skipping the build:** `{{< grid-alignment start=patches >}}` opens with the pixel and patch grids already drawn, leaving only the clicks that try each candidate chip (`start=grids` opens with just the pixel grids). `slides/chip-size-short.qmd` uses it for timed decks, with `data-autoslide` on the slide setting how long each step is held.
+- **Skipping the build:** `{{< grid-alignment start=patches >}}` opens with the pixel and patch grids already drawn, leaving only the clicks that try each candidate chip (`start=grids` opens with just the pixel grids). `slides/chip-size-short.qmd` uses it for timed decks, with `data-autoslide` on the slide setting how long each step is held (see "Timed decks").
 
 ## Extraction figure
 
@@ -165,13 +168,24 @@ Clips are muted, loop, and restart whenever their slide is shown. `pixi run clip
 - **Regenerating:** run `pixi run lc-figures` and commit `_lc-figures/chip-map.svg` and `_lc-figures/class-distribution.svg`; never edit the SVGs by hand.
 - **Colour and type:** `_lc-figures/lc-figures.css`, except the bars, which are filled with each class's colour from the chip table (the colour the GELOS app draws it in).
 
+## Timed decks
+
+`cng-lightning.qmd` follows the organizers' [template](https://github.com/cloudnativegeo/lightning-talk-quarto-TEMPLATE): a title slide, exactly 20 content slides that auto-advance every 15 s (the CNG format sets `auto-slide: 15000`), and a closing slide. Reveal times every fragment of a slide separately, so a slide with five clicks at the default would take 90 s. A slide with clicks therefore sets its own pace so that its states add up to 15 s, and the deck's front matter lists the 20 slides with their timing:
+
+- **Per slide:** `data-autoslide="2500"` on the slide heading holds each of its states (the slide, then each fragment) for 2.5 s: six states in 15 s. The title and thanks slides set `0`, so they wait for a click.
+- **Per fragment:** a fragment with its own `data-autoslide` overrides the slide's (the slide's own time still holds its opening state). The pipeline shortcode writes one with `hold=`, so the stages can be drawn fast and the plots held longer: `data-autoslide="1200"` with `hold=3000` draws five stages in 6 s and holds the path, the config and the plot for 9 s.
+- **Clips:** keep every clip shorter than 15 s, so it plays once (or loops) and the slide moves on with the rest (`ffprobe videos/<name>.mp4` prints the duration). A longer recording is cut into parts in `_pipeline/clips.yml`, one slide each. Reveal would otherwise stretch a fragment-less slide to fit its video, and the deck would run long.
+- **Timed reveals** (`.a-fade`, `.a-rise` with `--d`) are CSS, not fragments, so they don't add states: use them for slides that should move while holding one state.
+- **Variants:** a slide file that needs timing (or a shorter telling) gets a `-short.qmd` twin in `slides/` with its own ids (`chip-size-short.qmd`, `app-short.qmd`, ...), and the deck includes the twin. The twin's body is a copy: when the facts change in the shared file, change them there too. Adding a slide to the CNG deck means dropping another: the organizers ask for the template's 20.
+- **Countdown bar:** `countdown.html` in the house style restarts the bar on every fragment and reads the fragment's or slide's time. With auto-slide off (an untimed deck, or `?autoSlide=0`) it also strips every `data-autoslide`, so timed slides wait for a click like the others.
+
 ## Preview and publish
 
 ```bash
 quarto preview full.qmd
 ```
 
-For auto-advancing decks, add `?autoSlide=0` before the `#` in the preview URL to stop auto-advance while editing.
+For auto-advancing decks, add `?autoSlide=0` before the `#` in the preview URL to stop auto-advance while editing (this stops the slides with their own `data-autoslide` too).
 
 Pushing to `main` renders every deck and publishes `_site/` to the `gh-pages` branch. Enable Pages once under **Settings → Pages → Deploy from branch → gh-pages**. Decks are then at `https://dwgodwin.github.io/gelos-talks/<deck>.html`.
 

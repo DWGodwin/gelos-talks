@@ -1,0 +1,20 @@
+<!-- Lightning-talk version of intro.qmd: one slide for why GELOS exists. The
+     paper that names the problem, then three lines that rise in one after
+     another (.a-rise, timed with --d so they keep time with the 15 s
+     auto-slide), with the team's institutions in the footer. Hands off to
+     lc-dataset-short.qmd. -->
+
+## {#intro-short}
+
+::: {.center-v}
+![](images/intro/no-one-knows-sota-paper.png){.a-rise width=1000 fig-alt="Title and author block of the paper 'No One Knows the State of the Art in Geospatial Foundation Models' by Corley et al."}
+
+[Benchmarks rank models [after fine-tuning]{.hl}]{.statement-sub .a-rise style="--d:3s"}
+[GELOS explores the [frozen embedding space]{.hl} instead]{.statement-sub .a-rise style="--d:6.5s"}
+[to see [where]{.hl} models differ, and [why]{.hl}]{.statement-sub .a-rise style="--d:10s"}
+:::
+
+::: {.footer}
+![](images/intro/clark-seal.svg){height=70 fig-alt="Clark University seal"}
+![](images/intro/nasa-logo.svg){height=70 fig-alt="NASA logo"}
+:::

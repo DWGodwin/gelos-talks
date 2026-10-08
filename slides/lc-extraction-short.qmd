@@ -1,0 +1,10 @@
+<!-- Timed version of lc-extraction.qmd for auto-advancing decks: the same
+     figure, with data-autoslide holding each of its five states (chips,
+     patches, tokens, two strategies) for 3 s, 15 s in all. Follows
+     chip-size-short.qmd and hands off to pipeline_tsne-short.qmd. -->
+
+## Embedding extraction configurations {#lc-extraction-short data-autoslide="3000"}
+
+{{< extraction >}}
+
+[+ baseline comparison to [raw pixels]{.hl}]{.muted}

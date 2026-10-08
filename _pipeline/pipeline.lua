@@ -21,6 +21,9 @@
 -- Each stage draws the logos of the tools it lists in labels.yml under its
 -- options; `tools=<key>,<key>,...` (keys of the labels.yml tool catalog) draws
 -- a row of logos under the plot as well, e.g. the tools that feed an app.
+-- `hold=<ms>`, for auto-advancing decks, is how long each click from the path
+-- on (the path, the stacked options or config, each plot) stays on screen; the
+-- slide's own data-autoslide then only times the stages being drawn.
 --
 --   {{< config <excerpt> <regions> <regions> ... >}}
 --
@@ -34,7 +37,8 @@
 --   {{< clip videos/<name>.mp4 >}}
 --
 -- A looping, muted screen recording that restarts when its slide is shown; a
--- placeholder naming the path until the file exists.
+-- placeholder naming the path until the file exists. pipeline.js downloads
+-- every clip when the deck opens, so none streams during the talk.
 
 local function read(path)
   local f = io.open(path, 'r')
@@ -98,6 +102,11 @@ return {
     local config = pandoc.utils.stringify(kwargs['config'] or '')
     if config ~= '' and config ~= 'yaml' and config ~= 'diff' then
       error('pipeline: config= takes "yaml" or "diff", not "' .. config .. '"')
+    end
+
+    local hold = pandoc.utils.stringify(kwargs['hold'] or '')
+    if hold ~= '' and not hold:match('^%d+$') then
+      error('pipeline: hold= takes a time in ms, not "' .. hold .. '"')
     end
 
     -- One view per argument, as "<data file index>:<plot>"; a data file that
@@ -180,7 +189,15 @@ return {
     -- a config view adds one.
     local clicks = (start == 'stacked' and count - 1 or #data.stages + count)
       + (config ~= '' and 1 or 0)
-    local steps = string.rep('<span class="fragment pl-step"></span>', clicks)
+    -- With hold=, every click past the ones that draw the stages carries its
+    -- own auto-slide time (Reveal reads data-autoslide off the current fragment)
+    local drawing = start == 'stacked' and 0 or #data.stages - 1
+    local steps = ''
+    for i = 1, clicks do
+      steps = steps .. '<span class="fragment pl-step"'
+        .. (hold ~= '' and i > drawing and ' data-autoslide="' .. hold .. '"' or '')
+        .. '></span>'
+    end
     local html = '<div class="pl" data-views="' .. attr(table.concat(views, ',')) .. '"'
       .. (start ~= '' and ' data-start="' .. start .. '"' or '')
       .. (config ~= '' and ' data-config="' .. config .. '"' or '')
@@ -240,6 +257,6 @@ return {
         '<div class="clip clip-missing">clip goes here<span>' .. attr(path) .. '</span></div>')
     end
     return pandoc.RawBlock('html',
-      '<video class="clip" src="' .. attr(path) .. '" data-autoplay loop muted playsinline></video>')
+      '<video class="clip" src="' .. attr(path) .. '" data-autoplay loop muted playsinline preload="none"></video>')
   end
 }

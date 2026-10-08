@@ -1,0 +1,77 @@
+<!-- Lightning-talk version of the dataset slides: the three datasets, with
+     Land Cover (the one this talk covers) in the accent colour and the other
+     two named; then GELOS Land Cover, its map and class chart rising in as
+     the list fades in; then the gelos-lc-datagen config, stepped at 2.5 s a
+     click (6 states, 15 s). Three slides of 15 s. Follows intro-short.qmd;
+     chip-size-short.qmd and lc-extraction-short.qmd come next. Bodies are
+     copied from intro.qmd and lc-dataset.qmd: keep the facts in step with
+     those files. -->
+
+## {#three-datasets-short}
+
+::: {.two-col}
+::: {}
+[3 datasets]{.statement .a-rise}
+
+::: {.trio}
+[Land Cover]{.hl .a-fade style="--d:1s"}
+[scene classification · this talk]{.caption .a-fade style="--d:1s"}
+
+[Fire]{.a-fade style="--d:2.2s"}
+[change detection]{.caption .a-fade style="--d:2.2s"}
+
+[Crop]{.a-fade style="--d:3.4s"}
+[temporal dynamics]{.caption .a-fade style="--d:3.4s"}
+:::
+:::
+
+::: {.a-fade style="--d:0.4s"}
+{{< clip videos/remote_sensing_animation.mp4 >}}
+:::
+:::
+
+## GELOS Land Cover {#lc-dataset-short}
+
+::: {.two-col}
+::: {}
+[Class separation for global categorical land cover]{.muted}
+
+- [[78,585]{.hl} pure land cover chips]{.a-fade style="--d:0.6s"}
+- [GSD 960 m × 960 m]{.a-fade style="--d:1.2s"}
+- [Sentinel-1 RTC: 4 scenes / year]{.a-fade style="--d:1.8s"}
+- [Sentinel-2 L2A: 4 scenes / year\*]{.a-fade style="--d:2.4s"}
+- [Landsat Collection 2: 4 scenes / year\*]{.a-fade style="--d:3s"}
+- [DEM: 1 annual scene]{.a-fade style="--d:3.6s"}
+
+[\* Cloud-free]{.muted .a-fade style="--d:4.2s"}
+:::
+
+::: {}
+::: {.a-rise style="--d:0.2s"}
+{{< lc-figure map >}}
+:::
+
+::: {.a-rise style="--d:1.4s; margin-top: 1.2rem"}
+{{< lc-figure classes >}}
+:::
+:::
+:::
+
+## The config {#lc-datagen-short data-autoslide="2500"}
+
+::: {.two-col .cfg-cols}
+::: {}
+[STAC and xarray parameters are controlled here]{.muted}
+
+- [[78,585]{.hl} pure land cover chips]{cfg="lulc chips"}
+- [GSD 960 m × 960 m]{cfg="chips"}
+- [Sentinel-1 RTC: 4 scenes / year]{cfg="s1rtc"}
+- [Sentinel-2 L2A: 4 scenes / year\*]{cfg="s2l2a"}
+- [Landsat Collection 2: 4 scenes / year\*]{cfg="lc2l2"}
+- [DEM: 1 annual scene]{cfg="dem"}
+
+[\* Cloud-free]{.muted cfg="s2l2a lc2l2"}
+:::
+
+{{< config datagen lulc+chips s1rtc s2l2a lc2l2 dem size=18 >}}
+:::

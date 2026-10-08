@@ -1,0 +1,87 @@
+<!-- gelos-app for timed decks: the pipeline that feeds the dashboard, opening
+     already stacked, then one slide per feature with the clip named above
+     the app's link. Every slide takes the deck's 15 s, and no clip is longer
+     than that (the clips are already sped up 2×, and the city recording is
+     cut in two; see _pipeline/clips.yml), so each clip plays once, or loops,
+     and the slide moves on. thanks.qmd follows, with the link. -->
+
+## From t-SNE to the dashboard {#app-pipeline-short}
+
+{{< pipeline exp001_prithvi300.cls_token:tsne_scatter_2d image=images/app/dashboard.png tools=pmtiles,s3 start=stacked >}}
+
+## {#app-zoom-to-samples-short}
+
+::: {.feature}
+::: {.feature-head}
+[Hover a point, fly to its chip]{.statement-sub}
+[clarkcga.github.io/gelos-app](https://clarkcga.github.io/gelos-app/){.muted}
+:::
+
+{{< clip videos/00_zoom-to-samples.mp4 >}}
+:::
+
+## {#app-select-input-visualization-short}
+
+::: {.feature}
+::: {.feature-head}
+[See the chip in any sensor's imagery]{.statement-sub}
+[clarkcga.github.io/gelos-app](https://clarkcga.github.io/gelos-app/){.muted}
+:::
+
+{{< clip videos/01_select-input-visualization.mp4 >}}
+:::
+
+## {#app-box-select-change-model-short}
+
+::: {.feature}
+::: {.feature-head}
+[Box-select a cluster, then switch models]{.statement-sub}
+[clarkcga.github.io/gelos-app](https://clarkcga.github.io/gelos-app/){.muted}
+:::
+
+{{< clip videos/02_box-select-change-model.mp4 >}}
+:::
+
+## {#app-box-select-change-dino-short}
+
+::: {.feature}
+::: {.feature-head}
+[… even to a web-trained DINOv3]{.statement-sub}
+[clarkcga.github.io/gelos-app](https://clarkcga.github.io/gelos-app/){.muted}
+:::
+
+{{< clip videos/03_box-select-change-dino.mp4 >}}
+:::
+
+## {#app-box-select-city-short}
+
+::: {.feature}
+::: {.feature-head}
+[Select a city on the map…]{.statement-sub}
+[clarkcga.github.io/gelos-app](https://clarkcga.github.io/gelos-app/){.muted}
+:::
+
+{{< clip videos/04a_box-select-city.mp4 >}}
+:::
+
+## {#app-find-city-in-latent-spaces-short}
+
+::: {.feature}
+::: {.feature-head}
+[… and find it in every latent space]{.statement-sub}
+[clarkcga.github.io/gelos-app](https://clarkcga.github.io/gelos-app/){.muted}
+:::
+
+{{< clip videos/04b_find-city-in-latent-spaces.mp4 >}}
+:::
+
+## {#app-visualize-neighbors-cross-model-short}
+
+::: {.feature}
+::: {.feature-head}
+[A chip's nearest neighbors, model by model]{.statement-sub}
+[clarkcga.github.io/gelos-app](https://clarkcga.github.io/gelos-app/){.muted}
+:::
+
+{{< clip videos/05_visualize-neighbors-cross-model.mp4 >}}
+:::

@@ -13,13 +13,14 @@
   --t-emit: 600ms;   /* a token's trip out of it */
   --ease: cubic-bezier(.2, .8, .2, 1);
 
-  /* Palette: ink, paper and fonts come from the theme; the two accents are
-     copied from _extensions/dwgodwin/slides/slides.scss, which doesn't export
-     them. Teal is patches and the tokens a strategy keeps, as on the
-     grid-alignment figure; blue is the model. */
+  /* Palette: ink, paper, fonts and the accent (--accent: teal, or the CNG
+     theme's yellow) come from the theme; the blue is copied from
+     _extensions/dwgodwin/slides/slides.scss. The accent is patches and the
+     tokens a strategy keeps, as on the grid-alignment figure; blue is the
+     model. */
   --ex-ink: var(--r-main-color, #F2F4F6);
   --ex-paper: var(--r-background-color, #1D232B);
-  --ex-pick: #2DD4BF;
+  --ex-pick: var(--accent, #2DD4BF);
   --ex-model: #418BD9;
 }
 

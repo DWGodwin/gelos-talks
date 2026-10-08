@@ -498,7 +498,59 @@
     };
   }
 
+  // Screen recordings ({{< clip ... >}}) are downloaded whole before they are
+  // needed, one after another in deck order, and each video then plays from
+  // its local copy, so a slow connection can't stall a clip mid-slide. The
+  // tags are written with preload="none", so the browser doesn't also start
+  // streaming them. A small counter at the bottom left shows the download's
+  // progress (the title slide waits for a click, so wait there until it
+  // clears); a clip whose download fails keeps its URL and streams as before.
+  function preload() {
+    var clips = Array.prototype.slice.call(document.querySelectorAll('video.clip[src]'));
+    if (!clips.length || typeof fetch === 'undefined' || typeof URL.createObjectURL !== 'function') return;
+    var note = document.createElement('div');
+    note.id = 'clip-preload';
+    document.body.appendChild(note);
+    var done = 0, failed = 0;
+    function show() {
+      if (done + failed < clips.length) {
+        note.textContent = 'loading clips ' + (done + failed + 1) + ' / ' + clips.length;
+      } else if (failed) {
+        note.textContent = failed + (failed > 1 ? ' clips' : ' clip') + ' not preloaded';
+        note.classList.add('failed');
+      } else {
+        note.textContent = 'clips ready';
+        setTimeout(function () { note.classList.add('done'); }, 3000);
+        setTimeout(function () { note.remove(); }, 4500);
+      }
+    }
+    function swap(v, blob) {
+      // The clip may already be on screen, if the deck moved on while it
+      // was downloading: carry its position over to the local copy
+      var playing = !v.paused, at = v.currentTime;
+      v.src = URL.createObjectURL(blob);
+      v.preload = 'auto';
+      if (at) v.currentTime = at;
+      if (playing) v.play().catch(function () {});
+    }
+    function next(i) {
+      if (i >= clips.length) { show(); return; }
+      show();
+      var v = clips[i];
+      fetch(v.getAttribute('src'))
+        .then(function (r) {
+          if (!r.ok) throw new Error(r.status);
+          return r.blob();
+        })
+        .then(function (blob) { swap(v, blob); done++; },
+              function () { failed++; })
+        .then(function () { next(i + 1); });
+    }
+    next(0);
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
+    preload();
     var updates = Array.prototype.map.call(document.querySelectorAll('.pl'), build)
       .concat(Array.prototype.map.call(document.querySelectorAll('.cfg'), config));
     function update() {

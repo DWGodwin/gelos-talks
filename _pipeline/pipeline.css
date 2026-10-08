@@ -1,9 +1,10 @@
 /* Pipeline diagram ({{< pipeline ... >}}); built by pipeline.js */
 
 .pl {
-  /* Palette from _extensions/dwgodwin/slides/slides.scss */
+  /* Palette from _extensions/dwgodwin/slides/slides.scss, which exports the
+     accent as --accent (teal, or the CNG theme's yellow) */
   --pl-ink: #F2F4F6;
-  --pl-accent: #2DD4BF;
+  --pl-accent: var(--accent, #2DD4BF);
   --pl-accent-2: #418BD9;
   /* How far a stacked option slides when it is swapped in or out */
   --pl-slide: 90px;
@@ -566,7 +567,7 @@
 
 .reveal .cfg {
   --cfg-ink: #F2F4F6;
-  --cfg-accent: #2DD4BF;
+  --cfg-accent: var(--accent, #2DD4BF);
   --cfg-accent-2: #418BD9;
   font-size: 19px;
 }
@@ -781,4 +782,25 @@
   font-size: 18px;
   font-weight: 400;
   color: rgba(242, 244, 246, 0.5);
+}
+
+/* Download progress of the clips (see preload() in pipeline.js) */
+#clip-preload {
+  position: fixed;
+  bottom: 18px;
+  left: 64px; /* clear of the slide-menu button */
+  z-index: 50;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 15px;
+  color: rgba(242, 244, 246, 0.5);
+  pointer-events: none;
+  transition: opacity 1s;
+}
+
+#clip-preload.done {
+  opacity: 0;
+}
+
+#clip-preload.failed {
+  color: #e8a33d;
 }
